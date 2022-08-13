@@ -1,0 +1,2 @@
+export const LOGO = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIyqsTuBZL3p2G-Y2LD5XQAmyT1Baul_PDdQ&usqp=CAU';
+export const IMAGE_URL = 'https://mdbootstrap.com/img/new/ecommerce/vertical/004.jpg';

@@ -1,0 +1,84 @@
+<div class="container cart-container" >
+<p-card>
+  <p-header>
+    <strong style="margin-left: 15px;">Dining</strong>
+    <div class="d-flex">
+      <div class="col mr-auto">
+        <span style="margin-right: 5px;">Customers: N/A</span>
+
+      </div>
+      <div class="col ml-auto">
+        <span style="margin-right: 5px;">Add Note</span>
+        <p-button icon="pi pi-plus" class="ui-button-warning my-btn"></p-button>
+      </div>
+    </div>
+  </p-header>
+  <div class="card-body">
+    <ng-container *ngIf="foods.length < 1">
+      <h3 style="color: red">Your Cart is empty !!</h3>
+      <b>Please add some items.</b>
+    </ng-container>
+    <ng-container *ngFor="let food of foods; let i=index">
+      <ul class="list-group">
+        <li class="list-group-item">
+          <div class="d-flex row">
+            <div class="p-2 ">
+              {{i+1}}
+            </div>
+            <div class="p-2 col mr-auto">{{food.name}}</div>
+
+            <div class="p-2 col">
+              <p-button icon="pi pi-plus" class="ui-button-warning my-btn" (onClick)="incrementSets(i)"></p-button>
+            </div>
+            <div class="p-2 col">
+              {{food.set}}
+            </div>
+            <div class="p-2 col">
+              <p-button icon="pi pi-minus" class="ui-button-warning  my-btn" (onClick)="decrementSets(i)"
+                [disabled]="food.set===1"></p-button>
+            </div>
+            <div class="p-2 col">
+              ${{food.price*food.set}}
+            </div>
+            <div class="p-2 ml-auto" style="color: red;  ">
+              <i class="pi pi-times" (click)=onDeleteItem(i)></i>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </ng-container>
+
+  </div>
+  <p-footer>
+    <div class="d-flex">
+      <div class="p-2">
+        <b class="text-secondary">Sub Total</b>
+        <p class="text-secondary">Tax</p>
+        <b>Total</b>
+      </div>
+      <div class="p-2 ml-auto">
+        <b class="text-secondary">$ {{this.subTotal | number}}</b>
+        <p class="text-secondary">$ {{this.tax | number}}</p>
+        <b>${{this.total | number}}</b>
+      </div>
+    </div>
+  </p-footer>
+</p-card>
+<hr>
+<div class="d-flex justify-content-center">
+  <button pButton type="button" label="CHARGE" icon="pi pi-arrow-right" iconPos="right" class="ui-button-warning"
+    class="charge-btn"></button>
+</div>
+<hr>
+<div class="row">
+  <div class="col">
+    <button class="button button1"><i class="pi pi-calendar-times"></i>Void</button>
+  </div>
+  <div class="col">
+    <button class="button button2"><i class="pi pi-directions"></i>Discount</button>
+  </div>
+  <div class="col">
+    <button class="button button3"><i class="pi pi-print"></i>Print</button>
+  </div>
+</div>
+</div>

@@ -1,0 +1,37 @@
+<div class="d-flex">
+  <ul class="list-group list-group-horizontal " *ngFor="let itemType of itemTypes">
+    <li class="" (click)="switchItem(itemType.type)">
+      <p-card styleClass="my-card">
+        <img class="card-img-top" [src]="itemType.imagePath" alt="Card image cap" style="height: 6rem; width: 8rem;">
+        <p-footer>
+          <b>{{itemType.name}}</b>
+        </p-footer>
+      </p-card>
+    </li>
+
+  </ul>
+</div>
+<h5>Items</h5>
+<p-dialog [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}" [baseZIndex]="10000" [draggable]="false"
+  [resizable]="false">
+  <p style="color:red"><strong>Item already in cart !</strong></p>
+  <p-footer>
+    <button type="button" pButton (click)="displayModal=false" label="Close"></button>
+  </p-footer>
+</p-dialog>
+<hr>
+<div class="item-contained">
+  <ul>
+    <ng-container *ngFor="let item of items">
+      <li>
+        <p-card styleClass="item-card" (click)="addToCart(item)">
+          <img [src]="item.imagePath" alt="" style="height: 6rem;">
+          <p-footer>
+            <b> {{item.name}} </b>
+            <h6>${{item.price}}</h6>
+          </p-footer>
+        </p-card>
+      </li>
+    </ng-container>
+  </ul>
+</div>

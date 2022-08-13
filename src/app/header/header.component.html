@@ -1,0 +1,46 @@
+<div class="d-flex">
+  <div class="p-2 mr-auto">
+    <span class="d-inline">
+      <a [routerLink]="['/home']" >
+        <button class="btn btn-dark btn-sm btn-default" type="button">
+          <i class="pi pi-home "></i>
+
+          Home
+        </button>
+      </a>
+    </span>
+   
+
+  </div>
+  <div class="p-2">
+    <div class="row">
+      <div class="col">
+        <div class="form-group has-search">
+          <i class="pi pi-search form-control-feedback"></i>
+          <input type="text" class="form-control" placeholder="Search Item" />
+        </div>
+      </div>
+      <div class="col" style="padding-top: 10px">
+        <a [routerLink]="['/login']">
+          <button
+            class="btn btn-dark btn-sm btn-block"
+            type="button"
+            style="margin-right: 2px"
+          >
+            Login
+          </button>
+        </a>
+        <a [routerLink]="['/registration']">
+          <button style="margin-right: 2px" class="btn btn-dark btn-sm btn-block" type="button">
+            Registration
+          </button>
+        </a>
+        <a [routerLink]="['/registration']">
+          <button class="btn btn-dark btn-sm btn-block" type="button">
+            <i class="pi pi-shopping-cart"></i>
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

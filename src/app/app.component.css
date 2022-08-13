@@ -1,0 +1,19 @@
+.container-fluid {
+    background-color: whitesmoke;
+    height: 100%;
+}
+.col-md-7 {
+    height: 100vh;
+    overflow-y: scroll;
+}
+.col-md-7::-webkit-scrollbar {
+    display: none;
+}
+.text-align-center{
+    text-align: center;
+}
+.logo-image {
+    height: 60px;
+
+border-radius: 50%;
+}
