@@ -1,8 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { AuthService } from '../auth/auth.service';
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { IMAGE_URL, LOGO } from '../shared/constant/url';
+import { AuthService } from '../shared/services/auth.service';
 
 @Component({
   selector: 'app-registration',
@@ -11,63 +10,26 @@ import { IMAGE_URL, LOGO } from '../shared/constant/url';
 })
 export class RegistrationComponent implements OnInit {
   LOGO = LOGO
-  IMAGE_URL = IMAGE_URL;
-  signUpForm: FormGroup;
-  @ViewChild('signUpNgForm') signUpNgForm: NgForm;
-  constructor(
-    private _authService: AuthService,
-    private _formBuilder: FormBuilder,
-    private _router: Router
-  ) { }
+  IMAGE_URL = IMAGE_URL
+  registrationForm = new FormGroup({
+    firstname: new FormControl('', Validators.required),
+    lastname: new FormControl('',Validators.required),
+    address: new FormControl('',Validators.required),
+    email: new FormControl('', [Validators.required]),
+    password: new FormControl('', Validators.required)
+  });
+  constructor(private authService: AuthService) { }
+
 
   ngOnInit(): void {
-    this.signUpForm = this._formBuilder.group({
-      firstname: ['', [Validators.required ,]],
-      lastname: ['', [Validators.required ]],
-      address: ['', [Validators.required ]],
-      email: ['', [Validators.required,Validators.email ]],
-      password: ['', [Validators.required ]],
-     
-    
-      }
-  );
   }
-
-  signUp(): void
-    {
-      console.log(this.signUpForm.value)
-        // Do nothing if the form is invalid
-        if ( this.signUpForm.invalid )
-        {
-            return;
-        }
-
-        // Disable the form
-        this.signUpForm.disable();
-
- 
-      
-
-        // Sign up
-        this._authService.signUp(this.signUpForm.value)
-            .subscribe(
-                (response) => {
-
-                    // Navigate to the Login  page
-                    this._router.navigateByUrl('/login');
-                },
-                (error) => {
-
-                    // Re-enable the form
-                    this.signUpForm.enable();
-
-                    // Reset the form
-                    this.signUpNgForm.resetForm();
-
-                    // Set the alert
-                   
-                }
-            );
-    }
-
+onSubmit(){
+  console.log(this.registrationForm);
+  
+this.authService.registration(this.registrationForm.value).subscribe(res => 
+  console.log(res)
+  )
+  
+  
+}
 }

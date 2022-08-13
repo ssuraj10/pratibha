@@ -1,84 +1,172 @@
-<div class="container cart-container" >
-<p-card>
-  <p-header>
-    <strong style="margin-left: 15px;">Dining</strong>
-    <div class="d-flex">
-      <div class="col mr-auto">
-        <span style="margin-right: 5px;">Customers: N/A</span>
+<div class="container cart-container">
+  <p-card>
+    <p-header>
+      <strong style="margin-left: 15px;">Dining</strong>
+      <div class="d-flex">
+        <div class="col mr-auto">
+          <span style="margin-right: 5px;">Customers: N/A</span>
 
+        </div>
+        <div class="col ml-auto">
+          <span style="margin-right: 5px;">Add Note</span>
+          <p-button icon="pi pi-plus" class="ui-button-warning my-btn"></p-button>
+        </div>
       </div>
-      <div class="col ml-auto">
-        <span style="margin-right: 5px;">Add Note</span>
-        <p-button icon="pi pi-plus" class="ui-button-warning my-btn"></p-button>
-      </div>
+    </p-header>
+    <div class="card-body">
+      <ng-container *ngIf="foods?.length < 1">
+        <h3 style="color: red">Your Cart is empty !!</h3>
+        <b>Please add some items.</b>
+      </ng-container>
+      <ng-container  >
+        <ng-container class="p-1" *ngFor="let food of foods; let i=index" >
+          <ul class="list-group">
+            <li class="list-group-item" >
+              <div class="d-flex row">
+  
+                <div class="p-2 col mr-auto">{{food?.name}}</div>
+  
+                <div class="p-2 col">
+                  <button class="btn btn-sm btn-success" (click)="incrementSets(i)">
+                    <i class="pi pi-plus"></i>
+                  </button>
+                </div>
+                <div class="p-2 col">
+                  {{food?.set}}
+                </div>
+                <div class="p-2 col">
+                  <button icon="pi pi-minus" class="btn btn-sm btn-danger" (click)="decrementSets(i)"
+                    [disabled]="food?.set==1">
+                    <i class="pi pi-minus"></i>
+                  </button>
+  
+                </div>
+                <div class="p-2 col">
+                  ${{food?.price*food?.set}}
+                </div>
+                <div class="p-2 col">
+                  <button icon="pi pi-minus" class="btn btn-sm btn-danger" (click)=onDeleteItem(i)>
+                    <i class="pi pi-trash"></i>
+                  </button>
+                </div>
+                <!-- <div class="p-2 ml-auto " style="color: red;  ">
+                <i class="pi pi-trash" (click)=onDeleteItem(i)></i>
+              </div> -->
+              </div>
+  
+            </li>
+          </ul>
+        </ng-container>
+      </ng-container>
+   
+
     </div>
-  </p-header>
-  <div class="card-body">
-    <ng-container *ngIf="foods.length < 1">
-      <h3 style="color: red">Your Cart is empty !!</h3>
-      <b>Please add some items.</b>
-    </ng-container>
-    <ng-container *ngFor="let food of foods; let i=index">
-      <ul class="list-group">
-        <li class="list-group-item">
-          <div class="d-flex row">
-            <div class="p-2 ">
-              {{i+1}}
-            </div>
-            <div class="p-2 col mr-auto">{{food.name}}</div>
-
-            <div class="p-2 col">
-              <p-button icon="pi pi-plus" class="ui-button-warning my-btn" (onClick)="incrementSets(i)"></p-button>
-            </div>
-            <div class="p-2 col">
-              {{food.set}}
-            </div>
-            <div class="p-2 col">
-              <p-button icon="pi pi-minus" class="ui-button-warning  my-btn" (onClick)="decrementSets(i)"
-                [disabled]="food.set===1"></p-button>
-            </div>
-            <div class="p-2 col">
-              ${{food.price*food.set}}
-            </div>
-            <div class="p-2 ml-auto" style="color: red;  ">
-              <i class="pi pi-times" (click)=onDeleteItem(i)></i>
-            </div>
-          </div>
-        </li>
-      </ul>
-    </ng-container>
-
+    <p-footer>
+      <div class="d-flex">
+        <div class="p-2">
+          <b class="text-secondary">Sub Total</b>
+          <p class="text-secondary">Tax</p>
+          <b>Total</b>
+        </div>
+        <div class="p-2 ml-auto">
+          <b class="text-secondary">$ {{this.subTotal | number}}</b>
+          <p class="text-secondary">$ {{this.tax | number}}</p>
+          <b>${{this.total | number}}</b>
+        </div>
+      </div>
+    </p-footer>
+  </p-card>
+  <hr>
+  <div class="d-flex justify-content-center">
+    <button pButton type="button" label="CHARGE" icon="pi pi-arrow-right" iconPos="right" class="ui-button-warning"
+      class="charge-btn"></button>
   </div>
-  <p-footer>
-    <div class="d-flex">
-      <div class="p-2">
-        <b class="text-secondary">Sub Total</b>
-        <p class="text-secondary">Tax</p>
-        <b>Total</b>
-      </div>
-      <div class="p-2 ml-auto">
-        <b class="text-secondary">$ {{this.subTotal | number}}</b>
-        <p class="text-secondary">$ {{this.tax | number}}</p>
-        <b>${{this.total | number}}</b>
-      </div>
+  <hr>
+  <div class="row">
+    <div class="col">
+      <button class="button button1"><i class="pi pi-calendar-times"></i>Void</button>
     </div>
-  </p-footer>
-</p-card>
-<hr>
-<div class="d-flex justify-content-center">
-  <button pButton type="button" label="CHARGE" icon="pi pi-arrow-right" iconPos="right" class="ui-button-warning"
-    class="charge-btn"></button>
+    <div class="col">
+      <button class="button button2"><i class="pi pi-directions"></i>Discount</button>
+    </div>
+    <div class="col">
+      <button (click)="print()" class="button button3"><i class="pi pi-print"></i>Print</button>
+    </div>
+  </div>
 </div>
-<hr>
-<div class="row">
-  <div class="col">
-    <button class="button button1"><i class="pi pi-calendar-times"></i>Void</button>
-  </div>
-  <div class="col">
-    <button class="button button2"><i class="pi pi-directions"></i>Discount</button>
-  </div>
-  <div class="col">
-    <button class="button button3"><i class="pi pi-print"></i>Print</button>
-  </div>
+
+
+<div class="" [hidden]="printtable">
+  <div id="print-section">
+  <header>
+    <h1>Invoice</h1>
+    <address contenteditable>
+      <p>Company Name</p>
+      <p>State<br>Street</p>
+      <p>(000) 000-0000</p>
+    </address>
+    <span><img alt="" src="http://www.jonathantneal.com/examples/invoice/logo.png"><input type="file" accept="image/*"></span>
+  </header>
+  <article>
+    <h1>Recipient</h1>
+    <address contenteditable>
+      <p>Some Company<br>c/o Some Guy</p>
+    </address>
+    <table class="meta">
+      <tr>
+        <th><span contenteditable>Invoice #</span></th>
+        <td><span contenteditable>101138</span></td>
+      </tr>
+      <tr>
+        <th><span contenteditable>Date</span></th>
+        <td><span contenteditable>Auguest 1, 2022</span></td>
+      </tr>
+      <tr>
+        <th><span contenteditable>Amount Due</span></th>
+        <td><span id="prefix" contenteditable>$</span><span>000.00</span></td>
+      </tr>
+    </table>
+    <table class="inventory">
+      <thead>
+        <tr >
+          <th><span contenteditable>Item</span></th>
+          <th><span contenteditable>Description</span></th>
+          <th><span contenteditable>Rate</span></th>
+          <th><span contenteditable>Quantity</span></th>
+          <th><span contenteditable>Price</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let food of foods; let i=index">
+          <td><a class="cut">-</a><span contenteditable>{{food?.name}}</span></td>
+          <td><span contenteditable>{{food?.name}}</span></td>
+          <td><span data-prefix>$</span><span contenteditable>{{food?.price}}</span></td>
+          <td><span contenteditable>{{food?.set}}</span></td>
+          <td><span data-prefix>$</span><span>{{food?.price*food?.set}}</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <a class="add">+</a>
+    <table class="balance">
+      <tr>
+        <th><span contenteditable>Total</span></th>
+        <td><span data-prefix>$</span><span>{{this.subTotal | number}}</span></td>
+      </tr>
+      <tr>
+        <th><span contenteditable>Tax Amount</span></th>
+        <td><span data-prefix>$</span><span contenteditable>{{this.tax | number}}</span></td>
+      </tr>
+      <tr>
+        <th><span contenteditable>Total Paid</span></th>
+        <td><span data-prefix>$</span><span>{{this.total | number}}</span></td>
+      </tr>
+    </table>
+  </article>
+  <aside>
+    <h1><span contenteditable>Additional Notes</span></h1>
+    <div contenteditable>
+      <p>------------------------------------------------</p>
+    </div>
+  </aside>
 </div>
 </div>

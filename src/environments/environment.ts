@@ -3,8 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
-  Main_API:'http://67.205.165.41/ofos/api'
+  production: false
 };
 
 /*

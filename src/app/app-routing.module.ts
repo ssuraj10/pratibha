@@ -8,12 +8,12 @@ import { CartComponent } from './cart/cart.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'cart', component: CartComponent },
-  { path: 'header', component: HeaderComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'registration', component: RegistrationComponent },
-  { path: 'home', component: ItemsComponent, },
+  { path: '',   redirectTo: '/home', pathMatch: 'full' },
+  {path: 'cart', component: CartComponent},
+  {path: 'header', component: HeaderComponent},
+  {path: 'login', component: LoginComponent},
+  {path: 'registration', component: RegistrationComponent},
+  {path: 'home', component: ItemsComponent, },
 
 
 

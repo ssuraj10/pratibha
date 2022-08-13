@@ -1,10 +1,10 @@
-<div class="d-flex">
-  <ul class="list-group list-group-horizontal " *ngFor="let itemType of itemTypes">
-    <li class="" (click)="switchItem(itemType.type)">
+<div class="d-flex mb-10">
+  <ul class="list-group list-group-horizontal " *ngFor="let itemType of category">
+    <li class="border rounded" (click)="switchItem(itemType.category_id)" style="width: 200px;height: 200px; margin: 5px;">
       <p-card styleClass="my-card">
-        <img class="card-img-top" [src]="itemType.imagePath" alt="Card image cap" style="height: 6rem; width: 8rem;">
+        <img class="card-img-top" [src]="'https://img.freepik.com/free-vector/burger-with-fried-chicken-french-fries-soda-cartoon-vector-icon-illustration-fast-food-icon_138676-1972.jpg?w=2000'" alt="Card image cap" style="height: 140px;width:100% ;padding: 7px 10px 4px 1px ">
         <p-footer>
-          <b>{{itemType.name}}</b>
+          <b class=" text-center" (click)="switchItem(itemType.category_id)">{{itemType.category_name}}</b>
         </p-footer>
       </p-card>
     </li>
@@ -23,15 +23,57 @@
 <div class="item-contained">
   <ul>
     <ng-container *ngFor="let item of items">
-      <li>
-        <p-card styleClass="item-card" (click)="addToCart(item)">
-          <img [src]="item.imagePath" alt="" style="height: 6rem;">
+      <!-- <li *ngIf="item.type === selectedItem || selectedItem === 'all' "> -->
+        <li *ngIf="item" class="card border rounded" style="width: 200px;height: 250px; margin: 5px;">
+        <!-- <p-card styleClass="item-card" (click)="addToCart(item)"> -->
+          <p-card styleClass="item-card" >
+
+          <img class="rounded" [src]="'https://img.freepik.com/free-vector/burger-with-fried-chicken-french-fries-soda-cartoon-vector-icon-illustration-fast-food-icon_138676-1972.jpg?w=2000'" alt="" style="height: 182px;width:100% ;padding: 7px 10px 4px 1px ">
           <p-footer>
-            <b> {{item.name}} </b>
-            <h6>${{item.price}}</h6>
+            <span>
+              <b (click)="showItem(item)"> {{item.menu_name}} </b>
+            </span>
+
+            <span>
+              <h6>${{item.price}}
+              <button class="btn btn-sm btn-block btn-warning btn-default" (click)="addToCart(item)" style="float: right; margin-right: 2px">
+                <i class="pi pi-shopping-cart"></i>
+              </button>
+              <button class="btn btn-sm btn-block btn-warning btn-default" (click)="showItem(item)" style="float: right; margin-right: 2px">
+                <i class="pi pi-eye"></i>
+              </button>
+            </h6>
+            </span>
+            
           </p-footer>
         </p-card>
       </li>
+    
     </ng-container>
+    <li *ngIf="items.length == 0">
+      <!-- <p-card styleClass="item-card" (click)="addToCart(item)"> -->
+       <p>Item Not Found</p>
+    </li>
   </ul>
 </div>
+
+
+<!-- <p-dialog  id="myDialog" header="ERROR" widgetVar="dlg" modal="true"
+style="background: gray !important;" appendToBody="true"  [(visible)]="displayDetail" modal = "true" style="background-color: rgb(0,0,0,0.4) !important" > -->
+  <!-- <img src="selectedFood.imagePath" alt="" class="src"> -->
+  <!-- <b>{{selectedFood?.name}}</b>
+  
+  \fdsofj -->
+<!-- </p-dialog> -->
+
+<p-dialog header="Title" [(visible)]="displayBasic" [style]="{width: '50vw' , color:'red'}">
+  <p>{{dialogitem?.menu_name}}</p>
+<ng-template pTemplate="footer">
+    <p-button icon="pi pi-check" (click)="displayBasic=false" label="Ok" styleClass="p-button-text"></p-button>
+  
+</ng-template>
+</p-dialog>
+
+
+
+<!-- <button type="button" (click)="showItem('jfd')" icon="pi pi-info-circle" label="Show"></button> -->

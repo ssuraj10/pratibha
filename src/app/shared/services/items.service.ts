@@ -1,7 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { BehaviorSubject, catchError, Observable, of, switchMap, throwError } from 'rxjs';
-import { environment } from 'src/environments/environment';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -23,30 +22,22 @@ export class ItemsService {
     { type: 'lunch', name: 'Momo', imagePath: 'https://media.istockphoto.com/photos/japanese-dumplings-gyoza-with-pork-meat-and-vegetables-picture-id1133151212', price: 5.00, set: 1 }
   ];
 
-  constructor(  private _httpClient: HttpClient,) { }
+  constructor(private http: HttpClient) { }
 
-  getItems() {
-    return (this.items.slice());
+  rootURL = 'http://67.205.165.41/ofos/api';
+
+  getItems(id): Observable<any> {
+    return this.http.get(this.rootURL + `/menu.php?cat=${id}`).pipe(
+
+      )
   }
 
- getmenu(id?): Observable<any> {
-    // Throw error, if the user is already logged in
-  
-    const headers = new HttpHeaders()
-        .set('content-type', 'application/json')
-        .set('Access-Control-Allow-Origin', '*')
-        .set('Authorization' ,'VVNFUjE6VXNlcjEyMw==');
+  getAllCategory(){
+   return  this.http.get(this.rootURL + '/category.php');
+  }
 
-        http://67.205.165.41/ofos/api/menu.php?cat=1
-    return this._httpClient.get(environment.Main_API + `/menu.php?cat=${id}`, { 'headers': headers }).pipe(
-        switchMap((response: any) => {
-
-           
-            return of(response);
-
-        })
-    );
-}
-
-
+  findItem(itemName: string){
+    this.items = this.items.filter(item => item.name === itemName)
+    return this.items.slice()
+  }
 }
