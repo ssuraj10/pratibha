@@ -1,0 +1,41 @@
+<input type="checkbox" id="click">
+<label for="click">
+    <i class="fab fa-facebook-messenger"></i>
+    <i class="fa fa-times"></i>
+</label>
+<div *ngIf="!authService.currentLoginStatus" class="wrapper">
+    <div class="head-text">
+         MarketPlace</div>
+    <div class="chat-box text-center">
+        <h1>Please <a href="/login">Login</a> To chat</h1>
+        <h1 >Continue as <span>Guest</span> </h1>
+       
+    </div>
+</div> 
+<div *ngIf="authService.currentLoginStatus"  class="wrapper-second " >
+    <div class="title"> MarketPlace</div>
+    <div #chatcontent class="form" >
+        <div *ngFor="let chat of chats" class="bot-inbox inbox">
+
+            <div [hidden]="chat.nickname !== nickname" class="icon">
+                <i class="fas fa-user"></i>
+            </div>
+          
+            <div class="msg-header">
+                <p class="text-center" [hidden]="chat.nickname !== nickname" *ngIf="chat.nickname !== nickname" >your chat is empty</p>
+                <p *ngIf="chat.nickname === nickname">{{chat.message}}<span class="msg-date"> at {{chat.date}}</span></p>
+                
+            </div>
+          
+        </div>
+    </div>
+    <div class="typing-field">
+        <div class="input-data">
+            <form [formGroup]="chatForm" (ngSubmit)="onFormSubmit(chatForm.value)">
+            <input id="data" type="text" formControlName="message" placeholder="Enter message here" required>
+            <button  type="submit"  id="send-btn">Send</button>
+        </form>
+        </div>
+    </div>
+</div>
+

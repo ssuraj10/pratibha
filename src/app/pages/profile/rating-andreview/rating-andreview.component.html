@@ -1,0 +1,38 @@
+<li class="breadcrumb-item active" aria-current="page">My Review & Rating</li>
+<div class="rating-review-card">
+  <div class="card" *ngFor="let item of reviews">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-3 p-4">
+              <img style="width: 100px;" src="{{item.imageUrl}}" alt="">
+            </div>
+            <div class="col-6">
+
+              <h5>{{item.reviewText}}</h5>
+              <ngb-rating [rate]="item.rating"></ngb-rating>
+
+              <p>{{item.productName}}</p>
+              <code>{{item.createdOn| date:'medium' }}</code>
+            </div>
+            <div class="col-2">
+
+              <button (click)="delete(item.id)" class="btn btn-sm btn-danger float-right"><i
+                  class="fa fa-trash "></i></button>
+            </div>
+          </div>
+        </div>
+
+      </li>
+    </ul>
+  </div>
+</div>
+ 
+
+  <div class="text-center p-5" *ngIf="reviewslength===0 || !reviewslength ">
+    <h1>Reviews List Is Empty</h1>
+    <h3>
+      Go to the home page to start browsing our store.</h3><span class="btn-part "> <a [routerLink]="['/']"
+        class="btn btn-dark">Go To Homepage</a></span>
+  </div>

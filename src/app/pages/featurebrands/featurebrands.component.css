@@ -1,0 +1,139 @@
+::ng-deep .owl-theme .owl-nav .disabled {
+  opacity: .5;
+  cursor: default;
+  border-radius: 50%;
+}
+::ng-deep .owl-theme .owl-nav{
+  margin-top: 40px;
+}
+@media (min-width: 320px) and (max-width: 480px) {
+  ::ng-deep .owl-theme .owl-nav{
+    margin-top: -20px;
+  }
+
+  }
+::ng-deep .owl-theme .owl-nav [class*=owl-] {
+  color: #FFF;
+  font-size: 14px;
+  margin: 5px;
+  padding: 4px 7px;
+  background: none;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 50%;
+  margin-left: 44%;
+ 
+ /* margin-top: -351px;
+  */
+}
+::ng-deep .owl-prev {
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  position: absolute;
+ /* margin-left: -555px !important;
+  */
+  margin-top: -150px !important;
+ /* margin-left: -680px !important;
+  */
+}
+/* ::ng-deep .owl-next {
+  margin-right: -1000px !important;
+}
+*/
+::ng-deep .owl-next {
+  position: absolute;
+  margin-left: 607px !important;
+ /* margin-top: -207px !important;
+  */
+}
+::ng-deep .owl-theme .owl-nav [class*=owl-]:hover {
+  background: none !important;
+}
+
+@media (max-width: 900px) { 
+  ::ng-deep .owl-theme .owl-nav [class*=owl-]{
+    display: none !important;
+  }
+}
+
+.sale-container {
+  display: flex;
+  flex-direction: column;
+}
+.slider-wrapper {
+  display: inline-block;
+  width: 100%;
+  background: #fff;
+  margin-top: 10px;
+  box-shadow: 0 0 7px 0 rgba(0,0,0,.14);
+  min-height: 150px;
+}
+
+
+.slick-slider {
+  user-select: none;
+  touch-action: pan-y;
+  width: 100%;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent
+}
+
+.slick-track {
+  position: relative;
+  left: 0;
+  top: 0;
+  display: block;
+  width: 1274px;
+  opacity: 1;
+  transform: translate3d(0px, 0px, 0px);
+}
+@media only screen and (max-width: 600px) {
+  body {
+    
+      background-color: lightblue;
+ }
+}
+
+
+
+
+a:not(.button-text) {
+  color: #ff6f61;
+}
+
+.img-style {
+  opacity: 1;
+  transform: scale(1);
+  transition: all .3s ease-in-out;
+}
+img {
+  max-width: 100%;
+  vertical-align: middle;
+  border: 0;
+}
+.link-img-container img {
+  height: 120px;
+  margin: auto;
+  display: block;
+}
+
+@media screen and (min-width: 768px){
+  .sale-container {
+      flex-direction: row;
+ }
+ .title {
+  max-width: 1280px;
+}
+.title-container-padding {
+  max-width: 1280px;
+  margin: 0px auto 0px auto;
+  width: 94%;
+}
+.card-element-header {
+  font-size: 14px;
+  height: 45px;
+}
+}

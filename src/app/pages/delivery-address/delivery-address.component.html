@@ -1,0 +1,132 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col-xs-12 col-md-6 pt-4">
+
+
+     
+      <div class="card">
+        <div class="bg-secondary text-white p-2">
+          <h4>Delivery Address</h4>
+        </div>
+        <form [formGroup]="formBasic" class="pl-5 pt-2 pr-5">
+
+
+
+          <div class="form-group">
+
+            <input type="text"  formControlName="addressLine1"  class="form-control form-control-sm" placeholder="Flat Number, Building Name, Street/Locality" 
+                  >
+          </div>
+
+          <div class="form-group">
+            <input type="text"  formControlName="countryId"  name="countryId"
+            placeholder="Country"  style="width: 100%;height: 36px;padding-left: 5px; border: 1px solid #e8e8e8 !important;">
+           
+            <div class="text-danger" *ngIf="countryId.touched && countryId.invalid">
+              <strong class="text-capitalize">Country Is Required</strong>
+            </div>
+          </div>
+
+       
+
+          <div class="form-group">
+            <input type="text"  formControlName="districtId"  name="districtId"
+            placeholder="State"  style="width: 100%;height: 36px;padding-left: 5px; border: 1px solid #e8e8e8 !important;">
+          
+            <div class="text-danger" *ngIf="districtId.touched && districtId.invalid">
+              <strong class="text-capitalize">State Is Required</strong>
+            </div>
+          </div>
+
+
+          <div class="form-group">
+            <input type="text"  formControlName="cityId"  name="cityId"
+            placeholder="City"  style="width: 100%;height: 36px;padding-left: 5px; border: 1px solid #e8e8e8 !important;">
+           
+            <div class="text-danger" *ngIf="cityId.touched && cityId.invalid">
+              <strong class="text-capitalize">City  Is Required</strong>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <input type="text"  formControlName="contactName" minlength="3" name="contactNo"
+                   placeholder="Name Of Customer"  style="width: 100%;height: 36px;padding-left: 5px; border: 1px solid #e8e8e8 !important;">
+            <div class="text-danger" *ngIf="contactName.touched && contactName.invalid">
+              <strong class="text-capitalize">Contact Name Is Required having at least three letter</strong>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <input type="number"  pattern="[0-9]*" formControlName="phone" name="contactNo" min="10" max="100" onKeyDown="if(this.value.length==10 && event.keyCode>47 && event.keyCode < 58)return false;"
+                   placeholder="10 Digit Mobile Number"  style="width: 100%;height: 36px;padding-left: 5px; border: 1px solid #e8e8e8 !important;">
+            <div class="text-danger" *ngIf="formBasic.controls['phone'].hasError('pattern') && (formBasic.controls['phone'].dirty || formBasic.controls['phone'].touched) ||(formBasic.controls['phone'].touched && formBasic.controls['phone'].invalid)">
+              <strong class="text-capitalize">Please enter valid Phone Number</strong>
+            </div>
+          </div>
+
+
+      
+          <div class="pull-right">
+         
+              <button class="btn btn-sm btn-danger" style="display: inline-block;" (click)="onCancel()">CANCEL</button>
+
+
+            
+          
+              <button class="btn btn-sm btn-success ml-2" style="border: none !important; border-color: red;"  type="submit"  style="display: inline-block;" (click)="submit()">SAVE</button>
+              <div class="p-2"></div>
+          </div>
+         
+        </form>
+
+
+      </div>
+
+      <div class="p-4"></div>
+
+
+
+
+
+
+
+
+
+    </div>
+
+    <ng-template #confirmModal let-modal class="custom-class">
+      <div class="modal-header">
+        <h4 class="modal-title" id="modal-title">Please Mark Your Location!</h4>
+        <button type="button" class="close" aria-label="Close button" aria-describedby="modal-title"
+                (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
+          <agm-marker [latitude]="latitude" [longitude]="longitude" [markerDraggable]="true"
+                      (dragEnd)="markerDragEnd($event)"></agm-marker>
+        </agm-map>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary btn-rounded"
+                (click)="modal.dismiss('cancel')">
+          Cancel
+        </button>
+        <button type="button" ngbAutofocus class="btn btn-wide btn-danger btn-rounded"
+                (click)="modal.close('Ok')">
+          Ok
+        </button>
+      </div>
+    </ng-template>
+
+
+
+  </div>
+  </div>
+
+
+
+
+

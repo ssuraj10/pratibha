@@ -1,0 +1,432 @@
+<div class="container mt-3  d-block d-lg-none">
+  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="headingOne">
+        <h2 class="panel-title">
+          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true"
+            aria-controls="collapseOne">
+            <i class="fa fa-tachometer mr-3" title="Dashboard"></i>Dashboard
+          </a>
+        </h2>
+      </div>
+      <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-6 col-md-4">
+              <div class="card text-center">
+                <div class="card-body">
+                  <h5 class="card-title" style="color: #f53434;">Total Purchase</h5>
+                  <a href="#" class="btn btn-primary">{{ntotalSellingProducts}}</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-6  col-md-4">
+              <div class="card text-center">
+                <div class="card-body">
+                  <h5 class="card-title" style="color: #f53434;">Last 7 Days</h5>
+                  <a href="#" class="btn btn-primary">{{totalPrice}}</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-6  col-md-4">
+              <div class="card text-center">
+                <div class="card-body">
+                  <h5 class="card-title" style="color: #f53434;">Last 30 Days</h5>
+                  <a href="#" class="btn btn-primary">${{totalPrice}}</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-6  col-md-4 mt-3">
+              <div class="card text-center">
+                <div class="card-body">
+                  <h5 class="card-title" style="color: #f53434;">Wishlist Products</h5>
+                  <a href="#" class="btn btn-primary">{{Totalwishlist}}</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-6  col-md-4 mt-3">
+              <div class="card text-center">
+                <div class="card-body">
+                  <h5 class="card-title" style="color: #f53434;">Member Since</h5>
+                  <a href="#" class="btn btn-primary">10-12-2019</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-6  col-md-4 mt-3">
+              <div class="card text-center">
+                <div class="card-body">
+                  <h5 class="card-title" style="color: #f53434;">Last Login</h5>
+                  <a href="#" class="btn btn-primary">15-01-2020 08:37:52</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="headingTwo">
+        <h2 class="panel-title">
+          <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"
+            aria-expanded="false" aria-controls="collapseTwo">
+            <i class="fa fa-user mr-3" title="Profile Info"></i>Profile Info
+          </a>
+        </h2>
+      </div>
+      <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+        <div class="panel-body">
+          <div class="row bg-white">
+            <div class="col-md-8 col-xs-12">
+              <form class="form-style-9">
+                <ul>
+
+                  <li>
+
+                    <input type="text" value="{{users.fullName}}" name="field1"
+                      class="field-style field-full align-none" placeholder="First Name" />
+
+
+                  </li>
+                  <li>
+
+                    <input type="text" value="{{users.fullName}}" name="field2"
+                      class="field-style field-full align-none" placeholder="Last Name" />
+
+
+                  </li>
+                  <li>
+
+                    <input type="email" value="{{users.email}}" name="field3" class="field-style field-full align-none"
+                      placeholder="Email" />
+                  </li>
+                  <li>
+
+                    <input type="text" name="field4" class="field-style field-full align-none" placeholder="Phone" />
+                  </li>
+
+                  <li>
+                    <input type="submit" value="Save" />
+                  </li>
+                </ul>
+              </form>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="headingThree">
+        <h2 class="panel-title">
+          <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree"
+            aria-expanded="false" aria-controls="collapseThree">
+            <i class="fa fa-map-marker mr-3" title="Manage Address"></i>Manage Address
+          </a>
+        </h2>
+      </div>
+      <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+        <div class="panel-body">
+          <div class="card text-center ">
+            <div class="card-header">
+              <i class="fa fa-plus"></i> <a href="#" [routerLink]="['/Checkout/deliveryAddress']">ADD NEW ADDRESS</a>
+            </div>
+            <div class="card-body">
+
+
+              <table class="table">
+                <thead class="thead-light">
+                  <tr>
+                    <th scope="col">Full name</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Region</th>
+                    <th scope="col">Phone Number</th>
+                    <th scope="col"> Edit </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of userAdressList">
+                    <th scope="row">{{item.contactName}}</th>
+                    <td>{{item.addressLine1}}</td>
+                    <td>{{item.stateOrProvinceName}}</td>
+                    <td>{{item.phone}}</td>
+                    <td><i class="fa fa-pencil-square-o" aria-hidden="true"
+                        [routerLink]="['/deliveryAddress/update',item.userAddressId]"></i></td>
+                  </tr>
+
+                </tbody>
+              </table>
+            </div>
+            <!-- <div class="card-footer text-muted">
+              44 Main street , Damak-02134
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="headingFour">
+        <h2 class="panel-title">
+          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false"
+            aria-controls="collapseFour">
+            <i class="fa fa-shopping-cart mr-3" title="My Order"></i>My Order
+          </a>
+        </h2>
+      </div>
+      <div id="collapseFour" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingFour">
+        <div class="panel-body">
+          <table class="table bg-white">
+            <thead>
+              <tr>
+                <th scope="col">NUMBER</th>
+                <th scope="col">DATE </th>
+                <th scope="col">STATUS</th>
+                <th scope="col">TOTAL</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let order of corders| slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
+              <tr>
+                <th scope="row">#{{order.no}}</th>
+                <td>{{order.createdOn | date: 'medium'}}</td>
+                <td *ngIf="order.orderStatus ==0">Order Placed</td>
+                <td *ngIf="order.orderStatus ==15">Order accepted</td>
+                <td *ngIf="order.orderStatus ==35">Order processed</td>
+                <td *ngIf="order.orderStatus ==40">Order Shipped</td>
+                <td *ngIf="order.orderStatus ==50">Order arrived</td>
+                <td *ngIf="order.orderStatus ==60">Order Delivered</td>
+                <td>${{order.orderTotal}} for {{order.itemsCount}} item</td>
+                <td> <a class="btn btn-sm" [routerLink]="['orderdetail/order',order.id]">View Order</a></td>
+              </tr>
+
+            </tbody>
+          </table>
+          <ngb-pagination [collectionSize]="50" [(page)]="page" aria-label="Default pagination"></ngb-pagination>
+           
+         
+         
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="headingFive">
+        <h2 class="panel-title">
+          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false"
+            aria-controls="collapseFive">
+            <i class="fa fa-star mr-3" title="meter"></i>My Review & Rating
+          </a>
+        </h2>
+      </div>
+      <div id="collapseFive" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingFive">
+        <div class="panel-body">
+          <div class="card" *ngFor="let item of reviews">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-5 ">
+                      <img style="width: 100px;" src="{{item.imageUrl}}" alt="">
+                    </div>
+                    <div class="col-5">
+
+                      <h5>{{item.reviewText}}</h5>
+                      <ngb-rating [rate]="item.rating"></ngb-rating>
+
+                      <p>{{item.productName}}</p>
+                      <code>{{item.createdOn| date:'medium' }}</code>
+                    </div>
+                    <div class="col-2">
+
+                      <button (click)="delete(item.id)" class="btn float-right"><i
+                          class="fa fa-trash "></i></button>
+                    </div>
+                  </div>
+                </div>
+
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="headingSix">
+        <h2 class="panel-title">
+          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false"
+            aria-controls="collapseSix">
+            <i class="fa fa-heart mr-3" title="My Wishlist"></i>My Wishlist
+          </a>
+        </h2>
+      </div>
+      <div id="collapseSix" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingSix">
+        <div class="panel-body mb-2">
+          <app-wishlist></app-wishlist>
+        </div>
+      </div>
+    </div> -->
+    <!-- <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="headingSeven">
+        <h2 class="panel-title">
+          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven" aria-expanded="false"
+            aria-controls="collapseSeven">
+            <i class="fa fa-money mr-3" title="My Wallet"></i>My Wallet
+          </a>
+        </h2>
+      </div>
+      <div id="collapseSeven" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingSeven">
+        <div class="panel-body">
+          comming soon...
+        </div>
+      </div>
+    </div> -->
+  </div>
+</div>
+<!-- <div class="dashboard-container d-none d-lg-block">
+  <div class="row">
+    <div class="col-lg-3 ">
+      <div class="profile-name">
+
+        <label class="mb-1">
+          <div class="container">
+            <div class="row">
+              <div class="col-3">
+                <img
+                  src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJDYXBhXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgNDgwIDQ4MCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNDgwIDQ4MDsiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHBhdGggc3R5bGU9ImZpbGw6I0VGRUNFODsiIGQ9Ik0yNDAsOEMxMTEuODcyLDgsOCwxMTEuODcyLDgsMjQwYzAsNTYuMjU2LDIwLjAzMiwxMDcuODI0LDUzLjMzNiwxNDcuOTkyDQoJYzE1LjUxMi02My4xNzYsNjMuNjg4LTExMy4zODQsMTI1LjU1Mi0xMzIuMDRDMTYxLjA0OCwyMzguNzQ0LDE0NCwyMDkuMzc2LDE0NCwxNzZjMC01My4wMTYsNDIuOTg0LTk2LDk2LTk2czk2LDQyLjk4NCw5Niw5Ng0KCWMwLDMzLjM3Ni0xNy4wNDgsNjIuNzQ0LTQyLjg5Niw3OS45NTJjNjEuODY0LDE4LjY1NiwxMTAuMDQsNjguODY0LDEyNS41NTIsMTMyLjA0QzQ1MS45NjgsMzQ3LjgyNCw0NzIsMjk2LjI1Niw0NzIsMjQwDQoJQzQ3MiwxMTEuODcyLDM2OC4xMjgsOCwyNDAsOHoiLz4NCjxwYXRoIHN0eWxlPSJmaWxsOiNDNkMzQkQ7IiBkPSJNMjkzLjEwNCwyNTUuOTUyQzMxOC45NTIsMjM4Ljc0NCwzMzYsMjA5LjM3NiwzMzYsMTc2YzAtNTMuMDE2LTQyLjk4NC05Ni05Ni05NnMtOTYsNDIuOTg0LTk2LDk2DQoJYzAsMzMuMzc2LDE3LjA0OCw2Mi43NDQsNDIuODk2LDc5Ljk1MmMtNjEuODY0LDE4LjY1Ni0xMTAuMDQsNjguODY0LTEyNS41NTIsMTMyLjA0YzAsMCwwLDAuMDA4LDAuMDA4LDAuMDA4DQoJYzIuNTI4LDMuMDQ4LDUuMTUyLDYuMDI0LDcuODMyLDguOTQ0YzAuNjQ4LDAuNzEyLDEuMzI4LDEuMzkyLDEuOTkyLDIuMDg4YzIuMDY0LDIuMTkyLDQuMTUyLDQuMzUyLDYuMjk2LDYuNDY0DQoJYzAuODg4LDAuODcyLDEuNzkyLDEuNzEyLDIuNjk2LDIuNTY4YzEuOTg0LDEuODg4LDMuOTkyLDMuNzUyLDYuMDQsNS41NjhjMS4wMTYsMC44OTYsMi4wNDgsMS43ODQsMy4wNzIsMi42NjQNCgljMi4wMDgsMS43Miw0LjA0LDMuNDA4LDYuMTEyLDUuMDU2YzEuMDg4LDAuODcyLDIuMTg0LDEuNzI4LDMuMjgsMi41ODRjMi4wOTYsMS42MTYsNC4yMjQsMy4xODQsNi4zNzYsNC43Mg0KCWMxLjExMiwwLjc5MiwyLjIwOCwxLjYsMy4zMzYsMi4zNzZjMi4yNzIsMS41NjgsNC41ODQsMy4wNzIsNi45MTIsNC41NmMxLjA0OCwwLjY2NCwyLjA3MiwxLjM1MiwzLjEyOCwyLjAwOA0KCWMyLjY4OCwxLjY1Niw1LjQyNCwzLjI0LDguMTg0LDQuNzkyYzAuNzI4LDAuNDA4LDEuNDQsMC44NDgsMi4xNzYsMS4yNDhjMy41NjgsMS45NTIsNy4xOTIsMy44MjQsMTAuODcyLDUuNTkyDQoJYzAuMDg4LDAuMDQsMC4xODQsMC4wOCwwLjI3MiwwLjEyYzMuNTEyLDEuNjgsNy4wOCwzLjI3MiwxMC42ODgsNC43NzZjMS4xMiwwLjQ3MiwyLjI2NCwwLjg4OCwzLjM5MiwxLjMzNg0KCWMyLjYwOCwxLjA0LDUuMjE2LDIuMDY0LDcuODcyLDMuMDA4YzEuNDA4LDAuNTA0LDIuODMyLDAuOTYsNC4yNDgsMS40NGMyLjQxNiwwLjgxNiw0Ljg0OCwxLjYwOCw3LjI5NiwyLjMzNg0KCWMxLjU1MiwwLjQ2NCwzLjExMiwwLjg5Niw0LjY4LDEuMzI4YzIuMzY4LDAuNjU2LDQuNzUyLDEuMjgsNy4xNiwxLjg2NGMxLjYyNCwwLjM5MiwzLjI1NiwwLjc2OCw0Ljg5NiwxLjEyOA0KCWMyLjQwOCwwLjUyOCw0LjgyNCwxLjAwOCw3LjI1NiwxLjQ1NmMxLjY0OCwwLjMwNCwzLjI4OCwwLjYxNiw0Ljk1MiwwLjg4YzIuNTEyLDAuNDA4LDUuMDQsMC43NTIsNy41NzYsMS4wOA0KCWMxLjYsMC4yMDgsMy4xOTIsMC40NCw0LjgsMC42MDhjMi44LDAuMzA0LDUuNjI0LDAuNTIsOC40NDgsMC43MmMxLjM2OCwwLjA5NiwyLjcyLDAuMjQsNC4wODgsMC4zMTINCgljNC4yMTYsMC4yNCw4LjQ0OCwwLjM3NiwxMi43MiwwLjM3NnM4LjUwNC0wLjEzNiwxMi43Mi0wLjM2YzEuMzY4LTAuMDcyLDIuNzI4LTAuMjE2LDQuMDg4LTAuMzEyYzIuODMyLTAuMiw1LjY1Ni0wLjQxNiw4LjQ0OC0wLjcyDQoJYzEuNjA4LTAuMTc2LDMuMi0wLjQsNC44LTAuNjA4YzIuNTM2LTAuMzI4LDUuMDY0LTAuNjcyLDcuNTc2LTEuMDhjMS42NTYtMC4yNzIsMy4zMDQtMC41NzYsNC45NTItMC44OA0KCWMyLjQzMi0wLjQ0OCw0Ljg1Ni0wLjkyOCw3LjI1Ni0xLjQ1NmMxLjY0LTAuMzYsMy4yNzItMC43MzYsNC44OTYtMS4xMjhjMi40LTAuNTg0LDQuNzg0LTEuMjA4LDcuMTYtMS44NjQNCgljMS41Ni0wLjQzMiwzLjEyOC0wLjg2NCw0LjY4LTEuMzI4YzIuNDU2LTAuNzM2LDQuODgtMS41MjgsNy4yOTYtMi4zMzZjMS40MTYtMC40OCwyLjg0OC0wLjkzNiw0LjI0OC0xLjQ0DQoJYzIuNjQ4LTAuOTUyLDUuMjY0LTEuOTY4LDcuODcyLTMuMDA4YzEuMTI4LTAuNDQ4LDIuMjcyLTAuODcyLDMuMzkyLTEuMzM2YzMuNTkyLTEuNTA0LDcuMTQ0LTMuMDgsMTAuNjQtNC43Ng0KCWMwLjEwNC0wLjA0OCwwLjIxNi0wLjA5NiwwLjMyLTAuMTQ0YzMuNjgtMS43NjgsNy4zMDQtMy42NCwxMC44NzItNS41OTJjMC43MzYtMC40LDEuNDQ4LTAuODQsMi4xNzYtMS4yNDgNCgljMi43Ni0xLjU1Miw1LjQ5Ni0zLjEzNiw4LjE4NC00Ljc5MmMxLjA1Ni0wLjY0OCwyLjA4OC0xLjMzNiwzLjEyOC0yLjAwOGMyLjMyOC0xLjQ4OCw0LjY0LTMsNi45MTItNC41Ng0KCWMxLjEyLTAuNzc2LDIuMjI0LTEuNTc2LDMuMzM2LTIuMzc2YzIuMTUyLTEuNTQ0LDQuMjgtMy4xMTIsNi4zNzYtNC43MmMxLjEwNC0wLjg0OCwyLjE5Mi0xLjcxMiwzLjI4LTIuNTg0DQoJYzIuMDY0LTEuNjQ4LDQuMTA0LTMuMzM2LDYuMTEyLTUuMDU2YzEuMDMyLTAuODgsMi4wNjQtMS43NjgsMy4wNzItMi42NjRjMi4wNDgtMS44MTYsNC4wNTYtMy42OCw2LjA0LTUuNTY4DQoJYzAuODk2LTAuODU2LDEuODA4LTEuNzA0LDIuNjk2LTIuNTY4YzIuMTQ0LTIuMTEyLDQuMjQtNC4yNzIsNi4yOTYtNi40NjRjMC42NTYtMC43MDQsMS4zMzYtMS4zODQsMS45OTItMi4wODgNCgljMi42OC0yLjkyLDUuMzA0LTUuODk2LDcuODMyLTguOTQ0YzAsMCwwLTAuMDA4LDAuMDA4LTAuMDA4QzQwMy4xNTIsMzI0LjgxNiwzNTQuOTc2LDI3NC42LDI5My4xMDQsMjU1Ljk1MnoiLz4NCjxwYXRoIHN0eWxlPSJmaWxsOiM0QjQxM0E7IiBkPSJNMjQwLDBDMTA3LjY2NCwwLDAsMTA3LjY2NCwwLDI0MGMwLDU3Ljk2LDIwLjY1NiwxMTEuMTg0LDU0Ljk5MiwxNTIuNzA0DQoJYzAuMDg4LDAuMTIsMC4wOTYsMC4yNzIsMC4xOTIsMC4zODRjMjQuNzkyLDI5Ljg5Niw1NS45MjgsNTIuODE2LDkwLjYyNCw2Ny42MjRjMC40LDAuMTY4LDAuNzkyLDAuMzUyLDEuMTkyLDAuNTINCgljMi44MDgsMS4xODQsNS42NDgsMi4yOCw4LjQ5NiwzLjM1MmMxLjEyLDAuNDI0LDIuMjQsMC44NTYsMy4zNzYsMS4yNjRjMi40NTYsMC44OCw0LjkyOCwxLjcxMiw3LjQxNiwyLjUxMg0KCWMxLjU5MiwwLjUxMiwzLjE4NCwxLjAxNiw0Ljc5MiwxLjQ5NmMyLjIsMC42NTYsNC40MDgsMS4yODgsNi42MzIsMS44ODhjMS45NTIsMC41MjgsMy45MiwxLjAxNiw1Ljg4OCwxLjQ4OA0KCWMxLjk5MiwwLjQ4LDMuOTkyLDAuOTYsNiwxLjM4NGMyLjI0LDAuNDgsNC41MDQsMC45MDQsNi43NzYsMS4zMmMxLjgyNCwwLjMzNiwzLjY0LDAuNjg4LDUuNDgsMC45ODQNCgljMi41MiwwLjQwOCw1LjA1NiwwLjcyOCw3LjYsMS4wNTZjMS42NCwwLjIwOCwzLjI3MiwwLjQ0OCw0LjkyLDAuNjI0YzIuODgsMC4zMDQsNS43ODQsMC41Miw4LjY5NiwwLjcyDQoJYzEuMzUyLDAuMDk2LDIuNjk2LDAuMjQsNC4wNTYsMC4zMTJjNC4yNDgsMC4yNCw4LjU0NCwwLjM2OCwxMi44NzIsMC4zNjhzOC42MjQtMC4xMjgsMTIuODg4LTAuMzUyDQoJYzEuMzYtMC4wNzIsMi43MDQtMC4yMTYsNC4wNTYtMC4zMTJjMi45MTItMC4yMDgsNS44MTYtMC40MTYsOC42OTYtMC43MmMxLjY0OC0wLjE3NiwzLjI4LTAuNDE2LDQuOTItMC42MjQNCgljMi41NDQtMC4zMjgsNS4wOC0wLjY0OCw3LjYtMS4wNTZjMS44MzItMC4yOTYsMy42NTYtMC42NDgsNS40OC0wLjk4NGMyLjI2NC0wLjQxNiw0LjUyOC0wLjg0LDYuNzc2LTEuMzINCgljMi4wMDgtMC40MzIsNC0wLjkwNCw2LTEuMzg0YzEuOTY4LTAuNDgsMy45MzYtMC45NjgsNS44ODgtMS40ODhjMi4yMjQtMC41OTIsNC40MzItMS4yMzIsNi42MzItMS44ODgNCgljMS42MDgtMC40OCwzLjItMC45ODQsNC43OTItMS40OTZjMi40ODgtMC44LDQuOTYtMS42MzIsNy40MTYtMi41MTJjMS4xMjgtMC40MDgsMi4yNDgtMC44NCwzLjM3Ni0xLjI2NA0KCWMyLjg1Ni0xLjA3Miw1LjY4OC0yLjE3Niw4LjQ5Ni0zLjM1MmMwLjQtMC4xNjgsMC43OTItMC4zNTIsMS4xOTItMC41MmMzNC42ODgtMTQuODA4LDY1LjgzMi0zNy43MjgsOTAuNjI0LTY3LjYyNA0KCWMwLjA5Ni0wLjExMiwwLjEwNC0wLjI3MiwwLjE5Mi0wLjM4NEM0NTkuMzQ0LDM1MS4xODQsNDgwLDI5Ny45Niw0ODAsMjQwQzQ4MCwxMDcuNjY0LDM3Mi4zMzYsMCwyNDAsMHogTTI4Ny44NzIsMjQ5LjczNg0KCWMtMy4xNTIsMi4wNDgtNi40MzIsMy44OC05LjgsNS40OGMtMC40LDAuMTkyLTAuNzkyLDAuMzkyLTEuMTkyLDAuNTc2Yy0yMy4xNjgsMTAuNTM2LTUwLjU5MiwxMC41MzYtNzMuNzYsMA0KCWMtMC40LTAuMTg0LTAuOC0wLjM4NC0xLjE5Mi0wLjU3NmMtMy4zNzYtMS42LTYuNjQ4LTMuNDMyLTkuOC01LjQ4QzE2OC4wMDgsMjM0LjAyNCwxNTIsMjA2Ljg2NCwxNTIsMTc2YzAtNDguNTIsMzkuNDgtODgsODgtODgNCglzODgsMzkuNDgsODgsODhDMzI4LDIwNi44NjQsMzExLjk5MiwyMzQuMDI0LDI4Ny44NzIsMjQ5LjczNnogTTE4OS4xNTIsMjY2LjYzMmMwLjY3MiwwLjM3NiwxLjMzNiwwLjc3NiwyLjAxNiwxLjEzNg0KCWMyLjM4NCwxLjI2NCw0LjgsMi40NDgsNy4yNzIsMy41MTJjMS44OTYsMC44MzIsMy44NTYsMS41MzYsNS44MDgsMi4yNTZjMC4zODQsMC4xMzYsMC43NjgsMC4yODgsMS4xNTIsMC40MjQNCgljMTAuODQ4LDMuODQsMjIuNDU2LDYuMDQsMzQuNiw2LjA0YzEyLjE0NCwwLDIzLjc1Mi0yLjIsMzQuNTkyLTYuMDRjMC4zODQtMC4xMzYsMC43NjgtMC4yODgsMS4xNTItMC40MjQNCgljMS45NTItMC43MiwzLjkxMi0xLjQyNCw1LjgwOC0yLjI1NmMyLjQ3Mi0xLjA2NCw0Ljg4OC0yLjI0OCw3LjI3Mi0zLjUxMmMwLjY4LTAuMzY4LDEuMzQ0LTAuNzYsMi4wMTYtMS4xMzYNCgljMS4xNDQtMC42NCwyLjMxMi0xLjI0OCwzLjQzMi0xLjkzNmM1Ni4zMiwxOC4yNzIsMTAwLjA4OCw2NC4xNzYsMTE1LjU2LDEyMS4xMTJjLTIwLjAwOCwyMy4yNzItNDQuNjY0LDQyLjQ0LTcyLjU3Niw1NS45NTINCgljLTAuMTIsMC4wNTYtMC4yMzIsMC4xMi0wLjM1MiwwLjE3NmMtMi44NTYsMS4zNzYtNS43NiwyLjY3Mi04LjY4OCwzLjkzNmMtMC42NjQsMC4yOC0xLjMyLDAuNTY4LTEuOTg0LDAuODQ4DQoJYy0yLjU2LDEuMDcyLTUuMTUyLDIuMDg4LTcuNzYsMy4wNjRjLTEuMDg4LDAuNDA4LTIuMTc2LDAuODA4LTMuMjcyLDEuMTkyYy0yLjMxMiwwLjgyNC00LjYzMiwxLjYxNi02Ljk3NiwyLjM2OA0KCWMtMS40NTYsMC40NjQtMi45MiwwLjkwNC00LjM4NCwxLjMzNmMtMi4wOCwwLjYyNC00LjE2OCwxLjIyNC02LjI4LDEuNzg0Yy0xLjc3NiwwLjQ3Mi0zLjU2OCwwLjkwNC01LjM2LDEuMzI4DQoJYy0xLjg4LDAuNDQ4LTMuNzUyLDAuOTA0LTUuNjQ4LDEuMzA0Yy0yLjA3MiwwLjQ0LTQuMTYsMC44MTYtNi4yNCwxLjE5MmMtMS42ODgsMC4zMTItMy4zNjgsMC42NC01LjA3MiwwLjkxMg0KCWMtMi4zNDQsMC4zNjgtNC43MTIsMC42NjQtNy4wNzIsMC45NmMtMS40OTYsMC4xOTItMi45ODQsMC40MTYtNC40OTYsMC41NzZjLTIuNjk2LDAuMjg4LTUuNDE2LDAuNDcyLTguMTI4LDAuNjY0DQoJYy0xLjIwOCwwLjA4LTIuNDA4LDAuMjE2LTMuNjMyLDAuMjhjLTMuOTYsMC4yMDgtNy45MjgsMC4zMi0xMS45MTIsMC4zMnMtNy45NTItMC4xMTItMTEuOTA0LTAuMzINCgljLTEuMjE2LTAuMDY0LTIuNDE2LTAuMTkyLTMuNjMyLTAuMjhjLTIuNzItMC4xODQtNS40MzItMC4zNzYtOC4xMjgtMC42NjRjLTEuNTEyLTAuMTYtMy0wLjM4NC00LjQ5Ni0wLjU3Ng0KCWMtMi4zNi0wLjI5Ni00LjcyOC0wLjU5Mi03LjA3Mi0wLjk2Yy0xLjcwNC0wLjI3Mi0zLjM4NC0wLjYtNS4wNzItMC45MTJjLTIuMDg4LTAuMzc2LTQuMTc2LTAuNzYtNi4yNC0xLjE5Mg0KCWMtMS44OTYtMC40LTMuNzc2LTAuODU2LTUuNjQ4LTEuMzA0Yy0xLjc5Mi0wLjQzMi0zLjU4NC0wLjg1Ni01LjM2LTEuMzI4Yy0yLjEwNC0wLjU2LTQuMi0xLjE2OC02LjI4LTEuNzg0DQoJYy0xLjQ2NC0wLjQzMi0yLjkyOC0wLjg3Mi00LjM4NC0xLjMzNmMtMi4zNDQtMC43NTItNC42NzItMS41NDQtNi45NzYtMi4zNjhjLTEuMDk2LTAuMzkyLTIuMTg0LTAuNzkyLTMuMjcyLTEuMTkyDQoJYy0yLjYwOC0wLjk3Ni01LjItMS45OTItNy43Ni0zLjA2NGMtMC42NjQtMC4yNzItMS4zMTItMC41Ni0xLjk3Ni0wLjg0Yy0yLjkyOC0xLjI1Ni01LjgzMi0yLjU2LTguNjk2LTMuOTM2DQoJYy0wLjEyLTAuMDU2LTAuMjMyLTAuMTEyLTAuMzUyLTAuMTc2Yy0yNy45MTItMTMuNTA0LTUyLjU2OC0zMi42NzItNzIuNTc2LTU1Ljk1MmMxNS40NjQtNTYuOTQ0LDU5LjI0LTEwMi44NDgsMTE1LjU2LTEyMS4xMTINCglDMTg2Ljg0OCwyNjUuMzg0LDE4OC4wMDgsMjY1Ljk5MiwxODkuMTUyLDI2Ni42MzJ6IE00MjEuODMyLDM3MC41ODRjLTE4LjEzNi01My41NTItNTkuNTEyLTk2LjgzMi0xMTIuMzc2LTExNy4zOTINCglDMzMwLjYsMjM0LjE0NCwzNDQsMjA2LjY0LDM0NCwxNzZjMC01Ny4zNDQtNDYuNjU2LTEwNC0xMDQtMTA0cy0xMDQsNDYuNjU2LTEwNCwxMDRjMCwzMC42NCwxMy40LDU4LjE0NCwzNC41NTIsNzcuMTkyDQoJYy01Mi44NjQsMjAuNTY4LTk0LjI0LDYzLjg0LTExMi4zNzYsMTE3LjM5MkMzMS42NzIsMzMzLjc5MiwxNiwyODguNzA0LDE2LDI0MEMxNiwxMTYuNDg4LDExNi40ODgsMTYsMjQwLDE2czIyNCwxMDAuNDg4LDIyNCwyMjQNCglDNDY0LDI4OC43MDQsNDQ4LjMyOCwzMzMuNzkyLDQyMS44MzIsMzcwLjU4NHoiLz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjwvc3ZnPg0K" />
+              </div>
+              <div class="col-9">
+                <div class="row">
+                  <div class="col-12">
+                    Hello,
+                  </div>
+                  <div class="col-12">
+                    <a href="#"> <span *ngIf="users as user">{{user.fullName}}</span></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </label>
+
+      </div>
+
+      <div class="sidenav">
+
+        <a [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:
+          true}" routerLink="/profile/dashboard"><i class="fa fa-tachometer mr-3" title="meter"></i>Dashboard</a>
+        <a [routerLinkActive]="['active']" routerLink="editprofile"><i class="fa fa-user mr-3" title="meter"></i>Edit
+          Profile</a>
+        <a routerLink="manageaddress"><i class="fa fa-map-marker mr-3" title="meter"></i>Manage Address</a>
+        <a routerLink="orderdetail" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:
+          true}"><i class="fa fa-shopping-cart mr-3" title="meter"></i>Order History</a>
+        <a routerLink="ratingAndreview" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:
+          true}"><i class="fa fa-star mr-3" title="meter"></i>My Review & Rating</a>
+
+       <a href=""><i class="fa fa-money mr-3" title="meter"></i>My Wallet</a>  
+         <ul class="nav nav-tabs flex-column border-0" id="myTab" role="tablist">
+          <li class="nav-item">
+              <a class="nav-link active"  href="#dashboard" data-toggle="tab"  role="tab" aria-controls="dashboard" aria-selected="true"><i class="fa fa-tachometer mr-3" title="meter"></i>Dashboard</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#profile"    role="tab" aria-controls="profile" aria-selected="true"><i class="fa fa-user mr-3" title="meter"></i>Edit
+                Profile</a>
+
+          </li>
+          <li class="nav-item">
+              <a class="nav-link " data-toggle="tab" href="#manageaddress" routerLink="manageaddress" role="tab" aria-controls="manageaddress" aria-selected="true"><i class="fa fa-map-marker mr-3" title="meter"></i>Manage Address</a>
+          </li>
+
+          <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#orderdetail"  role="tab" aria-controls="orderdetail" aria-selected="true"><i class="fa fa-shopping-cart mr-3" title="meter"></i>Order History</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab"  href="#ratingAndreview"  routerLink="ratingAndreview" role="tab" aria-controls="ratingAndreview" aria-selected="true"><i class="fa fa-star mr-3" title="meter"></i>My Review & Rating</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#wallet" role="tab" aria-controls="wallet" aria-selected="true"><i class="fa fa-money mr-3" title="meter"></i>My Wallet</a>
+      </li>
+
+      </ul>
+      </div>
+    </div>
+    <div class="col-lg-8" style="margin-top: 100px;">
+      <router-outlet></router-outlet>
+
+    </div>
+  </div>
+</div> -->
+
+
+<div class="d-none d-lg-block">
+<div class="dashboard ">
+  <div class="left ">
+   
+    <div class="navigation">
+      <div class="wrapper2">
+        
+        
+        <div class="folder-icons">
+          <div class="icon1">
+            <i class="fa fa-tachometer" title="Dashboard"></i>
+          </div>
+          <div class="icon-name1" [routerLinkActive]="['icon-name1']" [routerLinkActiveOptions]="{exact:
+            true}" routerLink="/profile/dashboard">Dashboard</div>
+        </div>
+        <div class="folder-icons">
+          <div class="icon1">
+            <i class="fa fa-user" title="Edit
+            Profile"></i>
+          </div>
+          <div class="icon-name" [routerLinkActive]="['active']" routerLink="editprofile"> Edit
+            Profile</div>
+        </div>
+        <div class="folder-icons">
+          <div class="icon1">
+            <i class="fa fa-map-marker" title="Manage Address"></i>
+          </div>
+          <div class="icon-name" routerLink="manageaddress"> Manage Address</div>
+        </div>
+        <div class="folder-icons">
+          <div class="icon1">
+            <i class="fa fa-shopping-cart" title="Order History"></i>
+          </div>
+          <div class="icon-name" routerLink="orderdetail" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:
+            true}">Order History</div>
+        </div>
+        <div class="folder-icons">
+          <div class="icon1">
+            <i class="fa fa-star" title="My Review & Rating"></i>
+          </div>
+          <div class="icon-name" routerLink="ratingAndreview" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:
+            true}">My Review & Rating</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="right-side">
+    <div class="right-header">
+      <div class="top-bar">
+        <div class="top-bar-justify">
+          <div class="big-inbox">
+            Dashboard
+          </div>          
+        </div>
+        <div class="profile2">
+          
+          <img
+            src="https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg" />
+          
+          <div  *ngIf="users as user"  class="icon-name5">{{user.fullName}}</div>
+        </div>
+      </div>
+      <hr class="new-hr">
+      <router-outlet></router-outlet>
+  </div>
+  </div>
+</div>
+</div>
+
+
+
+
+ 

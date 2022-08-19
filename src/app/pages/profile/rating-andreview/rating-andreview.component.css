@@ -1,0 +1,10 @@
+
+  .breadcrumb-item{
+    font-size: 1.2em;
+    font-weight: bold;
+    color: inherit;
+    }
+    .rating-review-card{
+      overflow-y: scroll;
+      max-height: 490x;
+    }

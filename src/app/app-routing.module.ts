@@ -1,26 +1,29 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ItemsComponent } from './items/items.component';
-import { HeaderComponent } from './header/header.component';
-import { LoginComponent } from './login/login.component';
-import { RegistrationComponent } from './registration/registration.component';
-import { CartComponent } from './cart/cart.component';
 
 
-const routes: Routes = [
-  { path: '',   redirectTo: '/home', pathMatch: 'full' },
-  {path: 'cart', component: CartComponent},
-  {path: 'header', component: HeaderComponent},
-  {path: 'login', component: LoginComponent},
-  {path: 'registration', component: RegistrationComponent},
-  {path: 'home', component: ItemsComponent, },
-
-
-
+const appRoutes: Routes = [
+  {
+    path: 'pages',
+    loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule)
+  },
+  {
+    path: 'ProductDetail',
+    loadChildren: () => import('./pages/product-detail/product-detail.module').then(m => m.ProductDetailModule)
+  },
+  
+ 
+  
+  {
+    path: '**',
+    redirectTo: 'others/404'
+  }
+ 
 ];
 
+
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(appRoutes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

@@ -1,0 +1,110 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="d-inline-block">
+        <span class="steper steper-active">My Cart</span>
+        <span class="steper steper-active">Order Summary</span>
+        <span class="steper steper-inactive">Payment</span>
+      </div>
+      <!-- <span class="pull-right mx-auto">Need Help?</span> -->
+    </div>
+  </div>
+  <hr>
+  <style>
+    .dropdown-toggle::after {
+      border: 0px;
+    }
+  </style>
+
+
+  <div class="row">
+    <div class="col-xs-5 col-md-5 offset-md-1 col-sm-12 col-xs-12">
+      <div *ngFor="let item of userAdressList" class="card">
+        <div class="p-2">
+
+          <div class="d-inline-block">
+            <h3 class="text-muted">
+              <input type="radio" [value]="[item.id]" (change)="onItemChange($event.target.value)"
+                [checked]="item.isDefault" name="selectedAddress" id="checkbox" />
+              <b class="text-uppercase text-justify"> {{item.contactName}} </b>
+            </h3>
+          </div>
+
+          <div ngbDropdown class="pull-right">
+            <i-feather name="edit" id="dropdownBasic1" ngbDropdownToggle></i-feather>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+              <button ngbDropdownItem [routerLink]="['/deliveryAddress/update',item.id]">Edit</button>
+              <button ngbDropdownItem (click)="delete(item.id)">Delete</button>
+            </div>
+          </div>
+          <h4 class="text-muted"> {{item.phone}} , <span class="ml-4">{{item.addressLine1}}</span>
+          </h4>
+          <h4 class="text-muted">{{item.addressLine1}}</h4>
+        </div>
+      </div>
+      <div class="input-group-append">
+        <div [routerLink]="['/Checkout/deliveryAddress']" class="btn btn-outline-info  btn-md btn-block">+ ADD NEW
+          ADDRESS</div>
+      </div>
+
+
+
+
+
+    </div>
+
+
+
+
+
+    <div class="col-xs-5 col-md-5 col-sm-12">
+      <div class="card">
+        <div class="col-xs-12 p-2">
+
+          <h5 class="text-muted">
+            Item Total(MRP) <span class="pull-right">रू {{ordertotal}}</span>
+          </h5>
+          <!-- <h5 class="text-muted">
+            Price Discount <span class="pull-right">रू {{item.discount}}</span>
+          </h5>
+          <hr>
+
+          <h5 class="text-muted">
+            Estimated Shipping Fee ⓘ <span class="pull-right">रू {{item.shippingAmount}}</span>
+          </h5> -->
+
+
+          <h5 class="text-muted">
+            To be Paid <span class="pull-right">रू {{ordertotal}}</span>
+          </h5>
+
+          <hr>
+
+          <div class="bg-warning">
+            <h4 class="text-dark p-2">
+              Total Amount <span class="pull-right">रू {{ordertotal}}</span>
+            </h4>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-md-12 col-lg-12 col-sm-6 col-xs-12">
+        
+
+        <!-- <div (click)="oncheckout()" class="btn btn-danger btn-md btn-block">
+          <span style="display: inline-block;">PROCEED TO PAYMENT</span>
+        </div> -->
+        <button *ngIf="!userAdressListlength" [disabled]="!userAdressListlength"
+          class="btn btn-danger btn-md btn-block">ADDRESS NOT FOUND</button>
+        <button (click)="oncheckout()" *ngIf="userAdressListlength>0" class="btn btn-danger btn-md btn-block">PROCEED
+          TO PAYMENT</button>
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="mb-2"></div>
+
+</div>

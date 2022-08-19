@@ -1,0 +1,220 @@
+<div class="row">
+  <section *ngIf="hide" class="login-block">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5 d-none d-sm-none d-lg-block banner-sec">
+          <div class="signup__overlay">
+          <div class="banner">
+            <div id="demo" class="carousel slide carousel-fade" data-ride="carousel">
+              <ol class="carousel-indicators">
+                <li data-target="#demo" data-slide-to="0" class="active"></li>
+                <li data-target="#demo" data-slide-to="1"></li>
+
+              </ol>
+              <div class="carousel-inner ">
+                <div class="carousel-item active">
+                  <img style="height: 320px;" src="../../../../assets/img/signup.jpg" class="img-fluid">
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+        <div class="col-md-7 col-xs-12 login-sec">
+          <h2 class="text-center">SignUp Now</h2>
+          <form [formGroup]="sinupForm"  class="login100-form validate-form">
+            <div class="wrap-input100 validate-input">
+              <span class="label-input100">Phone Number</span>
+              <input class="input100" formControlName="phone" name="phone" type="text" required placeholder="Type your Phone Number">
+              <span class="focus-input100"></span>
+            </div>
+
+
+
+            <div class="text-right p-t-8 p-b-31">
+              <a (click)="navigateToLogin()">
+                Already a  Registered User?
+              </a>
+            </div>
+
+            <div class="container-login100-form-btn">
+              <div class="wrap-login100-form-btn">
+                <button (click)=onSubmit(sinupForm)  type="submit" class="btn btn-primary mr-2">
+                 GetCode
+                </button>
+                <button  (click)="navigateToLogin()" class="btn btn-primary mr-2">
+                  Cancel
+                </button>
+              </div>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- <section class="login-block" style="height: 90vh;">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5 banner-sec">
+          <div class="signup__overlay">
+          <div class="banner">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-12 px-5 py-3">
+                  <h2 style="font-weight: 800;">Looks like you're new here</h2>
+                </div>
+                <div class="col-12 px-5">
+                  <p style="font-size:24px">Sign up with mobile number to get started</p>
+                </div>
+              </div>
+            </div>
+            <div class="container-fluid">
+              <div class="col-12 p-2">
+                <img src="./../../../../assets/cart.svg" style="width: 100%;">
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+        <div class="col-md-7 login-sec" style="height: 80vh;">
+          <form  class="login100-form validate-form" [formGroup]="sinupForm">
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input formControlName="phone" name="phone" type="text" required class="form-control" id="phone"
+                placeholder="enter your PhoneNumber">
+            </div>
+            <div class="txt1 text-center p-t-54 p-b-20" style="margin-top: 30px; margin-bottom: 20px;">
+              <span style="font-size: 12px; color: gray;">
+                By continuing, you agree to Terms of Use and Privacy Policy.
+              </span>
+            </div>
+
+            <button type="submit"  (click)=onSubmit(sinupForm) class="btn btn-primary col-12" style="padding: 18px;">Submit</button>
+            <button  (click)="navigateToLogin()" class="btn btn-primary col-12" type="submit" style="padding: 18px;">Cancel</button>
+
+            <button  (click)="navigateToLogin()" class="btn btn col-12" style="border:1px solid gray;padding: 18px;margin-top: 10px;">EXISTING USER? LOGIN</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    </section> -->
+  <!-- <div class="verification-form" style="padding:40px">
+    <h1>Sign up-Get Captcha First</h1>
+    <hr><br>
+    <form [formGroup]="sinupForm" >
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input formControlName="phone" name="phone" type="text" required class="form-control" id="phone"
+          placeholder="enter your PhoneNumber">
+      </div>
+      <button type="submit"  (click)=onSubmit(sinupForm)  class="btn btn-primary">Submit</button>
+      <a class="btn btn-success">Cancel</a>
+    </form>
+    <p>
+      <span>Already have an account?&nbsp;
+
+
+      </span>
+
+    </p>
+  </div> -->
+  <section  *ngIf="getcaptchaSuccess" class="login-block">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-md-7 login-sec">
+          <h2 class="text-center">Register Here</h2>
+          <form [formGroup]="reisterForm"  class="login100-form validate-form">
+            <div class="wrap-input100 validate-input">
+              <span class="label-input100">Phone Number</span>
+              <input class="input100" name="phone" [value]="phonevalue" type="text"  required placeholder="Type your Phone Number">
+              <span class="focus-input100"></span>
+            </div>
+            <div class="wrap-input100 validate-input">
+              <span class="label-input100">Full Name</span>
+              <input class="input100" formControlName="name" name="fullname" type="text" required placeholder="Type your Full Name">
+              <span class="focus-input100"></span>
+            </div>
+            <div class="wrap-input100 validate-input">
+              <span class="label-input100">Create Your Password</span>
+              <input class="input100" formControlName="password" name="password" type="password" required placeholder="Create Password">
+              <span class="focus-input100"></span>
+            </div>
+            <div class="wrap-input100 validate-input">
+              <span class="label-input100">Confirm Password</span>
+              <input class="input100" formControlName="password_confirmation" name="password_confirmation" type="password" required placeholder="Confirm Password">
+              <span class="focus-input100"></span>
+            </div>
+            <div class="wrap-input100 validate-input">
+              <span class="label-input100">Email</span>
+              <input class="input100" formControlName="email" name="email" type="text" required placeholder="Type your Email">
+              <span class="focus-input100"></span>
+            </div>
+
+
+
+            <div class="text-right p-t-8 p-b-31">
+            </div>
+
+            <div class="container-login100-form-btn">
+              <div class="wrap-login100-form-btn">
+                <button (click)=onregisterSubmit(reisterForm)  type="submit" class="btn btn-primary mr-2">
+                 Submit
+                </button>
+                <button  (click)="navigateToLogin()" class="btn btn-primary mr-2">
+                  Cancel
+                </button>
+              </div>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- <div *ngIf="getcaptchaSuccess" class="verification-form" style="padding:60px">
+    <h1>Sign up</h1>
+    <hr><br>
+    <form [formGroup]="reisterForm" >
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input formControlName="phone" name="confirmphone" type="text" required class="form-control" id="confirmphone"
+          placeholder="enter your PhoneNumber">
+      </div>
+      <div class="form-group">
+        <label for="phone">Full Name</label>
+        <input formControlName="fullName" name="fullName" type="text" required class="form-control" id="fullName"
+          placeholder="enter your Full Name">
+      </div>
+      <div class="form-group">
+        <label for="phone">Captha</label>
+        <input formControlName="captcha" name="captcha" type="text" required class="form-control" id="captcha"
+          placeholder="enter your PhoneNumber">
+      </div>
+      <div class="form-group">
+        <label for="phone">Password</label>
+        <input formControlName="password" name="password" type="password" required class="form-control" id="password"
+          placeholder="enter your PhoneNumber">
+      </div>
+      <div class="form-group">
+        <label for="phone">Confirm Password</label>
+        <input formControlName="confirmPassword" name="confirmPassword" type="password" required class="form-control" id="confirmPassword"
+          placeholder="enter your PhoneNumber">
+      </div>
+      <div class="form-group">
+        <label for="phone">Email</label>
+        <input formControlName="email" name="email" type="email" required class="form-control" id="email"
+          placeholder="enter your PhoneNumber">
+      </div>
+      <button type="submit"  (click)=onregisterSubmit(reisterForm) class="btn btn-primary">Submit</button>
+      <a class="btn btn-success">Cancel</a>
+    </form>
+
+  </div> -->
+</div>
+
+

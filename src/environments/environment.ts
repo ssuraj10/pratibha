@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: true,
+  apiUrl: 'http://67.205.165.41/ofos/api', // <Your API base url>
+  imageUrl: '' // <Your API url for image resize>
 };
 
 /*

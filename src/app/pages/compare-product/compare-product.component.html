@@ -1,0 +1,51 @@
+<div *ngIf="compareitemLength>0" class="compare-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-compare">
+        <div class="compare-div">
+          <div class="compare-list">
+            <div class="compare-track">
+              <div *ngFor="let item of compareitem;let  i=index" class="compare-active">
+                <div class="compare-part">
+                  <button type="button" (click)="remove(i)" class="close-btn"><span aria-hidden="true">×</span></button>
+                  <div class="img-secton"><a><img style="width: 250px;height: 250px;" src="{{item.imageUrl?item.imageUrl:item.mediaUrl}}"
+                        class="img-fluid" alt="{{item.productName?item.productName:item.name}}">
+                      <h5>{{item.productName?item.productName:item.name}}</h5>
+                    </a>
+                    <h5>{{item.salesRate?item.salesRate:item.price}}<del><span class="money">{{item.oldPrice?item.oldPrice:0}}</span></del></h5>
+                  </div>
+                  <div class="detail-part">
+                    <div class="title-detail">
+                      <h5>BRAND NAME</h5>
+                    </div>
+                    <div class="inner-detail">
+                      <p>{{item.brandName}}</p>
+                    </div>
+                  </div>
+                  <div class="detail-part">
+                    <div class="title-detail">
+                      <h5>AVAILABILITY</h5>
+                    </div>
+                    <div class="inner-detail">
+                      <p *ngIf="item.isVisibleIndividually ==true ">In stock</p>
+                      <p *ngIf="item.isVisibleIndividually ==false ">Out of Stock</p>
+                    </div>
+                  </div>
+                  <div class="btn-part "><a (click)="onAddProductToCart(item)"
+                      class="btn btn-solid">add to cart</a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="text-center p-5" *ngIf="compareitemLength===0 || !compareitemLength ">
+  <h1>Compare List Is Empty</h1>
+  <h3>You have no products in your compare list.
+    Go to the home page to start browsing our store.</h3><span class="btn-part "> <a [routerLink]="['/']"
+      class="btn btn-dark">Go To Homepage</a></span>
+</div>

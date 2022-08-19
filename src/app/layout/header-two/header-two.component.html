@@ -1,0 +1,1274 @@
+<div class="top-header-container">
+         <div class="header-container">
+                <div class="header-container-margin"></div>
+                <div class="header-container-div">
+                        <div class="header-logo">
+                                <div class="logo-container"><a href="/"><img width="75" height="30"
+                                                        src="assets/img/food_garden1.jpg" alt="logo" title="logo"
+                                                        class="logo-image"></a><a class="logo-bottom" href="">FOOD
+                                                <span class="plus-tag">GARDEN</span><img width="10"></a>
+                                </div>
+                        </div>
+                        <div class="pull-left mobile-responisve-header d-md-block d-lg-none  d-block">
+                                <button (click)="sidenavbar()" style="    border: none;
+                            background: none;font-size: 20px;" type="button">
+                                        <i style="color: white;" class="fa fa-bars"></i></button>
+                                <div class="custom-side-bar">
+                                        <div *ngIf="navbarshow" class="mobile-side-navbar">
+                                                <div class="mobile-side-container"></div>
+                                                <div class="mobile-container">
+                                                        <div class="mobile-container-column" style="height: 100%;">
+                                                                <div class="mobile-login-sinup-div">
+                                                                        <div width="100%"
+                                                                                class="mobile-login-sinup-table">
+                                                                                <div class="mobile-login-sinup">
+                                                                                        <i
+                                                                                                class="fa fa-user mobile-login-sinup-logo"></i>
+                                                                                        <div *ngIf="!authService.currentLoginStatus"
+                                                                                                class="mobile-login-sinup-text">
+                                                                                                <a style="color: white;"
+                                                                                                        href="/login">Login
+                                                                                                </a>&amp;
+                                                                                                <a style="color: white;"
+                                                                                                        href="/signUp">Signup</a>
+                                                                                        </div>
+                                                                                        <div *ngIf="authService.currentLoginStatus"
+                                                                                                class="mobile-login-sinup-text">
+                                                                                                Hi,
+                                                                                                <span
+                                                                                                        *ngIf="users | async as user">{{user.fullName}}</span>
+                                                                                        </div>
+                                                                                </div>
+
+                                                                        </div>
+                                                                </div>
+                                                                <div class="mobile-item-div">
+                                                                        <div>
+                                                                                <div>
+                                                                                        <div>
+                                                                                                <ul
+                                                                                                        class="mobile-item-list">
+                                                                                                        <div>
+                                                                                                                <li
+                                                                                                                        class="mobile-item-singlelist">
+                                                                                                                        <a href="/profile"
+                                                                                                                                style="display: block; width: 100%;">
+                                                                                                                                <div
+                                                                                                                                        class="mobile-item-singlelist-div">
+                                                                                                                                        <img width="14px"
+                                                                                                                                                src="https://rukminim1.flixcart.com/www/180/180/promos/07/04/2016/c35cca9e-2d7a-4583-9770-32a97ddf1c9b.png?q=80"><span
+                                                                                                                                                class="mobile-item-singlelist-text">My
+                                                                                                                                                Account</span>
+                                                                                                                                </div>
+                                                                                                                        </a>
+                                                                                                                </li>
+                                                                                                        </div>
+                                                                                                        <div>
+                                                                                                                <li
+                                                                                                                        class="mobile-item-singlelist">
+                                                                                                                        <a href="/productlist"
+                                                                                                                                style="display: block; width: 100%;">
+                                                                                                                                <div
+                                                                                                                                        class="mobile-item-singlelist-div">
+                                                                                                                                        <img width="14px"
+                                                                                                                                                src="https://rukminim1.flixcart.com/www/180/180/promos/13/11/2019/d19caf2b-e593-4e6b-93e5-a6c388210736.png?q=80"><span
+                                                                                                                                                class="mobile-item-singlelist-text">All
+                                                                                                                                                Categories</span>
+                                                                                                                                </div>
+                                                                                                                        </a>
+                                                                                                                </li>
+                                                                                                        </div>
+                                                                                                        <div *ngFor="let navitem of HeaderItem"
+                                                                                                                class="menu-items">
+                                                                                                                <li 
+                                                                                                                        class="mobile-item-singlelist">
+                                                                                                                        <a href="/category/{{navitem.category_name}}/{{navitem.id}}"
+                                                                                                                                style="display: block; width: 95%;">
+                                                                                                                                <div
+                                                                                                                                        class="mobile-item-singlelist-div">
+                                                                                                                                        <span
+                                                                                                                                                class="mobile-item-singlelist-text">{{navitem.category_name}}</span>
+                                                                                                                                </div>
+                                                                                                                        </a>
+                                                                                                                        <!-- <span *ngIf="navitem.children.length>0"
+                                                                                                                                class="float-right"><i
+                                                                                                                                        class="fa fa-chevron-right"></i></span> -->
+                                                                                                                </li>
+                                                                                                                <hr>
+                                                                                                                <div *ngIf="navbarshow && navbarshow2"
+                                                                                                                        class="menu-side-bar">
+                                                                                                                        <div
+                                                                                                                                class="mobile-side-navbar">
+                                                                                                                                <div
+                                                                                                                                        class="mobile-side-container">
+                                                                                                                                </div>
+                                                                                                                                <div
+                                                                                                                                        class="mobile-container">
+                                                                                                                                        <div class="mobile-container-column"
+                                                                                                                                                style="height: 471px;">
+                                                                                                                                                <div
+                                                                                                                                                        class="mobile-login-sinup-div">
+                                                                                                                                                        <div width="100%"
+                                                                                                                                                                class="mobile-login-sinup-table">
+                                                                                                                                                                <div
+                                                                                                                                                                        class="mobile-login-sinup">
+                                                                                                                                                                        <i
+                                                                                                                                                                                class="fa fa-user mobile-login-sinup-logo"></i>
+                                                                                                                                                                        <div *ngIf="!authService.currentLoginStatus"
+                                                                                                                                                                                class="mobile-login-sinup-text">
+                                                                                                                                                                                <a style="color: white;"
+                                                                                                                                                                                        href="/login">Login
+                                                                                                                                                                                </a>&amp;
+                                                                                                                                                                                <a style="color: white;"
+                                                                                                                                                                                        href="/signUp">Signup</a>
+                                                                                                                                                                        </div>
+                                                                                                                                                                        <div *ngIf="authService.currentLoginStatus"
+                                                                                                                                                                                class="mobile-login-sinup-text">
+                                                                                                                                                                                Hi,
+                                                                                                                                                                                <span
+                                                                                                                                                                                        *ngIf="users | async as user">{{user.fullName}}</span>
+                                                                                                                                                                        </div>
+                                                                                                                                                                </div>
+
+                                                                                                                                                        </div>
+
+                                                                                                                                                </div>
+                                                                                                                                                <div
+                                                                                                                                                        class="mobile-item-div">
+                                                                                                                                                        <div>
+                                                                                                                                                                <div>
+                                                                                                                                                                        <div>
+                                                                                                                                                                                <ul
+                                                                                                                                                                                        class="mobile-item-list">
+                                                                                                                                                                                        <li
+                                                                                                                                                                                                class=" mobile-item-singlelist">
+                                                                                                                                                                                                <a (click)="sidenavbar()"
+                                                                                                                                                                                                        style="display: block; width: 100%;">
+                                                                                                                                                                                                        <div
+                                                                                                                                                                                                                class="mobile-item-singlelist-div">
+                                                                                                                                                                                                                <i width="14px"
+                                                                                                                                                                                                                        class="fa fa-angle-left"></i>
+                                                                                                                                                                                                                <span
+                                                                                                                                                                                                                        class="mobile-item-singlelist-text back-sidebar">Back</span>
+                                                                                                                                                                                                        </div>
+                                                                                                                                                                                                </a>
+                                                                                                                                                                                        </li>
+
+
+
+
+                                                                                                                                                                                        <div>
+                                                                                                                                                                                                <div *ngFor="let navchil of navitem.children"
+                                                                                                                                                                                                        class="ml-2">
+                                                                                                                                                                                                        <li
+                                                                                                                                                                                                                class=" mobile-item-singlelist">
+                                                                                                                                                                                                                <a href="/category/{{navchil.name}}/{{navchil.id}}"
+                                                                                                                                                                                                                        style="display: block; width: 95%;">
+                                                                                                                                                                                                                        <div
+                                                                                                                                                                                                                                class="mobile-item-singlelist-div">
+
+                                                                                                                                                                                                                                <span
+                                                                                                                                                                                                                                        class="mobile-item-singlelist-text">{{navchil.name}}</span>
+                                                                                                                                                                                                                        </div>
+                                                                                                                                                                                                                </a><span
+                                                                                                                                                                                                                        class="float-right"><i
+                                                                                                                                                                                                                                class="fa fa-chevron-right"></i></span>
+                                                                                                                                                                                                        </li>
+                                                                                                                                                                                                        <hr>
+                                                                                                                                                                                                        <!-- <div *ngFor="let item of navchil.children"
+                                                                                                                                                                                                                class=" ml-2">
+                                                                                                                                                                                                                <li
+                                                                                                                                                                                                                        class=" mobile-item-singlelist">
+                                                                                                                                                                                                                        <a href="/category/{{item.name}}/{{item.id}}"
+                                                                                                                                                                                                                                style="display: block; width: 100%;">
+                                                                                                                                                                                                                                <div
+                                                                                                                                                                                                                                        class="mobile-item-singlelist-div">
+                                                                                                                                                                                                                                        <i width="14px"
+                                                                                                                                                                                                                                                class="fa fa-angle-double-right"></i>
+                                                                                                                                                                                                                                        <span
+                                                                                                                                                                                                                                                class="mobile-item-singlelist-text">{{item.name}}</span>
+                                                                                                                                                                                                                                </div>
+                                                                                                                                                                                                                        </a>
+                                                                                                                                                                                                                </li>
+                                                                                                                                                                                                        </div> -->
+                                                                                                                                                                                                </div>
+                                                                                                                                                                                        </div>
+                                                                                                                                                                                </ul>
+                                                                                                                                                                        </div>
+                                                                                                                                                                </div>
+
+
+
+
+
+
+                                                                                                                                                        </div>
+                                                                                                                                                </div>
+                                                                                                                                        </div>
+                                                                                                                                </div>
+                                                                                                                        </div>
+                                                                                                                </div>
+                                                                                                        </div>
+                                                                                                </ul>
+                                                                                        </div>
+                                                                                </div>
+                                                                                <!-- <div>
+                                                                                        <div>
+                                                                                                <ul
+                                                                                                        class="mobile-item-list">
+                                                                                                        <div
+                                                                                                                class="menu-items">
+                                                                                                                <li
+                                                                                                                        class="mobile-item-singlelist">
+                                                                                                                        <a
+                                                                                                                                style="display: block; width: 100%;">
+                                                                                                                                <div
+                                                                                                                                        class="mobile-item-singlelist-div">
+                                                                                                                                        <img width="14px"
+                                                                                                                                                src="https://rukminim1.flixcart.com/www/180/180/promos/18/01/2019/c79d21c6-b201-42a7-b37c-6405c6c4fbf5.png?q=80"><span
+                                                                                                                                                class="mobile-item-singlelist-text">MENU</span><i
+                                                                                                                                                class="fa fa-angle-right right-arrow"></i>
+                                                                                                                                </div>
+                                                                                                                        </a>
+                                                                                                                </li>
+                                                                                                                <div
+                                                                                                                        class="menu-side-bar">
+                                                                                                                        <div
+                                                                                                                                class="mobile-side-navbar">
+                                                                                                                                <div
+                                                                                                                                        class="mobile-side-container">
+                                                                                                                                </div>
+                                                                                                                                <div
+                                                                                                                                        class="mobile-container">
+                                                                                                                                        <div class="mobile-container-column"
+                                                                                                                                                style="height: 471px;">
+                                                                                                                                                <div
+                                                                                                                                                        class="mobile-login-sinup-div">
+                                                                                                                                                        <div width="100%"
+                                                                                                                                                                class="mobile-login-sinup-table">
+                                                                                                                                                                <div
+                                                                                                                                                                        class="mobile-login-sinup">
+                                                                                                                                                                        <i
+                                                                                                                                                                                class="fa fa-user mobile-login-sinup-logo"></i>
+                                                                                                                                                                        <div *ngIf="!authService.currentLoginStatus"
+                                                                                                                                                                                class="mobile-login-sinup-text">
+                                                                                                                                                                                <a style="color: white;"
+                                                                                                                                                                                        href="/login">Login
+                                                                                                                                                                                </a>&amp;
+                                                                                                                                                                                <a style="color: white;"
+                                                                                                                                                                                        href="/signUp">Signup</a>
+                                                                                                                                                                        </div>
+                                                                                                                                                                        <div *ngIf="authService.currentLoginStatus"
+                                                                                                                                                                                class="mobile-login-sinup-text">
+                                                                                                                                                                                Hi,
+                                                                                                                                                                                <span
+                                                                                                                                                                                        *ngIf="users | async as user">{{user.fullName}}</span>
+                                                                                                                                                                        </div>
+                                                                                                                                                                </div>
+
+                                                                                                                                                        </div>
+
+                                                                                                                                                </div>
+                                                                                                                                                <div
+                                                                                                                                                        class="mobile-item-div">
+                                                                                                                                                        <div>
+                                                                                                                                                                <div>
+                                                                                                                                                                        <div>
+                                                                                                                                                                                <ul
+                                                                                                                                                                                        class="mobile-item-list">
+
+
+                                                                                                                                                                                        <div
+                                                                                                                                                                                                *ngFor="let navitem of HeaderItem">
+                                                                                                                                                                                                <li
+                                                                                                                                                                                                        class="mobile-item-singlelist">
+                                                                                                                                                                                                        <a data-toggle="collapse"
+                                                                                                                                                                                                                href="#multiCollapseExample1"
+                                                                                                                                                                                                                role="button"
+                                                                                                                                                                                                                aria-expanded="false"
+                                                                                                                                                                                                                aria-controls="multiCollapseExample1"
+                                                                                                                                                                                                                style="display: block; width: 100%;">
+                                                                                                                                                                                                                <div
+                                                                                                                                                                                                                        class="mobile-item-singlelist-div">
+                                                                                                                                                                                                                        <img width="14px"
+                                                                                                                                                                                                                                src="https://rukminim1.flixcart.com/www/180/180/promos/13/11/2019/d19caf2b-e593-4e6b-93e5-a6c388210736.png?q=80"><span
+                                                                                                                                                                                                                                class="mobile-item-singlelist-text">{{navitem.name}}</span>
+                                                                                                                                                                                                                </div>
+
+
+                                                                                                                                                                                                        </a>
+
+                                                                                                                                                                                                </li>
+                                                                                                                                                                                                <div *ngFor="let navchil of navitem.children"
+                                                                                                                                                                                                        class="collapse multi-collapse ml-2"
+                                                                                                                                                                                                        id="multiCollapseExample1">
+                                                                                                                                                                                                        <li
+                                                                                                                                                                                                                class=" mobile-item-singlelist">
+                                                                                                                                                                                                                <a href="/category/{{navchil.name}}/{{navchil.id}}"
+                                                                                                                                                                                                                        style="display: block; width: 100%;">
+                                                                                                                                                                                                                        <div
+                                                                                                                                                                                                                                class="mobile-item-singlelist-div">
+                                                                                                                                                                                                                                <i width="14px"
+                                                                                                                                                                                                                                        class="fa fa-angle-right"></i>
+                                                                                                                                                                                                                                <span
+                                                                                                                                                                                                                                        class="mobile-item-singlelist-text">{{navchil.name}}</span>
+                                                                                                                                                                                                                        </div>
+                                                                                                                                                                                                                </a>
+                                                                                                                                                                                                        </li>
+                                                                                                                                                                                                        <div *ngFor="let item of navchil.children"
+                                                                                                                                                                                                                class=" ml-2">
+                                                                                                                                                                                                                <li
+                                                                                                                                                                                                                        class=" mobile-item-singlelist">
+                                                                                                                                                                                                                        <a href="/category/{{item.name}}/{{item.id}}"
+                                                                                                                                                                                                                                style="display: block; width: 100%;">
+                                                                                                                                                                                                                                <div
+                                                                                                                                                                                                                                        class="mobile-item-singlelist-div">
+                                                                                                                                                                                                                                        <i width="14px"
+                                                                                                                                                                                                                                                class="fa fa-angle-double-right"></i>
+                                                                                                                                                                                                                                        <span
+                                                                                                                                                                                                                                                class="mobile-item-singlelist-text">{{item.name}}</span>
+                                                                                                                                                                                                                                </div>
+                                                                                                                                                                                                                        </a>
+                                                                                                                                                                                                                </li>
+                                                                                                                                                                                                        </div>
+                                                                                                                                                                                                </div>
+                                                                                                                                                                                        </div>
+                                                                                                                                                                                </ul>
+                                                                                                                                                                        </div>
+                                                                                                                                                                </div>
+
+
+
+
+
+
+                                                                                                                                                        </div>
+                                                                                                                                                </div>
+                                                                                                                                        </div>
+                                                                                                                                </div>
+                                                                                                                        </div>
+                                                                                                                </div>
+                                                                                                        </div>
+                                                                                                </ul>
+                                                                                        </div>
+                                                                                </div> -->
+
+                                                                                <div>
+                                                                                        <div>
+                                                                                                <ul
+                                                                                                        class="mobile-item-list">
+                                                                                                        <!-- <div>
+                                                                                                                <li
+                                                                                                                        class="mobile-item-singlelist">
+                                                                                                                        <a href="/profile"
+                                                                                                                                style="display: block; width: 100%;">
+                                                                                                                                <div
+                                                                                                                                        class="mobile-item-singlelist-div">
+                                                                                                                                        <img width="14px"
+                                                                                                                                                src="https://rukminim1.flixcart.com/www/180/180/promos/10/03/2017/b7a79d1a-e088-4c4b-951f-9b8214719cc9.png?q=80"><span
+                                                                                                                                                class="mobile-item-singlelist-text">My
+                                                                                                                                                Orders</span>
+                                                                                                                                </div>
+                                                                                                                        </a>
+                                                                                                                </li>
+                                                                                                        </div> -->
+                                                                                                        <!-- <div>
+                                                                                                                <li
+                                                                                                                        class="mobile-item-singlelist">
+                                                                                                                        <a href="https://m.flipkart.com/rv/referral/myrewards"
+                                                                                                                                style="display: block; width: 100%;">
+                                                                                                                                <div
+                                                                                                                                        class="mobile-item-singlelist-div">
+                                                                                                                                        <img width="14px"
+                                                                                                                                                src="https://rukminim1.flixcart.com/www/180/180/promos/31/08/2016/3afaefd4-3961-4cac-921c-b9517c96ad47.png?q=80"><span
+                                                                                                                                                class="mobile-item-singlelist-text">My
+                                                                                                                                                Coupons</span>
+                                                                                                                                </div>
+                                                                                                                        </a>
+                                                                                                                </li>
+                                                                                                        </div> -->
+                                                                                                        <div>
+                                                                                                                <li
+                                                                                                                        class="mobile-item-singlelist">
+                                                                                                                        <a href="/CartItem"
+                                                                                                                                style="display: block; width: 100%;">
+                                                                                                                                <div
+                                                                                                                                        class="mobile-item-singlelist-div">
+                                                                                                                                        <img width="14px"
+                                                                                                                                                src="https://rukminim1.flixcart.com/www/180/180/promos/10/03/2017/920f4fcd-8977-43a9-9014-abcad558de8d.png?q=80"><span
+                                                                                                                                                class="mobile-item-singlelist-text">My
+                                                                                                                                                Cart</span>
+                                                                                                                                </div>
+                                                                                                                        </a>
+                                                                                                                </li>
+                                                                                                        </div>
+                                                                                                        <!-- <div>
+                                                                                                                <li
+                                                                                                                        class="mobile-item-singlelist">
+                                                                                                                        <a href="/Wishlist"
+                                                                                                                                style="display: block; width: 100%;">
+                                                                                                                                <div
+                                                                                                                                        class="mobile-item-singlelist-div">
+                                                                                                                                        <img width="14px"
+                                                                                                                                                src="https://rukminim1.flixcart.com/www/180/180/promos/10/03/2017/1f81361d-9a8e-494a-bd15-6d647c9bd8a7.png?q=80"><span
+                                                                                                                                                class="mobile-item-singlelist-text">My
+                                                                                                                                                Wishlist</span>
+                                                                                                                                </div>
+                                                                                                                        </a>
+                                                                                                                </li>
+                                                                                                        </div> -->
+
+                                                                                                        <!-- <div>
+                                                                                                                <li
+                                                                                                                        class="mobile-item-singlelist">
+                                                                                                                        <a href="https://www.flipkart.com/notifications"
+                                                                                                                                style="display: block; width: 100%;">
+                                                                                                                                <div
+                                                                                                                                        class="mobile-item-singlelist-div">
+                                                                                                                                        <img width="14px"
+                                                                                                                                                src="https://rukminim1.flixcart.com/www/180/180/promos/10/03/2017/f93182c9-5b3e-4f06-950d-c41745611f00.png?q=80"><span
+                                                                                                                                                class="mobile-item-singlelist-text">My
+                                                                                                                                                Notifications</span>
+                                                                                                                                </div>
+                                                                                                                        </a>
+                                                                                                                </li>
+                                                                                                        </div> -->
+                                                                                                        <!-- <div>
+                                                                                                                <li
+                                                                                                                        class="mobile-item-singlelist">
+                                                                                                                        <a href="http://m.flipkart.com/rv/chats"
+                                                                                                                                style="display: block; width: 100%;">
+                                                                                                                                <div
+                                                                                                                                        class="mobile-item-singlelist-div">
+                                                                                                                                        <img width="14px"
+                                                                                                                                                src="https://rukminim1.flixcart.com/www/180/180/promos/08/08/2019/90c8291d-57ea-40ee-8811-28d4a9483ef1.png?q=80"><span
+                                                                                                                                                class="mobile-item-singlelist-text">My
+                                                                                                                                                Chats</span>
+                                                                                                                                </div>
+                                                                                                                        </a>
+                                                                                                                </li>
+                                                                                                        </div> -->
+                                                                                                        <div>
+                                                                                                                <li *ngIf="authService.currentLoginStatus"
+                                                                                                                        class="mobile-item-singlelist">
+                                                                                                                        <a (click)="logout()"
+                                                                                                                                style="display: block; width: 100%;">
+                                                                                                                                <div
+                                                                                                                                        class="mobile-item-singlelist-div">
+                                                                                                                                        <img width="14px"
+                                                                                                                                                src="https://rukminim1.flixcart.com/www/180/180/promos/08/08/2019/90c8291d-57ea-40ee-8811-28d4a9483ef1.png?q=80"><span
+                                                                                                                                                class="mobile-item-singlelist-text">Log
+                                                                                                                                                Out</span>
+                                                                                                                                </div>
+                                                                                                                        </a>
+                                                                                                                </li>
+                                                                                                        </div>
+                                                                                                </ul>
+                                                                                        </div>
+                                                                                </div>
+
+                                                                                <div>
+                                                                                        <div>
+                                                                                                <ul
+                                                                                                        class="mobile-item-list">
+                                                                                                        <div>
+                                                                                                                <li
+                                                                                                                        class="mobile-item-singlelist">
+                                                                                                                        <a href="https://www.flipkart.com/communication-preferences/content/push"
+                                                                                                                                style="display: block; width: 100%;">Notification
+                                                                                                                                Preferences
+                                                                                                                        </a>
+                                                                                                                </li>
+                                                                                                        </div>
+                                                                                                </ul>
+                                                                                        </div>
+                                                                                </div>
+                                                                                <div>
+                                                                                        <div>
+                                                                                                <ul
+                                                                                                        class="mobile-item-list">
+                                                                                                        <div>
+                                                                                                                <li
+                                                                                                                        class="mobile-item-singlelist">
+                                                                                                                        <a href="https://m.flipkart.com/rv/help"
+                                                                                                                                style="display: block; width: 100%;">Help
+                                                                                                                                Centre
+                                                                                                                        </a>
+                                                                                                                </li>
+                                                                                                        </div>
+                                                                                                        <div>
+                                                                                                                <li
+                                                                                                                        class="mobile-item-singlelist">
+                                                                                                                        <a href="https://www.flipkart.com/fkpolicies"
+                                                                                                                                style="display: block; width: 100%;">Legal
+                                                                                                                        </a>
+                                                                                                                </li>
+                                                                                                        </div>
+                                                                                                </ul>
+                                                                                        </div>
+                                                                                </div>
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+                        <div class="header-long-search d-none d-sm-block ">
+                                <form class="header-search header-form-search">
+                                        <div class="col-12  search-input-container">
+                                                <div class="search-input-div"><input type="text" value=""
+                                                                class="search-input"
+                                                                title="Search for products, brands and more" name="q"
+                                                                autocomplete="off"
+                                                                placeholder="Search for products, brands and more"
+                                                                (input)="open()"  (click)="open()" [(ngModel)]="autocompleteData"
+                                                                [formControl]="queryField" id="keyword"></div><button
+                                                        class="search-button" [routerLink]="['/search',queryField.value]" type="submit"><svg width="20" height="20"
+                                                                viewBox="0 0 17 18" class=""
+                                                                xmlns="http://www.w3.org/2000/svg">
+                                                                <g fill="#437C17" fill-rule="evenodd">
+                                                                        <path class="path-div"
+                                                                                d="m11.618 9.897l4.225 4.212c.092.092.101.232.02.313l-1.465 1.46c-.081.081-.221.072-.314-.02l-4.216-4.203">
+                                                                        </path>
+                                                                        <path class="path-div"
+                                                                                d="m6.486 10.901c-2.42 0-4.381-1.956-4.381-4.368 0-2.413 1.961-4.369 4.381-4.369 2.42 0 4.381 1.956 4.381 4.369 0 2.413-1.961 4.368-4.381 4.368m0-10.835c-3.582 0-6.486 2.895-6.486 6.467 0 3.572 2.904 6.467 6.486 6.467 3.582 0 6.486-2.895 6.486-6.467 0-3.572-2.904-6.467-6.486-6.467">
+                                                                        </path>
+                                                                </g>
+                                                        </svg></button>
+
+                                        </div>
+                                        <div *ngIf="show && resultslen && results" class="stock-search-result">
+                                                <div style="cursor: pointer;" *ngFor="let stock of results"
+                                                        class="search-result-item row"
+                                                        (click)="AutoCompleteSearch(stock.product_name)">
+                                                        <div class="search-result-image col-1 ml-3">
+                                                                <img [src]="[stock.product_imgpath]" [alt]="stock.product_name"
+                                                                        style="width: 18px; height: 25px;" />
+                                                        </div>
+                                                        <div class="search-result-name col-8">
+                                                                <p>{{ stock.product_name }}</p>
+                                                        </div>
+                                                        <hr>
+                                                </div>
+                                        </div>
+                                        <ul class="col-12-12 header-ul-padding"></ul>
+                                </form>
+
+                        </div>
+
+                        <div class="button-container header-login d-none d-lg-block">
+                                <div class="btn-div">
+                                        <div class="btn-single-div btn-single">
+                                                <div *ngIf="!authService.currentLoginStatus">
+                                                        <a class="login-btn" [routerLink]="['/login']">Login</a>
+                                                </div>
+                                                <div *ngIf="authService.currentLoginStatus">
+                                                        <a class="login-btn">Welcome</a>
+                                                </div>
+
+
+                                                <div class=" small-dropdown-container ">
+
+                                                        <div class="small-container">
+                                                                <div class="small-container-div">
+                                                                        <div *ngIf="!authService.currentLoginStatus"
+                                                                                class="small-dropdown-sinup">
+                                                                                <div class="small-sinup-div">
+                                                                                        <div> New customer?</div>
+                                                                                        <div [routerLink]="['/signUp']"
+                                                                                                class="small-sinup-div-name">
+                                                                                                Sign Up
+                                                                                        </div>
+                                                                                </div>
+                                                                        </div>
+                                                                        <div *ngIf="authService.currentLoginStatus"
+                                                                                class="small-dropdown-sinup">
+                                                                                <div class="small-sinup-div">
+                                                                                        <div
+                                                                                                *ngIf="users | async as user">
+                                                                                                {{user.fullName}}</div>
+                                                                                        <div *ngIf="emailuser">
+                                                                                                {{emailuser}}</div>
+                                                                                        <div (click)="logout()"
+                                                                                                class="small-sinup-div-name">
+                                                                                                Log out
+                                                                                        </div>
+                                                                                </div>
+                                                                        </div>
+                                                                        <ul class="small-drop-list small-drop-ul">
+                                                                                <!-- <li class="small-drop-li"><a
+                                                                                                class="small-drop-li-a small-drop-list-a"
+                                                                                                [routerLink]="['/profile/dashboard']"><svg
+                                                                                                        xmlns="http://www.w3.org/2000/svg"
+                                                                                                        width="16"
+                                                                                                        height="16"
+                                                                                                        class=""
+                                                                                                        viewBox="0 0 16 14">
+                                                                                                        <path fill="#437C17"
+                                                                                                                fill-rule="nonzero"
+                                                                                                                d="M7 .333A6.67 6.67 0 0 0 .333 7 6.67 6.67 0 0 0 7 13.667 6.67 6.67 0 0 0 13.667 7 6.67 6.67 0 0 0 7 .333zm0 2c1.107 0 2 .894 2 2 0 1.107-.893 2-2 2s-2-.893-2-2c0-1.106.893-2 2-2zM7 11.8a4.8 4.8 0 0 1-4-2.147C3.02 8.327 5.667 7.6 7 7.6c1.327 0 3.98.727 4 2.053A4.8 4.8 0 0 1 7 11.8z">
+                                                                                                        </path>
+                                                                                                </svg>
+                                                                                                <div
+                                                                                                        class="small-drop-list-name">
+                                                                                                        My
+                                                                                                        Profile</div>
+                                                                                        </a></li> -->
+
+                                                                                <!-- <li class="small-drop-li"><a
+                                                                                                class="small-drop-li-a small-drop-list-a"
+                                                                                                [routerLink]="['/profile/orderdetail']"><svg
+                                                                                                        xmlns="http://www.w3.org/2000/svg"
+                                                                                                        width="16"
+                                                                                                        height="12"
+                                                                                                        class=""
+                                                                                                        viewBox="0 0 16 12">
+                                                                                                        <g fill="none"
+                                                                                                                fill-rule="evenodd">
+                                                                                                                <path fill="#437C17"
+                                                                                                                        d="M6.038 11.682h8.407c.565 0 1.018-.38 1.13-.855V.847H.426v9.98c0 .475.452.855 1.017.855h2.232v-2.98H1.94L4.776 6l2.996 2.703H6.038v2.98z">
+                                                                                                                </path>
+                                                                                                        </g>
+                                                                                                </svg>
+                                                                                                <div
+                                                                                                        class="small-drop-list-name">
+                                                                                                        Orders</div>
+                                                                                        </a></li> -->
+                                                                                <!-- <li class="small-drop-li"><a
+                                                                                                class="small-drop-li-a small-drop-list-a"
+                                                                                                [routerLink]="['/Wishlist']"><svg
+                                                                                                        xmlns="http://www.w3.org/2000/svg"
+                                                                                                        class=""
+                                                                                                        width="16"
+                                                                                                        height="14"
+                                                                                                        viewBox="0 0 20 16">
+                                                                                                        <path d="M8.695 16.682C4.06 12.382 1 9.536 1 6.065 1 3.219 3.178 1 5.95 1c1.566 0 3.069.746 4.05 1.915C10.981 1.745 12.484 1 14.05 1 16.822 1 19 3.22 19 6.065c0 3.471-3.06 6.316-7.695 10.617L10 17.897l-1.305-1.215z"
+                                                                                                                fill="#437C17"
+                                                                                                                class=""
+                                                                                                                stroke="#FFF"
+                                                                                                                fill-rule="evenodd"
+                                                                                                                opacity=".9">
+                                                                                                        </path>
+                                                                                                </svg>
+                                                                                                <div
+                                                                                                        class="small-drop-list-name">
+                                                                                                        Wishlist</div>
+                                                                                        </a></li> -->
+                                                                                <!-- <li class="small-drop-li"><a
+                                                                                                class="small-drop-li-a small-drop-list-a"
+                                                                                                href=""><svg
+                                                                                                        xmlns="http://www.w3.org/2000/svg"
+                                                                                                        width="16"
+                                                                                                        height="12"
+                                                                                                        class=""
+                                                                                                        viewBox="0 0 16 16">
+                                                                                                        <g fill="none"
+                                                                                                                fill-rule="evenodd">
+                                                                                                                <path fill="#FFF"
+                                                                                                                        d="M0 0h16v16H0z">
+                                                                                                                </path>
+                                                                                                                <path fill="#437C17"
+                                                                                                                        d="M16 9.25v2.5c0 .69-.597 1.25-1.333 1.25H1.333C.597 13 0 12.44 0 11.75v-2.5c.736 0 1.333-.56 1.333-1.25S.736 6.75 0 6.75v-2.5C0 3.56.597 3 1.333 3h13.334C15.403 3 16 3.56 16 4.25v2.5c-.736 0-1.333.56-1.333 1.25S15.264 9.25 16 9.25zM4.4 3.625v1.25h.533v-1.25H4.4zm0 2.5v1.25h.533v-1.25H4.4zm0 2.5v1.25h.533v-1.25H4.4zm0 2.5v1.25h.533v-1.25H4.4z">
+                                                                                                                </path>
+                                                                                                        </g>
+                                                                                                </svg>
+                                                                                                <div
+                                                                                                        class="small-drop-list-name">
+                                                                                                        Rewards</div>
+                                                                                        </a></li> -->
+                                                                                <li *ngIf="authService.currentLoginStatus"
+                                                                                        class="small-drop-li"><a
+                                                                                                class="small-drop-li-a small-drop-list-a"
+                                                                                                [routerLink]="['/ChangePassword']"><svg
+                                                                                                        width="16"
+                                                                                                        height="16"
+                                                                                                        class=""
+                                                                                                        viewBox="0 0 23 22"
+                                                                                                        xmlns="http://www.w3.org/2000/svg">
+                                                                                                        <g fill="none"
+                                                                                                                fill-rule="evenodd"
+                                                                                                                transform="translate(-9.694 -9)">
+                                                                                                                <ellipse cx="20.557"
+                                                                                                                        cy="20"
+                                                                                                                        rx="20.557"
+                                                                                                                        ry="20">
+                                                                                                                </ellipse>
+                                                                                                                <path
+                                                                                                                        d="M7 6h28v28H7z">
+                                                                                                                </path>
+                                                                                                                <path fill="#437C17"
+                                                                                                                        fill-rule="nonzero"
+                                                                                                                        d="M31.5 27v1.167a2.34 2.34 0 0 1-2.333 2.333H12.833a2.333 2.333 0 0 1-2.333-2.333V11.833A2.333 2.333 0 0 1 12.833 9.5h16.334a2.34 2.34 0 0 1 2.333 2.333V13H21a2.333 2.333 0 0 0-2.333 2.333v9.334A2.333 2.333 0 0 0 21 27h10.5zM21 24.667h11.667v-9.334H21v9.334zm4.667-2.917c-.97 0-1.75-.782-1.75-1.75s.78-1.75 1.75-1.75c.968 0 1.75.782 1.75 1.75s-.782 1.75-1.75 1.75z">
+                                                                                                                </path>
+                                                                                                        </g>
+                                                                                                </svg>
+                                                                                                <div
+                                                                                                        class="small-drop-list-name">
+                                                                                                        Change Password
+                                                                                                </div>
+                                                                                        </a></li>
+                                                                        </ul>
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                        </div>
+
+
+                                </div>
+                        </div>
+                        <div class="button-container d-none d-xl-block">
+                                <div class="btn-div">
+                                        <div class="btn-single-div btn-single">
+                                                <div class="btn-more-hover">
+                                                        <div class="btn-more">
+                                                                More
+
+                                                        </div>
+                                                        <div class=" small-dropdown-container ">
+
+                                                                <div class="small-container">
+                                                                        <div class="small-container-div">
+                                                                                <ul
+                                                                                        class="small-drop-list small-drop-ul">
+                                                                                        <!-- <li class="small-drop-li"><a
+                                                                                                        class="small-drop-li-a small-drop-list-a"
+                                                                                                        [routerLink]="['/profile/dashboard']"><svg
+                                                                                                                xmlns="http://www.w3.org/2000/svg"
+                                                                                                                width="16"
+                                                                                                                height="16"
+                                                                                                                class=""
+                                                                                                                viewBox="0 0 16 14">
+                                                                                                                <path fill="#437C17"
+                                                                                                                        fill-rule="nonzero"
+                                                                                                                        d="M7 .333A6.67 6.67 0 0 0 .333 7 6.67 6.67 0 0 0 7 13.667 6.67 6.67 0 0 0 13.667 7 6.67 6.67 0 0 0 7 .333zm0 2c1.107 0 2 .894 2 2 0 1.107-.893 2-2 2s-2-.893-2-2c0-1.106.893-2 2-2zM7 11.8a4.8 4.8 0 0 1-4-2.147C3.02 8.327 5.667 7.6 7 7.6c1.327 0 3.98.727 4 2.053A4.8 4.8 0 0 1 7 11.8z">
+                                                                                                                </path>
+                                                                                                        </svg>
+                                                                                                        <div
+                                                                                                                class="small-drop-list-name">
+                                                                                                                My
+                                                                                                                Profile
+                                                                                                        </div>
+                                                                                                </a></li> -->
+                                                                                        <!-- <li class="small-drop-li"><a
+                                                                                                        class="small-drop-li-a small-drop-list-a"
+                                                                                                        [routerLink]="['/profile/orderdetail']"><svg
+                                                                                                                xmlns="http://www.w3.org/2000/svg"
+                                                                                                                width="16"
+                                                                                                                height="12"
+                                                                                                                class=""
+                                                                                                                viewBox="0 0 16 12">
+                                                                                                                <g fill="none"
+                                                                                                                        fill-rule="evenodd">
+                                                                                                                        <path fill="#437C17"
+                                                                                                                                d="M6.038 11.682h8.407c.565 0 1.018-.38 1.13-.855V.847H.426v9.98c0 .475.452.855 1.017.855h2.232v-2.98H1.94L4.776 6l2.996 2.703H6.038v2.98z">
+                                                                                                                        </path>
+                                                                                                                </g>
+                                                                                                        </svg>
+                                                                                                        <div
+                                                                                                                class="small-drop-list-name">
+                                                                                                                Orders
+                                                                                                        </div>
+                                                                                                </a></li> -->
+                                                                                        <!-- <li class="small-drop-li"><a
+                                                                                                        class="small-drop-li-a small-drop-list-a"
+                                                                                                        [routerLink]="['/Wishlist']"><svg
+                                                                                                                xmlns="http://www.w3.org/2000/svg"
+                                                                                                                class=""
+                                                                                                                width="16"
+                                                                                                                height="14"
+                                                                                                                viewBox="0 0 20 16">
+                                                                                                                <path d="M8.695 16.682C4.06 12.382 1 9.536 1 6.065 1 3.219 3.178 1 5.95 1c1.566 0 3.069.746 4.05 1.915C10.981 1.745 12.484 1 14.05 1 16.822 1 19 3.22 19 6.065c0 3.471-3.06 6.316-7.695 10.617L10 17.897l-1.305-1.215z"
+                                                                                                                        fill="#437C17"
+                                                                                                                        class=""
+                                                                                                                        stroke="#FFF"
+                                                                                                                        fill-rule="evenodd"
+                                                                                                                        opacity=".9">
+                                                                                                                </path>
+                                                                                                        </svg>
+                                                                                                        <div
+                                                                                                                class="small-drop-list-name">
+                                                                                                                Wishlist
+                                                                                                        </div>
+                                                                                                </a></li> -->
+                                                                                        <!-- <li class="small-drop-li"><a
+                                                                                                        class="small-drop-li-a small-drop-list-a"
+                                                                                                        [routerLink]="['/compareList']"><svg
+                                                                                                                xmlns="http://www.w3.org/2000/svg"
+                                                                                                                width="16"
+                                                                                                                height="12"
+                                                                                                                class=""
+                                                                                                                viewBox="0 0 16 16">
+                                                                                                                <g fill="none"
+                                                                                                                        fill-rule="evenodd">
+                                                                                                                        <path fill="#FFF"
+                                                                                                                                d="M0 0h16v16H0z">
+                                                                                                                        </path>
+                                                                                                                        <path fill="#437C17"
+                                                                                                                                d="M16 9.25v2.5c0 .69-.597 1.25-1.333 1.25H1.333C.597 13 0 12.44 0 11.75v-2.5c.736 0 1.333-.56 1.333-1.25S.736 6.75 0 6.75v-2.5C0 3.56.597 3 1.333 3h13.334C15.403 3 16 3.56 16 4.25v2.5c-.736 0-1.333.56-1.333 1.25S15.264 9.25 16 9.25zM4.4 3.625v1.25h.533v-1.25H4.4zm0 2.5v1.25h.533v-1.25H4.4zm0 2.5v1.25h.533v-1.25H4.4zm0 2.5v1.25h.533v-1.25H4.4z">
+                                                                                                                        </path>
+                                                                                                                </g>
+                                                                                                        </svg>
+                                                                                                        <div
+                                                                                                                class="small-drop-list-name">
+                                                                                                                Compare
+                                                                                                        </div>
+                                                                                                </a></li> -->
+                                                                                        <li class="small-drop-li"><a
+                                                                                                        class="small-drop-li-a small-drop-list-a"
+                                                                                                        href=""><svg
+                                                                                                                width="16"
+                                                                                                                height="16"
+                                                                                                                class=""
+                                                                                                                viewBox="0 0 23 22"
+                                                                                                                xmlns="http://www.w3.org/2000/svg">
+                                                                                                                <g fill="none"
+                                                                                                                        fill-rule="evenodd"
+                                                                                                                        transform="translate(-9.694 -9)">
+                                                                                                                        <ellipse cx="20.557"
+                                                                                                                                cy="20"
+                                                                                                                                rx="20.557"
+                                                                                                                                ry="20">
+                                                                                                                        </ellipse>
+                                                                                                                        <path
+                                                                                                                                d="M7 6h28v28H7z">
+                                                                                                                        </path>
+                                                                                                                        <path fill="#437C17"
+                                                                                                                                fill-rule="nonzero"
+                                                                                                                                d="M31.5 27v1.167a2.34 2.34 0 0 1-2.333 2.333H12.833a2.333 2.333 0 0 1-2.333-2.333V11.833A2.333 2.333 0 0 1 12.833 9.5h16.334a2.34 2.34 0 0 1 2.333 2.333V13H21a2.333 2.333 0 0 0-2.333 2.333v9.334A2.333 2.333 0 0 0 21 27h10.5zM21 24.667h11.667v-9.334H21v9.334zm4.667-2.917c-.97 0-1.75-.782-1.75-1.75s.78-1.75 1.75-1.75c.968 0 1.75.782 1.75 1.75s-.782 1.75-1.75 1.75z">
+                                                                                                                        </path>
+                                                                                                                </g>
+                                                                                                        </svg>
+                                                                                                        <div
+                                                                                                                class="small-drop-list-name">
+                                                                                                                Gift
+                                                                                                                Cards
+                                                                                                        </div>
+                                                                                                </a></li>
+                                                                                </ul>
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+
+                                                </div>
+                                        </div><svg width="4.7" height="8" viewBox="0 0 16 27"
+                                                xmlns="http://www.w3.org/2000/svg" class="more-arrow">
+                                                <path d="M16 23.207L6.11 13.161 16 3.093 12.955 0 0 13.161l12.955 13.161z"
+                                                        fill="#fff" class="down-arrow-path"></path>
+                                        </svg>
+
+                                </div>
+                        </div>
+                        <div class="button-container">
+                                <div class="btn-single-div">
+                                        <div class="header-cart"><a class="cart-link" [routerLink]="['/CartItem']"><svg
+                                                                class="cart-icon" width="14" height="14"
+                                                                viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                                                <path class="icon-path"
+                                                                        d="M15.32 2.405H4.887C3 2.405 2.46.805 2.46.805L2.257.21C2.208.085 2.083 0 1.946 0H.336C.1 0-.064.24.024.46l.644 1.945L3.11 9.767c.047.137.175.23.32.23h8.418l-.493 1.958H3.768l.002.003c-.017 0-.033-.003-.05-.003-1.06 0-1.92.86-1.92 1.92s.86 1.92 1.92 1.92c.99 0 1.805-.75 1.91-1.712l5.55.076c.12.922.91 1.636 1.867 1.636 1.04 0 1.885-.844 1.885-1.885 0-.866-.584-1.593-1.38-1.814l2.423-8.832c.12-.433-.206-.86-.655-.86"
+                                                                        fill="#fff"></path>
+                                                        </svg>
+                                                        <div class="badge-div">{{cartItemlength?cartItemlength:0}}</div><span>Cart</span>
+                                                </a></div>
+                                        <div class="cartheadertwo dropdown-menu dropdown-menu-single-row"
+                                                aria-labelledby="navbarDropdownMenuLink">
+                                                <ul class="dropdown-menu-items cartdropdownformer">
+                                                        <li>
+                                                                <span class="cartdropdownformerheader"> <a
+                                                                              
+                                                                                class="main-item dropdown-menu-link">ORDER
+                                                                                SUMMARY</a>
+                                                                </span>
+                                                                <span class="cartdropdownlaterheader">
+                                                                        {{cartItemlength?cartItemlength:0}} Items
+                                                                </span>
+                                                                <!-- <span *ngIf="!authService.currentLoginStatus" class="cartdropdownlaterheader">
+                                                    {{(localcartitem | async).length}} Items
+                                                </span> -->
+
+                                                        </li>
+                                                        <li *ngFor="let item of cartitem" class="main-item">
+                                                                <span class="cartdropdownformernonheader ">
+                                                                        <a  class="dropdown-menu-link">
+                                                                                {{item.productName}}</a>
+
+                                                                </span>
+                                                                <div class="cartdropdownlaternonheader">
+                                                                        Qty:
+                                                                        {{item.quantity}}
+                                                                </div>
+                                                        </li>
+                                                        <li>
+                                                        <li *ngIf="cartItemlength > 0">
+                                                                <a [routerLink]="['/CartItem']"
+                                                                        class="dropdown-menu-link">
+                                                                        <span class=" proceedtocart">
+                                                                                PROCEED TO CART
+                                                                        </span></a>
+                                                        </li>
+                                                        <li *ngIf="cartItemlength === 0 || !cartItemlength ">
+                                                                <span class=" proceedtocart">
+                                                                        NO ITEMS IN CART !
+                                                                </span>
+                                                        </li>
+                                                </ul>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+                <div class="single-div"></div>
+        </div>
+        <div class="single2-div"></div>
+</div>
+<div style="background-color: darkgoldenrod;height: 50px;" class="row  d-sm-none">
+        <div class="col-12">
+                <div class="header-long-search ml-4">
+                        <form class="header-search header-form-search">
+                                <div class="col-12  search-input-container">
+                                        <div class="search-input-div"><input type="text" value="" class="search-input"
+                                                        title="Search for products, brands and more" name="q"
+                                                        autocomplete="off"
+                                                        placeholder="Search for products, brands and more"
+                                                        (input)="open()"  (click)="open()" [(ngModel)]="autocompleteData"
+                                                        [formControl]="queryField" id="keyword"></div><button
+                                                class="search-button" [routerLink]="['/search',queryField.value]"><svg width="20" height="20"
+                                                        viewBox="0 0 17 18" class="" xmlns="http://www.w3.org/2000/svg">
+                                                        <g fill="#437C17" fill-rule="evenodd">
+                                                                <path class="path-div"
+                                                                        d="m11.618 9.897l4.225 4.212c.092.092.101.232.02.313l-1.465 1.46c-.081.081-.221.072-.314-.02l-4.216-4.203">
+                                                                </path>
+                                                                <path class="path-div"
+                                                                        d="m6.486 10.901c-2.42 0-4.381-1.956-4.381-4.368 0-2.413 1.961-4.369 4.381-4.369 2.42 0 4.381 1.956 4.381 4.369 0 2.413-1.961 4.368-4.381 4.368m0-10.835c-3.582 0-6.486 2.895-6.486 6.467 0 3.572 2.904 6.467 6.486 6.467 3.582 0 6.486-2.895 6.486-6.467 0-3.572-2.904-6.467-6.486-6.467">
+                                                                </path>
+                                                        </g>
+                                                </svg></button>
+
+                                </div>
+                                <div *ngIf="show && resultslen && results" class="stock-search-result">
+                                        <div style="cursor: pointer;" *ngFor="let stock of results"
+                                                class="search-result-item row" (click)="AutoCompleteSearch(stock.product_name)">
+                                                <div class="search-result-image col-1 ml-3">
+                                                        <img [src]="[stock.product_imgpath]" [alt]="stock.product_name"
+                                                                style="width: 18px; height: 25px;" />
+                                                </div>
+                                                <div class="search-result-name col-8">
+                                                        <p>{{ stock.product_name }}</p>
+                                                </div>
+                                                <hr>
+                                        </div>
+                                </div>
+                                <ul class="col-12-12 header-ul-padding"></ul>
+                        </form>
+
+                </div>
+        </div>
+
+</div>
+<div class="main-drop-container d-none d-lg-block">
+        <div class="main-drop-container-div main-drop-div">
+                <ul class="main-drop-div-ul">
+                        <li *ngFor="let navitem of HeaderItem" class="main-drop-div-li main-drop-li"><span
+                                        [routerLink]="['/category',navitem.category_name,navitem.id]"
+                                        class="main-drop-span main-drop-name">{{navitem.category_name}}<svg width="4.7"
+                                                height="8" viewBox="0 0 16 27" xmlns="http://www.w3.org/2000/svg"
+                                                class="main-drop-down-icon">
+                                                <path d="M16 23.207L6.11 13.161 16 3.093 12.955 0 0 13.161l12.955 13.161z"
+                                                        fill="#fff" class="main-drop-icon-path"></path>
+                                        </svg></span>
+
+                                <div class="custom-drop-down">
+                                        <ul class="drop-down-container">
+                                                <li class="drop-down-list drop-down-li">
+                                                        <ul class="drop-down-ul drop-down-ul-list">
+                                                                <li *ngFor="let navchil of navitem.children"
+                                                                        class="drop-down-list">
+                                                                        <ul class="custom-drop-ul">
+                                                                                <li
+                                                                                        class="custom-drop-li  custom-drop-lis custom-drop-list custom-drop-down-list">
+                                                                                        <a [routerLink]="['/category',navchil.name,navchil.id]"
+                                                                                                title="{{navchil.name}}"
+                                                                                                href="">{{navchil.name}}<span
+                                                                                                        class="custom-drop-down-lspan"></span></a>
+                                                                                </li>
+                                                                                <li *ngFor="let item of navchil.children"
+                                                                                        class="custom-drop-li custom-drop-down-list">
+                                                                                        <a [routerLink]="['/category',item.name,item.id]"
+                                                                                                title="{{item.name}}"
+                                                                                                href="">{{item.name}}</a>
+                                                                                </li>
+                                                                                <!-- <li class="custom-drop-li custom-drop-down-list"><a title="Realme"
+                                                                href="">Realme</a>
+                                                        </li>
+                                                        <li class="custom-drop-li custom-drop-down-list"><a title="Samsung"
+                                                                href="">Samsung</a>
+                                                        </li>
+                                                        <li class="custom-drop-li custom-drop-down-list"><a title="Infinix"
+                                                                href="">Infinix</a>
+                                                        </li>
+                                                        <li class="custom-drop-li custom-drop-down-list"><a title="OPPO"
+                                                                href="">OPPO</a>
+                                                        </li>
+                                                        <li class="custom-drop-li custom-drop-down-list"><a title="Apple"
+                                                                href="">Apple</a>
+                                                        </li>
+                                                        <li class="custom-drop-li custom-drop-down-list"><a title="Vivo"
+                                                                href="">Vivo</a>
+                                                        </li>
+                                                        <li class="custom-drop-li custom-drop-down-list"><a title="Honor"
+                                                                href="">Honor</a>
+                                                        </li>
+                                                        <li class="custom-drop-li custom-drop-down-list"><a title="Asus"
+                                                                href="">Asus</a>
+                                                        </li>
+                                                        <li class="custom-drop-li custom-drop-down-list"><a title="Poco X2"
+                                                                href="">Poco
+                                                                X2</a></li>
+                                                        <li class="custom-drop-li custom-drop-down-list"><a title="realme Narzo 10"
+                                                                href="">realme
+                                                                Narzo 10</a></li>
+                                                        <li class="custom-drop-li custom-drop-down-list"><a title="Infinix Hot 9"
+                                                                href="">Infinix
+                                                                Hot 9</a></li>
+                                                        <li class="custom-drop-li custom-drop-down-list"><a title="IQOO 3"
+                                                                href="">IQOO
+                                                                3</a></li>
+                                                        <li class="custom-drop-li custom-drop-down-list"><a title="iPhone SE"
+                                                                href="">iPhone
+                                                                SE</a></li>
+                                                        <li class="custom-drop-li custom-drop-down-list"><a title="Motorola razr"
+                                                                href="">Motorola
+                                                                razr</a></li>
+                                                        <li class="custom-drop-li custom-drop-down-list"><a title="realme Narzo 10A"
+                                                                href="">realme
+                                                                Narzo 10A</a></li>
+                                                        <li class="custom-drop-li custom-drop-down-list"><a title="Motorola g8 power lite"
+                                                                href="">Motorola
+                                                                g8 power lite</a></li> -->
+                                                                        </ul>
+                                                                </li>
+                                                                <!-- <li class="drop-down-list">
+                                                    <ul class="custom-drop-ul">
+                                                        <li class="custom-drop-li custom-drop-lis custom-drop-list custom-drop-down-list"><a title="Mobile Accessories"
+                                                                href="">Mobile
+                                                                Accessories<span class="custom-drop-down-lspan"></span></a></li>
+                                                        <li class="custom-drop-li custom-drop-down-list"><a title="Mobile Cases"
+                                                                href="">Mobile
+                                                                Cases</a></li>
+                                                        <li class="custom-drop-li custom-drop-down-list"><a title="Headphones &amp; Headsets"
+                                                                href="">Headphones
+                                                                &amp; Headsets</a></li>
+                                                        <li class="custom-drop-li custom-drop-down-list"><a title="Power Banks"
+                                                                href="">Power
+                                                                Banks</a></li>
+                                                        <li class="custom-drop-li custom-drop-down-list"><a title="Screenguards"
+                                                                href="">Screenguards</a>
+                                                        </li>
+                                                        <li class="custom-drop-li custom-drop-down-list"><a title="Memory Cards"
+                                                                href="">Memory
+                                                                Cards</a></li>
+                                                        <li class="custom-drop-li custom-drop-down-list"><a title="Smart Headphones"
+                                                                href="">Smart
+                                                                Headphones</a></li>
+                                                        <li class="custom-drop-li custom-drop-down-list"><a title="Mobile Cables"
+                                                                href="">Mobile
+                                                                Cables</a></li>
+                                                        <li class="custom-drop-li custom-drop-down-list"><a title="Mobile Chargers"
+                                                                href="">Mobile
+                                                                Chargers</a></li>
+                                                        <li class="custom-drop-li custom-drop-down-list"><a title="Mobile Holders"
+                                                                href="">Mobile
+                                                                Holders</a></li>
+                                                        <li class="custom-drop-li custom-drop-lis custom-drop-list custom-drop-down-list"><a title="Smart Wearable Tech"
+                                                                href="">Smart
+                                                                Wearable Tech<span class="custom-drop-down-lspan"></span></a></li>
+                                                        <li class="custom-drop-li custom-drop-down-list"><a title="Smart Watches"
+                                                                href="">Smart
+                                                                Watches</a></li>
+                                                        <li class="custom-drop-li custom-drop-down-list"><a title="Smart Glasses (VR)"
+                                                                href="">Smart
+                                                                Glasses (VR)</a></li>
+                                                        <li class="custom-drop-li custom-drop-down-list"><a title="Smart Bands"
+                                                                href="">Smart
+                                                                Bands</a></li>
+                                                        <li class="custom-drop-li custom-drop-lis custom-drop-list custom-drop-down-list"><a title="Health Care Appliances"
+                                                                href="">Health
+                                                                Care Appliances<span class="custom-drop-down-lspan"></span></a></li>
+                                                        <li class="custom-drop-li custom-drop-down-list"><a title="Bp Monitors"
+                                                                href="">Bp
+                                                                Monitors</a></li>
+                                                        <li class="custom-drop-li custom-drop-down-list"><a title="Weighing Scale"
+                                                                href="">Weighing
+                                                                Scale</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="drop-down-list">
+                                                    <ul class="custom-drop-ul">
+                                                        <li class="custom-drop-li custom-drop-lis custom-drop-list custom-drop-down-list"><a title="Laptops"
+                                                                href="">Laptops<span
+                                                                    class="custom-drop-down-lspan"></span></a></li>
+                                                        <li class="custom-drop-li custom-drop-down-list"><a title="Gaming Laptops"
+                                                                href="">Gaming
+                                                                Laptops</a></li>
+                                                        <li class="custom-drop-li custom-drop-lis custom-drop-list custom-drop-down-list"><a title="Desktop PCs"
+                                                                href="">Desktop
+                                                                PCs<span class="custom-drop-down-lspan"></span></a></li>
+                                                        <li class="custom-drop-li custom-drop-lis custom-drop-list custom-drop-down-list"><a title="Gaming &amp; Accessories"
+                                                                href="">Gaming
+                                                                &amp; Accessories<span class="custom-drop-down-lspan"></span></a></li>
+                                                        <li class="custom-drop-li custom-drop-lis custom-drop-list custom-drop-down-list"><a title="Computer Accessories"
+                                                                href="">Computer
+                                                                Accessories<span class="custom-drop-down-lspan"></span></a></li>
+                                                        <li class="custom-drop-li custom-drop-down-list"><a title="External Hard Disks"
+                                                                href="">External
+                                                                Hard Disks</a></li>
+                                                        <li class="custom-drop-li custom-drop-down-list"><a title="Pendrives"
+                                                                href="">Pendrives</a>
+                                                        </li>
+                                                        <li class="custom-drop-li custom-drop-down-list"><a title="Laptop Skins &amp; Decals"
+                                                                href="">Laptop
+                                                                Skins &amp; Decals</a></li>
+                                                        <li class="custom-drop-li custom-drop-down-list"><a title="Laptop Bags"
+                                                                href="">Laptop
+                                                                Bags</a></li>
+                                                        <li class="custom-drop-li custom-drop-down-list"><a title="Mouse"
+                                                                href="">Mouse</a>
+                                                        </li>
+                                                        <li class="custom-drop-li custom-drop-lis custom-drop-list custom-drop-down-list"><a title="Computer Peripherals"
+                                                                href="">Computer
+                                                                Peripherals<span class="custom-drop-down-lspan"></span></a></li>
+                                                        <li class="custom-drop-li custom-drop-down-list"><a title="Printers &amp; Ink Cartridges"
+                                                                href="">Printers
+                                                                &amp; Ink Cartridges</a></li>
+                                                        <li class="custom-drop-li custom-drop-down-list"><a title="Monitors"
+                                                                href="">Monitors</a>
+                                                        </li>
+                                                        <li class="custom-drop-li custom-drop-lis custom-drop-list custom-drop-down-list"><a title="Tablets"
+                                                                href="">Tablets<span
+                                                                    class="custom-drop-down-lspan"></span></a></li>
+                                                        <li class="custom-drop-li custom-drop-down-list"><a title="Apple iPads"
+                                                                href="">Apple
+                                                                iPads</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="drop-down-list">
+                                                    <ul class="custom-drop-ul">
+                                                        <li class="custom-drop-li custom-drop-down-list"><a title="Televisions"
+                                                                href="">Televisions</a>
+                                                        </li>
+                                                        <li class="custom-drop-li custom-drop-lis custom-drop-list custom-drop-down-list"><a title="Speakers"
+                                                                href="">Speakers<span
+                                                                    class="custom-drop-down-lspan"></span></a></li>
+                                                        <li class="custom-drop-li custom-drop-down-list"><a title="Home Audio Speakers"
+                                                                href="">Home
+                                                                Audio Speakers</a></li>
+                                                        <li class="custom-drop-li custom-drop-down-list"><a title="Home Theatres"
+                                                                href="">Home
+                                                                Theatres</a></li>
+                                                        <li class="custom-drop-li custom-drop-down-list"><a title="Soundbars"
+                                                                href="">Soundbars</a>
+                                                        </li>
+                                                        <li class="custom-drop-li custom-drop-down-list"><a title="Bluetooth Speakers"
+                                                                href="">Bluetooth
+                                                                Speakers</a></li>
+                                                        <li class="custom-drop-li custom-drop-down-list"><a title="DTH Set Top Box"
+                                                                href="">DTH
+                                                                Set Top Box</a></li>
+                                                        <li class="custom-drop-li custom-drop-lis custom-drop-list custom-drop-down-list"><a title="Smart Home Automation"
+                                                                href="">Smart
+                                                                Home Automation<span class="custom-drop-down-lspan"></span></a></li>
+                                                        <li class="custom-drop-li custom-drop-down-list"><a title="Google Nest"
+                                                                href="">Google
+                                                                Nest</a></li>
+                                                        <li class="custom-drop-li custom-drop-lis custom-drop-list custom-drop-down-list"><a title="Camera"
+                                                                href="">Camera<span
+                                                                    class="custom-drop-down-lspan"></span></a></li>
+                                                        <li class="custom-drop-li custom-drop-down-list"><a title="DSLR &amp; Mirrorless"
+                                                                href="">DSLR
+                                                                &amp; Mirrorless</a></li>
+                                                        <li class="custom-drop-li custom-drop-down-list"><a title="Compact &amp; Bridge Cameras"
+                                                                href="">Compact
+                                                                &amp; Bridge Cameras</a></li>
+                                                        <li class="custom-drop-li custom-drop-down-list"><a title="Sports &amp; Action"
+                                                                href="">Sports
+                                                                &amp; Action</a></li>
+                                                        <li class="custom-drop-li custom-drop-lis custom-drop-list custom-drop-down-list"><a title="Camera Accessories"
+                                                                href="">Camera
+                                                                Accessories<span class="custom-drop-down-lspan"></span></a></li>
+                                                        <li class="custom-drop-li custom-drop-down-list"><a title="Lens"
+                                                                href="">Lens</a>
+                                                        </li>
+                                                        <li class="custom-drop-li custom-drop-down-list"><a title="Tripods"
+                                                                href="">Tripods</a>
+                                                        </li>
+                                                        <li class="custom-drop-li custom-drop-lis custom-drop-list custom-drop-down-list"><a title="Network Components"
+                                                                href="">Network
+                                                                Components<span class="custom-drop-down-lspan"></span></a></li>
+                                                        <li class="custom-drop-li custom-drop-down-list"><a title="Routers"
+                                                                href="">Routers</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li class="drop-down-list">
+                                                    <ul class="custom-drop-ul">
+                                                        <li class="custom-drop-li custom-drop-lis">Featured</li>
+                                                        <li class="custom-drop-li custom-drop-down-list"><a title="Google Assistant Store"
+                                                                href="">Google
+                                                                Assistant Store</a></li>
+                                                        <li class="custom-drop-li custom-drop-down-list"><a title="Laptops on Buyback Guarantee"
+                                                                href="">Laptops
+                                                                on Buyback Guarantee</a></li>
+                                                        <li class="custom-drop-li custom-drop-down-list"><a title="Flipkart SmartBuy"
+                                                                href="">Flipkart
+                                                                SmartBuy</a></li>
+                                                        <li class="custom-drop-li custom-drop-down-list"><a title="Li-Polymer Power Banks"
+                                                                href="">Li-Polymer
+                                                                Power Banks</a></li>
+                                                        <li class="custom-drop-li custom-drop-down-list"><a title="Sony PS4 Pro &amp; Slim"
+                                                                href="">Sony
+                                                                PS4 Pro &amp; Slim</a></li>
+                                                        <li class="custom-drop-li custom-drop-down-list"><a title="Apple Products"
+                                                                href="">Apple
+                                                                Products</a></li>
+                                                        <li class="custom-drop-li custom-drop-down-list"><a title="Microsoft Store"
+                                                                href="">Microsoft
+                                                                Store</a></li>
+                                                        <li class="custom-drop-li custom-drop-down-list"><a title="Lenovo Phab Series"
+                                                                href="">Lenovo
+                                                                Phab Series</a></li>
+                                                        <li class="custom-drop-li custom-drop-down-list"><a title="JBL Speakers"
+                                                                href="">JBL
+                                                                Speakers</a></li>
+                                                        <li class="custom-drop-li custom-drop-down-list"><a title="Smartphones On Buyback Guarantee"
+                                                                href="">Smartphones
+                                                                On Buyback Guarantee</a></li>
+                                                        <li class="custom-drop-li custom-drop-down-list"><a title="Philips"
+                                                                href="">Philips</a>
+                                                        </li>
+                                                        <li class="custom-drop-li custom-drop-down-list"><a title="Dr. Morepen"
+                                                                href="">Dr.
+                                                                Morepen</a></li>
+                                                        <li class="custom-drop-li custom-drop-down-list"><a title="Complete Mobile Protection"
+                                                                href="">Complete
+                                                                Mobile Protection</a></li>
+                                                        <li class="custom-drop-li custom-drop-down-list"><a title="Mobiles No Cost EMI"
+                                                                href="">Mobiles
+                                                                No Cost EMI</a></li>
+                                                        <li class="custom-drop-li custom-drop-down-list"><a title="Huawei Watch Gt 2e Smart Watch"
+                                                                href="">Huawei
+                                                                Watch Gt 2e Smart Watch</a></li>
+                                                    </ul>
+                                                </li> -->
+                                                        </ul>
+                                                </li>
+                                        </ul>
+                                </div>
+
+                        </li>
+
+
+
+                </ul>
+
+
+        </div>
+</div>

@@ -1,0 +1,27 @@
+ <div class="main-content">
+ 
+   <div class="content">
+       <div class="container-fluid">
+           <!-- <div class="row">
+               <div class="col-xs-12">
+                   <h1 class="display-inline-inline sku-page-cat">Categories for OTC Healthcare Products</h1>
+               </div>
+           </div> -->
+           <div class="row">
+               <div *ngFor="let item of categoriesitem" class="col-xlg-2 col-md-3 col-sm-4 col-xs-6">
+                   <a [routerLink]="['/category',item.name,item.id]">
+                       <div class="category-wrap text-center individual-category">
+                           <div itemprop="image" class="category-image"><img
+                                   src="{{item.mediaUrl}}"
+                                   alt="{{item.name}}">
+                               <div itemprop="name" class="category-name">{{item.name}}</div>
+                           </div>
+                       </div>
+                   </a></div>
+           </div>
+       </div>
+   </div>
+</div> 
+
+
+ 

@@ -1,0 +1,250 @@
+<div class="row">
+  <section  *ngIf="hide" class="login-block">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-xs-12 login-sec">
+          <h2 class="text-center">Forgot Your Password??</h2>
+          <form [formGroup]="phoneEmailUserNameForm"  class="login100-form validate-form">
+            <div class="wrap-input100 validate-input">
+              <span class="label-input100">UserName/Phone No/Email</span>
+              <input class="input100" formControlName="name" name="userName" type="text" required placeholder="Type your UserName or Email or Phone no">
+              <span class="focus-input100"></span>
+            </div>
+
+
+
+
+
+
+            <div class="container-login100-form-btn">
+              <div class="wrap-login100-form-btn">
+                <button (click)="toggle()" (click)=getPhoneEmailUserName(this.phoneEmailUserNameForm)  type="submit" class="btn btn-primary mr-2">
+                 GetCode
+                </button>
+                <button  (click)="navigateToLogin()" class="btn btn-primary mr-2">
+                  Cancel
+                </button>
+              </div>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- <div *ngIf="show" class="verification-form" style=" margin: 30px 20% 30px 20%;width: 50%;">
+    <div>
+      <h6>To protect your account security, we need to verify your identity</h6>
+      <h6>Please choose a way to verify</h6>
+
+      <div class="buttons" style=" background-color : yellow; padding:20px">
+       <h4 >Choose verification method</h4>
+       <div >
+        <a (click)="navigateToEmailsection()">
+          <button class= "verifyButton">
+            <div class="fa fa-envelope">
+            </div>
+            <span > Verify through Email</span>
+          </button>
+        </a>
+        <a (click)="toggle2()">
+          <button  class= "verifyButton">
+            <div class="fa fa-mobile" style="font-size: large; background-color : yellow;">
+            </div>
+            <span ><a >&nbsp; Verify through phone</a> </span>
+          </button>
+        </a>
+       </div>
+
+
+
+
+      </div>
+
+
+    </div>
+  </div> -->
+  <section  *ngIf="show" class="login-block">
+    <div class="container">
+      <div class="row" style=" background-color : #EAD1DE;">
+
+        <div class="col-md-12 login-sec">
+            <div class="container-login100-form-btn">
+
+              <div class="buttons" >
+                <h4 >Choose verification method</h4>
+                <div >
+                 <a (click)="navigateToEmailsection()">
+                   <button class= "verifyButton">
+                     <div class="fa fa-envelope">
+                     </div>
+                     <span > Verify through Email</span>
+                   </button>
+                 </a>
+                 <a (click)="toggle2()">
+                   <button  class= "verifyButton">
+                     <div class="fa fa-mobile" style=" background-color : yellow; ">
+                     </div>
+                     <span ><a >&nbsp; Verify through phone</a> </span>
+                   </button>
+                 </a>
+                </div>
+
+
+
+
+               </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- <div *ngIf="show2" class="verification-form" style=" margin: 30px 20% 30px 20%;width: 50%;">
+    <div style="padding:30px">
+      <h1>Verify directly through Phone</h1>
+      <hr><br>
+      <form [formGroup]="forgotByPhoneForm">
+        <div class="form-group" id="gotoverifybyPhone" >
+          <label for="phone">Phone Number</label> <br>
+          <label for="phone">Is this your Phone no??  {{this.userN}} </label>
+          <input formControlName="userName" name="phone" [(ngModel)]="phoneNumber" type="text" required class="form-control"
+            id="phone" placeholder="Write your correct Phone Number and Submit">
+        </div>
+        <a (click)="toggle3()">
+          <button type="submit" (click)=onSubmit(forgotByPhoneForm) class="btn btn-primary">Submit</button>
+
+        </a>
+        <a class="btn btn-success">Cancel</a>
+      </form>
+
+    </div>
+    <div *ngIf="show3" style="padding: 60px" >
+      <h1>Reset New Password</h1>
+      <hr><br>
+      <form [formGroup]="resetByPhoneForm">
+        <div class="form-group">
+          <label for="phone">UserName/Phone No</label>
+          <input formControlName="userName" name="confirmphone" [(ngModel)]="phoneNumber" type="text" required
+            class="form-control" id="confirmphone" placeholder="enter your PhoneNumber or UserName">
+        </div>
+        <div class="form-group">
+          <label for="phone">Code</label>
+          <input formControlName="code" name="captcha" type="text" required class="form-control" id="captcha"
+            placeholder="enter the code">
+        </div>
+        <div class="form-group">
+          <label for="phone">Password</label>
+          <input formControlName="password" name="password" type="password" required class="form-control" id="password"
+            placeholder="enter your new Password">
+        </div>
+        <div class="form-group">
+          <label for="phone">Confirm Password</label>
+          <input formControlName="confirmPassword" name="confirmPassword" type="password" required class="form-control"
+            id="confirmPassword" placeholder="Retype your Password">
+        </div>
+
+        <button type="submit" (click)=onregisterSubmit(resetByPhoneForm) class="btn btn-primary">Reset</button>
+        <a class="btn btn-success">Cancel</a>
+      </form>
+
+    </div>
+  </div> -->
+  <section  *ngIf="show2" class="login-block">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5 banner-sec">
+          <div class="signup__overlay">
+          <div class="banner">
+            <div id="demo" class="carousel slide carousel-fade" data-ride="carousel">
+              <ol class="carousel-indicators">
+                <li data-target="#demo" data-slide-to="0" class="active"></li>
+                <li data-target="#demo" data-slide-to="1"></li>
+
+              </ol>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img style="height: 320px;" src="../../../../assets/img/product_icon_passwordreset.png" class="img-fluid">
+                </div>
+               
+
+
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+        <div class="col-md-7 login-sec">
+          <h2 class="text-center">Verify directly through Phone</h2>
+          <form [formGroup]="forgotByPhoneForm"  class="login100-form validate-form">
+            <div class="wrap-input100 validate-input">
+              <span class="label-input100">UserName/Phone No/Email</span><br>
+              <label for="phone">Is this your Phone no??  {{this.userN}} </label>
+              <input class="input100" formControlName="userName" name="userName" [(ngModel)]="phoneNumber" type="text" required placeholder="Write your correct Phone Number and Submit">
+              <span class="focus-input100"></span>
+            </div>
+
+
+
+
+
+
+            <div class="container-login100-form-btn">
+              <div class="wrap-login100-form-btn">
+                <button (click)="toggle3()" (click)=onSubmit(forgotByPhoneForm)  type="submit" class="btn btn-primary mr-2">
+                Submit
+                </button>
+                <button  (click)="navigateToLogin()" class="btn btn-primary mr-2">
+                  Cancel
+                </button>
+              </div>
+            </div>
+
+          </form>
+        </div>
+        <div *ngIf="show3" class="col-md-10 login-sec">
+          <h2 class="text-center">Reset New Password</h2>
+          <form [formGroup]="resetByPhoneForm"  class="login100-form validate-form">
+            <div class="wrap-input100 validate-input">
+              <span class="label-input100">UserName/Phone No</span>
+              <input class="input100" formControlName="userName" name="userName" [(ngModel)]="phoneNumber" type="text" required placeholder="Write your correct Phone Number and Submit">
+              <span class="focus-input100"></span>
+            </div>
+            <div class="wrap-input100 validate-input">
+              <span class="label-input100">Code</span>
+              <input class="input100" formControlName="code" name="userName" type="text" required placeholder="Write your correct Phone Number and Submit">
+              <span class="focus-input100"></span>
+            </div>
+            <div class="wrap-input100 validate-input">
+              <span class="label-input100">Password</span>
+              <input class="input100" formControlName="password" name="userName"  type="password" required placeholder="Write your correct Phone Number and Submit">
+              <span class="focus-input100"></span>
+            </div>
+            <div class="wrap-input100 validate-input">
+              <span class="label-input100">Confirm Password</span>
+              <input class="input100" formControlName="confirmPassword" name="userName"  type="password" required placeholder="Write your correct Phone Number and Submit">
+              <span class="focus-input100"></span>
+            </div>
+
+
+
+
+
+
+            <div class="container-login100-form-btn">
+              <div class="wrap-login100-form-btn">
+                <button (click)=onregisterSubmit(resetByPhoneForm)  type="submit" class="btn btn-primary mr-2">
+                Reset
+                </button>
+                <button  (click)="navigateToLogin()" class="btn btn-primary mr-2">
+                  Cancel
+                </button>
+              </div>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>

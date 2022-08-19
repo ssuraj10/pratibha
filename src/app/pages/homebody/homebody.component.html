@@ -1,0 +1,113 @@
+<div class="All-product-container">
+    <div>
+        <div class="All-product-container-title">
+            <div class="sale-container-title"><span class="sale-container-heading">
+              SANDWICH
+                </span></div>
+                <!-- <span class="sale-container-viewall"><a
+                    class=""><button 
+                        class="btn sale-container-viewall-btn sale-container-btn sale-container-btn-info sale-container-btn-info-see ">SEE
+                        ALL</button></a></span> -->
+        </div>
+
+        <div class="slider-wrapper-container">
+            <div class="slider-wrapper-container-padding">
+                <div class="slider-padding-div">
+                    <div class="slick-slider slick-initialized" dir="ltr">
+
+                        <owl-carousel-o [options]="customOptions" (translated)="getPassedData($event)">
+                            <ng-container *ngFor="let item of allwidget" class="slick-list">
+                                <ng-template class="slider-padding-div bg-white" carouselSlide [width]="100">
+                                    <div class="slick-track"
+                                        style="width: 2196px; opacity: 1; background-color: white;transform: translate3d(0px, 0px, 0px);">
+
+                                        <div data-index="0" class="slick-slide slick-active slick-current mobilewidth"
+                                            tabindex="-1" aria-hidden="false"
+                                            style="outline: none; width: 187px;background-color: white;">
+                                            <div >
+                                                <div  data-index="0" style="width:100%;display:inline-block"
+                                                    tabindex="-1">
+                                                    <div class="slide-parent slide-parent-hover-effect"><a
+                                                            href="../productdetail/{{item.menu_name.split('(').join('+').split(')').join('+').split('/').join('+')}}/{{item.menu_id}}"
+                                                            class="slide-parent-item">
+                                                            <div class="slide-parent-image">
+                                                                <div class=""><img alt=" {{item.menu_name}}"
+                                                                        src="{{item.image}}"
+                                                                        title=" {{item.menu_name}}"
+                                                                        class="slide-parent-image-div"></div>
+                                                            </div>
+                                                            <div class="timer-container">
+                                                                <div
+                                                                    class="SaleCounter__small-font SaleCounter_deals-view">
+                                                                    <div class="SaleCounter_container">
+                                                                        <div *ngIf="item.is_featured==1"
+                                                                            class="SaleCounter_sale-tag">SALE
+                                                                        </div>
+                                                                        <div *ngIf="item.is_featured==1"
+                                                                            class="SaleCounter_container-img">
+                                                                            <img src="https://img.1mg.com/images/watch_icon.svg"
+                                                                                alt="1mg-recommended"
+                                                                                class="SaleCounter__small-icon SaleCounter_clock"><span
+                                                                                class="SaleCounter_clock-ends">Endsin</span>
+                                                                            <div class="SaleCounter_clock-duration">
+                                                                                <span>11</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="gird-counter-container">
+
+                                                            </div>
+                                                            <div
+                                                                class="gird-counter-container-name gird-counter-container-font">
+                                                                {{item.menu_name}}</div>
+
+                                                            <div class="CardRatingDetail_rating">
+                                                                <!-- <div class="CardRatingDetailratings-container"
+                                                                    style="background-color:#1AAB2A"><span
+                                                                        class="CardRatingDetail--weight">rating</span><svg
+                                                                        xmlns="http://www.w3.org/2000/svg" width="16"
+                                                                        height="15" viewBox="0 0 51 48">
+                                                                        <path fill="#ffffff" stroke="none"
+                                                                            d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z">
+                                                                        </path>
+                                                                    </svg></div> -->
+                                                                    <span
+                                                                    class="CardRatingDetail_ratings-header">10
+                                                                    ratings</span>
+                                                            </div>
+                                                            <div class="price-container-div ">
+                                                                <div>
+                                                                    <div><span
+                                                                            class="price-container-MRP">MRP</span><span
+                                                                            class=""><del> {{item.price}}</del>
+                                                                           </span><span
+                                                                            class="price-container-MRP-discount">0 %off
+                                                                            </span>
+                                                                    </div>
+                                                                    <div class="price-container-MRP-price">
+                                                                        रू {{item.price}}</div>
+                                                                </div>
+                                                            </div>
+                                                        </a></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+
+                                </ng-template>
+                            </ng-container>
+
+                        </owl-carousel-o>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+

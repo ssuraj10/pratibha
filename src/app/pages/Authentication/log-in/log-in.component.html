@@ -1,0 +1,88 @@
+
+<section class="login-block">
+  <div class="container">
+    <div class="row">
+      <div class="d-md-none col-lg-5 d-none d-sm-none d-lg-block banner-sec">
+        <div class="signup__overlay">
+        <div class="banner">
+          <div id="demo" class="carousel slide carousel-fade" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <li data-target="#demo" data-slide-to="0" class="active"></li>
+              <li data-target="#demo" data-slide-to="1"></li>
+              <li data-target="#demo" data-slide-to="2" ></li>
+              <li data-target="#demo" data-slide-to="3"></li>
+
+            </ol>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="https://static.pexels.com/photos/33972/pexels-photo.jpg" class="img-fluid">
+              </div>
+              <div class="carousel-item">
+                <img src="../../../../assets/img/php-login-and-authentication-the-definitive-guide.png" class="img-fluid">
+
+              </div>
+              <div class="carousel-item">
+                <img src="../../../../assets/img/happy-man-working-on-the-computer-in-the-office-vector-17652403.jpg" class="img-fluid">
+
+              </div>
+              <div class="carousel-item">
+                <img src="../../../../assets/img/login@4x.png" class="img-fluid">
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+      <div class="col-lg-7  col-xs-12 login-sec">
+        <h2 class="text-center">Login Now</h2>
+        <form [formGroup]="loginForm"  class="login100-form validate-form">
+          <div class="wrap-input100 validate-input">
+            <span class="label-input100">Email</span>
+            <input class="input100" formControlName="username" name="email" type="email" required placeholder="Type your username">
+            <span class="focus-input100"></span>
+          </div>
+
+          <div class="wrap-input100 validate-input">
+            <span class="label-input100">Password</span>
+            <input class="input100" formControlName="password" name="password" type="password" required placeholder="Type your password">
+            <span class="focus-input100 password"></span>
+          </div>
+
+          <div class="text-right p-t-8 p-b-31">
+            <a (click)="gotoForgetPassword()">
+              Forgot password?
+            </a>
+          </div>
+
+          <div class="container-login100-form-btn">
+            <div class="wrap-login100-form-btn">
+              <button (click)="signin()"  class="btn btn-primary mr-2">
+                Login
+              </button>
+              <button [routerLink]="['/signUp']" class="btn btn-primary mr-2">
+                New User
+              </button>
+            </div>
+          </div>
+
+          <div class="txt1 text-center p-t-54 p-b-20">
+            <span>
+              Or Sign Up Using
+            </span>
+          </div>
+
+          <div class="flex-c-m">
+            <a (click)="signInWithFB()" class="login100-social-item bg1">
+              <i class="fa fa-facebook"></i>
+            </a>
+            <a (click)="signInWithGoogle()" class="login100-social-item bg3">
+              <i class="fa fa-google"></i>
+            </a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

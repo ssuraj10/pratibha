@@ -1,0 +1,34 @@
+<section class="product-review-form">
+    <button (click)="toggle()" type="button" class="collapsible">{{buttonName}}<i *ngIf="show===true"
+            class="fas fa-times float-right"></i><i *ngIf="show===false"
+            class="fas fa-arrow-down float-right"></i></button>
+
+    <div *ngIf="show" class="content">
+        <form [formGroup]="ReviewForm">
+            <div class="row">
+                <div class="col-sm-2">
+                    <pre>Rate: <b>{{selectedValue?selectedValue:0}}</b></pre>
+                </div>
+                <div class="col-sm-12">
+                    <ul class="list-inline rating-list" *ngFor="let star of stars" style="display: inline-block">
+                        <li (click)="countStar(star)" [ngClass]="{'selected': (star <= selectedValue)}">
+                            <i class="fa fa-star"></i>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <label>TITLE <input class="form-control" formControlName="title" /></label>
+            <textarea class="form-control animated" formControlName="reviewText" cols="50" id="new-review"
+                name="comment" placeholder="Enter your review here..." rows="5"></textarea>
+
+            <div class="text-right">
+                <div class="stars starrr" data-rating="0"></div>
+                <a class="btn btn-danger btn-sm" (click)="onCancel()" id="close-review-box" style="margin-right: 10px;">
+                    <span class="glyphicon glyphicon-remove"></span>Clear</a>
+                <button (click)="onSubmit()" class="btn btn-success" type="submit">COMMENT</button>
+            </div>
+        </form>
+    </div>
+</section>

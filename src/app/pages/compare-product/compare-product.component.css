@@ -1,0 +1,107 @@
+.compare-section{
+    display: block;
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+.container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+.col-compare{
+    flex: 0 0 100%;
+    max-width: 100%;
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+.compare-div{
+    position: relative;
+    display: block;
+}
+.compare-list{
+    position: relative;
+    display: block;
+}
+.compare-track{
+    position: relative;
+    left: 0;
+    top: 0;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.compare-active{
+    float: left;
+    height: 100%;
+    min-height: 1px;
+max-width: 35%;
+    background-color: white;
+}
+.compare-section .compare-active>div {
+    border: 1px solid #ddd;
+ 
+}
+.compare-section .compare-part {
+    position: relative;
+}
+.compare-section .compare-part .close-btn {
+    background-color: initial;
+    border: none;
+    font-size: 25px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.compare-section .compare-part .img-secton {
+    padding: 0 15px 15px;
+}
+.compare-section .compare-part .img-secton img {
+    width: 50%;
+    margin: 0 auto;
+    padding-top: 25px;
+}
+.compare-active img {
+    display: block;
+}
+.compare-section .compare-part .detail-part .title-detail {
+    background-color: #f7f8fa;
+    text-align: center;
+    padding: 8px 0;
+    border-top: 1px solid #dbdbdb;
+    border-bottom: 1px solid #dbdbdb;
+}
+.compare-section .compare-part .detail-part .inner-detail {
+    padding: 15px;
+}
+.compare-section .compare-part .btn-part {
+    text-align: center;
+    padding: 15px;
+    border-top: 1px solid #ddd;
+}
+.compare-section .compare-part .btn-part .btn-solid {
+    padding: 5px 10px;
+    border: 2px solid #ff4c3b;
+    background-size: 540px;
+    background-repeat: no-repeat;
+    background-position: 0;
+    transition: background .3s ease-in-out;
+
+}
+.btn-solid {
+    line-height: 20px;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 0;
+}

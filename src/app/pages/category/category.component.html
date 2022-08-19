@@ -1,0 +1,196 @@
+<div class="category-container">
+    <div class="row">
+        <div class="hidden-xs col-md-3 	col-lg-2 col-sm-4">
+         
+        </div>
+        <div class="col-xs-12 col-md-9 	col-lg-10 col-sm-8">
+
+            <app-bread-crumb></app-bread-crumb>
+
+            <h1 class="category-title">{{categoryName}}</h1>
+            <div class="list-container">
+                <div *ngIf="catorvenpage=='Vendor'">
+                    <app-vendor-header></app-vendor-header>
+                </div>
+
+                <div class="row ">
+
+                    <div class="col-sm-6">
+
+                        <h1 class="list-container-title marginBottom">All Products</h1><span class="sub-title">{{page}}
+                            - {{totalpage}} of
+                            {{pagelength}}
+                            products</span>
+                        <div class="sale-container"></div>
+                    </div>
+                    <div class="hidden-xs col-sm-6 text-right">
+                        <div class="sort-container" style="margin-right: 15px;">
+                            <select id="sort-by" (change)="sort($event)">
+                                <option value="" selected disabled hidden> Sort By: -select-</option>
+                                <option value="product_name">Asc to Des</option>
+                                <option value="Low"> Low to High Price</option>
+                                <option value="High">High to Low Price</option>
+                            </select>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row grid-container">
+                    <div *ngFor="let item of categorieslist | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize;index as i"
+                        class="col-md-6 col-lg-3 col-sm-6 col-6 grid-container-div ">
+
+                        <div class="product-box">
+                            <div class="icon-div">
+                                <i title="Compare" (click)="Compare(item)" class="fa fa-bar-chart mr-2 float-right"
+                                    aria-hidden="true" style="cursor: pointer;"></i>
+                                <i title="Detail" (click)="getproductbyid(item)" data-toggle="modal"
+                                    data-target="#exampleModalCenter" class="fa fa-window-maximize mr-2 float-right"
+                                    aria-hidden="true" style="cursor: pointer;"></i>
+                            </div>
+
+                            <a href="../productdetail/{{(item.menu_name?item.menu_name:item.menu_name).split('(').join('+').split(')').join('+').split('/').join('+')}}/{{item.menu_id?item.menu_id:item.menu_id}}/{{categoryId}}">
+                                <div class="product-image">
+
+
+                                    <img alt="{{item.menu_name?item.menu_name:item.menu_name}}" src="{{item.image?item.image:item.image}}" title="{{item.menu_name?item.menu_name:item.menu_name}}"
+                                        class="product-image-div product-image-loaded">
+
+
+                                </div>
+                                <div class="timer-container">
+                                    <div class="SaleCounter__small-font SaleCounter_deals-view">
+                                        <div class="SaleCounter_container">
+                                            <div  class="SaleCounter_sale-tag">SALE
+                                            </div>
+                                            <div *ngIf="item.is_featured==1" class="SaleCounter_container-img">
+                                                <img src="https://img.1mg.com/images/watch_icon.svg"
+                                                    alt="1mg-recommended"
+                                                    class="SaleCounter__small-icon SaleCounter_clock">Ends in
+                                                <div class="SaleCounter_clock-duration">
+                                                    <span *ngIf="item.is_featured">{{item.is_featured | timersalesEnd}}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="product-description">
+                                    <div class="pro-title">
+                                        {{item.menu_name?item.menu_name:item.menu_name}}</div>
+                                    <div class="pack-size">{{item.menu_name?item.menu_name:item.menu_name}}</div>
+                                </div>
+                               
+
+                                <div class="product-pricing">
+
+                                    <div><span class="MRP-tag">MRP</span><span
+                                            class="discount-price"> रू{{item.price?item.price:0}}</span><span
+                                            class="badge-off">{{item.product_discount?item.product_discount:0}}% off</span></div>
+                                    <div class="price-tag"> रू<span itemprop="price">{{item.price?item.price:item.price}}</span>
+                                    </div>
+
+                                </div>
+                            </a>
+
+
+
+
+
+                            <span  class="wrapper-add-cart">
+                                <div class="wrapper-add-cart-category cart-button">
+                                    <div  (click)="onAddProductToCart(item)"
+                                        class="button-interaction">ADD</div>
+
+                                </div>
+                             
+
+                            </span>
+
+                        </div>
+
+
+
+
+                    </div>
+
+                </div>
+                <div class="container d-flex justify-content-center">
+                    <div class="">
+                        <div class="">
+                            <ngb-pagination [collectionSize]="pagelength" [(page)]="page"
+                                aria-label="Default pagination"></ngb-pagination>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div *ngIf="Categoryproduct as item" class="modal-content">
+            <div class="modal-body">
+
+                <div class="container">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <div class="row">
+                        <div class="col-5">
+                            <img style="height: 250px;width: 200px;" src="{{item.image}}" />
+                        </div>
+                        <div class="col-7">
+                            <h1><strong>{{item.menu_name}}</strong></h1>
+                            <h5>${{item.price}}<del><span class="money">${{item.orice}}</span></del></h5>
+                            <hr>
+                            <div class="">
+                                <div *ngFor="let options of item.options" class="product-variants-container">
+                                    <div class="product-variants-header">
+                                        <h3>{{options.name}}</h3>
+                                    </div>
+                                    <div>
+                                        <div *ngFor="let optvalue of options.optionValues;index as i"
+                                            class="product-variants-header-div"><a
+                                                (click)="forDisable(optvalue.value, options.id)"
+                                                [class.VariantsItem-selected]="activeClass(optvalue.value)"
+                                                [class.VariantsItem-disabled]="disableButton(optvalue.value) ? false : true"
+                                                class="button-text product-variantsitem-container">
+                                                <div class="product-variants-text">
+                                                    {{optvalue.value}}</div>
+                                            </a></div>
+
+                                    </div>
+                                </div>
+                                <div  class="Product-highlights ">
+                                    <div class="Product-highlights-header"><strong>Product Highlights</strong></div>
+                                    <div  class="Product-highlights-text">{{item.description}}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- skin 7 -->
+                            
+                            <div *ngIf="item.options.length>0" class="num-block skin-7">
+                                <div class="num-in">
+                                    <span (click)="onDecrement()" class="minus dis">-</span>
+                                    <input type="text" class="in-num" value="{{quantity}}" readonly="">
+                                    <span (click)="onIncrement()" class="plus">+</span>
+                                </div>
+                            </div>
+                            <!-- / skin 7 -->
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" data-dismiss="modal" aria-label="Close" class="btn btn-secondary">Close</button>
+                <button type="button"  *ngIf="item.options.length>0" (click)="onAddProductToCartsecond()" class="btn btn-primary">ADD TO CART</button>
+            </div>
+        </div>
+    </div>
+</div>

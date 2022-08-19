@@ -1,0 +1,155 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="d-inline-block">
+        <span class="steper steper-active">My Cart</span>
+        <span class="steper steper-inactive">Order Summary</span>
+        <span class="steper steper-inactive">Payment</span>
+      </div>
+    </div>
+  </div>
+  <hr>
+
+  <div *ngIf="products.length>0" class="col-xs-12 col-md-7 col-sm-12 col-xs-12">
+    <div class="row">
+      <div class="col-xs-12">
+        <h1 class="text-success">Total Item ({{products.length}}) </h1>
+
+      </div>
+    </div>
+
+
+
+    <div class="card pl-2 pt-1 pb-4" *ngFor="let item of products ;let i=index">
+      <div class="row">
+        <div class="col-xs-2 col-md-2 col-sm-2 col-xs-2"><img style="width: 78px;
+          height: 40px;" src="{{item.productImage}}" /></div>
+        <div class="col-xs-5 col-md-4 col-sm-3 col-xs-6">
+          <h4 class="">{{item.productName}}</h4>
+        </div>
+        <div class="col-xs-2 col-md-3 col-sm-6 col-xs-12">
+          <h6 class="">Price: {{item.productPrice}}</h6>
+          <h6 class="">Total: {{item.productPrice}}</h6>
+        </div>
+      
+
+          <div class="col-3 col-md-9 cart-number-remove">
+            <div (click)="removeCartItem(item.id, i)" style="cursor: pointer; ">
+              <div class="remove-btn">
+                <i-feather name="trash-2"></i-feather><span class="">Remove</span>
+              </div>
+
+            </div>
+          </div>
+          <div class="col-6 col-md-3 cart-number-remove">
+            <button #decrement style="display: none;" (click)="decrementSets(i,item.productId)"
+              [disabled]="item.qty === 1"></button>
+            <i-feather (click)="decrementSets(i,item.productId)" style="cursor: pointer;" name="minus-square">
+            </i-feather>
+            <span> {{item.quantity}}</span>
+            <button #increment style="display: none;" (click)="incrementSets(i,item.productId)"
+              [disabled]="item.qty >= 15"></button>
+            <i-feather (click)="incrementSets(i,item.productId)" style="cursor: pointer;" name="plus-square">
+            </i-feather>
+          </div>
+      
+      </div>
+    </div>
+    <div class="pt-2 pb-4 pr-4  bg-light ">
+      <h4 class="mx-auto pull-right">Total price: <b>रू {{totalPrice}}</b></h4>
+
+    </div>
+
+  </div>
+  <div *ngIf="products.length==0">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card-body cart">
+          <div class="col-sm-12 empty-cart-cls text-center"> <img src="https://lh3.googleusercontent.com/proxy/7ZeWIWwqdzqkc5chUU0KX5u5hoTx5GhVLyU9fvy-KJhBiXT1bi_qHbmgdHWx-vJXz3wvlGgJFKRSIVj8xyuV5aCPb4Wwj7gDpSBo3zmhFm9LvRXcSdF1aP6clIza_eYb3MQN" width="130"
+              height="130" class="img-fluid mb-4 mr-3">
+            <h3><strong>Your Cart is Empty</strong></h3>
+            <h4>Add something to make me happy :)</h4> <a [routerLink]="['/']"
+              class="btn btn-success cart-btn-transform m-3" data-abc="true">continue shopping</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div *ngIf="products.length>0" class="col-xs-5 col-md-5 col-sm-12">
+
+  <div class="card col-12 mt-2">
+    <div class="col-xs-12  p-2">
+   <span *ngIf="loginStatus" class="" (click)="toggle()" type="button" class="collapsible">
+        Enter Coupon Code
+      </span>
+      <span *ngIf="!loginStatus" class="" type="button" class="collapsible">
+        <span [routerLink]="['/login']">Login</span> to Apply Coupon
+      </span>
+
+      <div *ngIf="show">
+        <div>
+          <div>
+            <form [formGroup]="getMasterForm">
+
+              <div class="input-group mb-3">
+                <input class="form-control" formControlName="couponCode" type="text" maxlength="60"
+                  placeholder="Enter Coupon Code" name="couponCode" autocomplete="off" value=""
+                  aria-describedby="basic-addon2">
+
+                <div class="input-group-append">
+                  <div (click)="ApplyToken()" class="btn btn-danger">APPLY</div>
+                </div>
+              </div>
+
+            </form>
+            <div class="Coupon_error"></div>
+          </div>
+        </div>
+
+      </div>
+
+
+
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="col-xs-12 p-2">
+
+      <h5 class="text-muted">
+        Item Total(MRP) <span class="pull-right">रू {{totalPrice}}</span>
+      </h5>
+      <h5 class="text-muted">
+        Price Discount <span class="pull-right">रू </span>
+      </h5>
+      <hr>
+
+      <h5 class="text-muted">
+        Estimated Shipping Fee ⓘ <span class="pull-right">रू </span>
+      </h5>
+
+
+      <h5 class="text-muted">
+        To be Paid <span class="pull-right">रू </span>
+      </h5>
+
+      <hr>
+
+      <div class="">
+        <h4 class="text-dark p-2">
+          Total Amount <span class="pull-right">रू {{totalPrice}}</span>
+        </h4>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="col-md-12 col-lg-12 col-sm-6 col-xs-12">
+    <button [routerLink]="['/Checkout']" [disabled]="products.length===0"
+      class="btn btn-danger btn-md btn-block">CHECKOUT</button>
+  </div>
+
+</div>

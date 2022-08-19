@@ -1,0 +1,33 @@
+<div class="container-fluid pt-1">
+  <div class="row">
+    <div class="col-sm-8 col-md-8 col-lg-8">
+      <!-- <owl-carousel-o [options]="customOptions" (translated)="getPassedData($event)">
+
+        <ng-container *ngFor="let item of carouselData">
+          <ng-template carouselSlide [width]="item.width">
+            <div class="slider">
+              <img class="d-block w-100" [src]="[item.imageUrl]" alt="First slide">
+            </div>
+          </ng-template>
+        </ng-container>
+
+      </owl-carousel-o> -->
+
+        <owl-carousel-o [options]="customOptions" (translated)="getPassedData($event)">
+
+        <ng-container *ngFor="let item of carouselData">
+          <ng-template carouselSlide [width]="100">
+            <div class="slider">
+              <img class="d-block w-100" [src]="[item.image]" alt="First slide">
+            </div>
+          </ng-template>
+        </ng-container>
+
+      </owl-carousel-o>
+  </div>
+    <div class="col-sm-4 col-md-4 col-lg-4 d-none d-sm-block">
+      <img class="d-block w-100" src="https://img.freepik.com/free-psd/top-view-free-food-delivery-assortment-with-background-mock-up_23-2148421296.jpg?size=626&ext=jpg" alt="Carosel Right">
+    </div>
+  </div>
+</div>
+

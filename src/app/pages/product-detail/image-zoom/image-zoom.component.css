@@ -1,0 +1,15 @@
+.img-zoom-container {
+    position: relative;
+    opacity: 1.0;
+  }
+  .img-zoom-lens{
+    display: none;
+  }
+
+  .img-zoom-container:hover .img-zoom-lens {
+    display: block;
+    position: absolute;
+    border: 1px solid #d4d4d4;
+   
+  }
+  

@@ -1,0 +1,36 @@
+
+  <li class="breadcrumb-item mb-3" aria-current="page">Address Book</li>
+  <div class="card text-center ">
+    <div class="card-header">
+      <i class="fa fa-plus"></i> <a href="#" [routerLink]="['/Checkout/deliveryAddress']">ADD NEW ADDRESS</a>
+    </div>
+    <div class="card-body">
+
+
+      <table class="table">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">Full name</th>
+            <th scope="col">Address</th>
+            <th scope="col">Region</th>
+            <th scope="col">Phone Number</th>
+            <th scope="col"> Edit </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of userAdressList">
+            <th scope="row">{{item.contactName}}</th>
+            <td>{{item.addressLine1}}</td>
+            <td>{{item.stateOrProvinceName}}</td>
+            <td>{{item.phone}}</td>
+            <td><i class="fa fa-pencil-square-o" aria-hidden="true"
+                [routerLink]="['/deliveryAddress/update',item.userAddressId]"></i></td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+    <!-- <div class="card-footer text-muted">
+      44 Main street , Damak-02134
+    </div> -->
+  </div>

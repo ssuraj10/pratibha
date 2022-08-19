@@ -1,0 +1,138 @@
+h1 {
+  color: #333;
+  margin: 1em auto;
+  width: 80%;
+}
+.card-body{
+  box-shadow: 1px 2px 3px 1px #dee4e6;
+}
+
+.container {
+  max-width: 960px;
+}
+
+
+/* */
+.sidenav {
+  width: 250px;
+  position: relative;
+  margin-bottom: 100px;
+  top: 100px;
+  left: 90px;
+
+  overflow-x: hidden;
+  padding: 8px 0;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  
+}
+
+.sidenav a {
+  cursor: pointer;
+  display: block;
+  font-size: 1.2em;
+  font-weight: bold;
+  padding: 8px 15px;
+  position: relative;
+  width: 250px;
+  margin: 0%;
+  color: #6c757d;
+  background-color: #fff;
+}
+
+
+.sidenav a:hover {
+  box-shadow: inset 3px 0 #e52727;
+  color: inherit;
+}
+
+
+.dashboard {
+  height: 100vh;
+  display: flex;
+}
+.left {
+  height: 100%;
+  display: flex;
+}
+.names {
+  margin-left: 10px;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.avatar > img {
+  width: 35px;
+  border-radius: 10px;
+}
+.section1 {
+  margin-top: 25px;
+  margin-bottom: 10px;
+}
+
+.btn {
+  border-radius: 3px;
+  border: 1px;
+  padding: 0 10px 0 30px;
+  height: 30px;
+  font-weight: bold;
+  position: relative;
+}
+
+.buton1 {
+  background-color: #f8f1ff;
+  color: #a84bfe;
+}
+.buton2 {
+  background-color: #fff1f6;
+  color: #fe4b85;
+}
+.buton3 {
+  background-color: #eef0ff;
+  color: #2632fe;
+}
+.buton4 {
+  background-color: #ebfbf8;
+  color: #01c991;
+}
+.tag {
+  position: absolute;
+  left: 8px;
+  top: 10px;
+}
+.plus > img {
+  width: 16px;
+  height: 16px;
+}
+.plus {
+  left: 10px;
+  position: absolute;
+}
+.buton-span {
+  border-radius: 15px;
+  padding: 5px 10px;
+  border: 1px;
+  color: white;
+  background-color: #fe365c;
+  box-shadow: 0px 0px 10px 2px #f7bfc9;
+  margin-left: 70px;
+}
+.online {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  border: 4px solid #fbfcf8;
+  box-sizing: unset;
+  background-color: #02c997;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.avatar {
+  position: relative;
+}
+.red {
+  background-color: #fe4663;
+}
+

@@ -1,0 +1,14 @@
+<ul class="breadcrumb" >
+    <li><i class="fa fa-home" aria-hidden="true"></i><a href="#">Home</a></li>
+    <li *ngIf="categorypage as item"><a href="/productlist">{{ item.breadcrumb }}</a></li>
+    <li ><a style="color: rgb(117, 114, 112);" href="{{categoryurl}}" >{{categoryName}}</a></li>
+</ul>
+
+<!-- <ul class="breadcrumb">
+    <li><a href="#">Home</a></li>
+    <li *ngFor="let breadcrumb of breadcrumbs">
+      <span [routerLink]="breadcrumb.url" routerLinkActive="router-link-active">
+        {{ breadcrumb.label }}
+      </span>
+    </li>
+  </ul> -->

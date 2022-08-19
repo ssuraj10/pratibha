@@ -1,0 +1,25 @@
+<div class="container card shopping-cart mt-2">
+  <!-- <div *ngIf="!authService.currentLoginStatus" class="card-body">
+    <app-shopping-cart-item *ngFor="let cartItem of cart" [products]="cartItem">
+
+    </app-shopping-cart-item>
+    <h2 class="display-4 text-center" *ngIf="cart.length === 0">
+      There is no item in cart
+    </h2>
+  </div> -->
+  <div class="card-body" *ngIf="cartitem">
+    <app-shopping-cart-item [products]="cartitem"></app-shopping-cart-item>
+  </div>
+  <div *ngIf="!cartitem">
+    <div class="row">
+        <div class="col-md-12">
+          <div class="card-body cart">
+            <div class="col-sm-12 empty-cart-cls text-center"> <img src="https://lh3.googleusercontent.com/proxy/7ZeWIWwqdzqkc5chUU0KX5u5hoTx5GhVLyU9fvy-KJhBiXT1bi_qHbmgdHWx-vJXz3wvlGgJFKRSIVj8xyuV5aCPb4Wwj7gDpSBo3zmhFm9LvRXcSdF1aP6clIza_eYb3MQN" width="130" height="130" class="img-fluid mb-4 mr-3">
+                <h3><strong>Your Cart is Empty</strong></h3>
+                <h4>Add something to make me happy :)</h4> <a [routerLink]="['/']" class="btn btn-success cart-btn-transform m-3" data-abc="true">continue shopping</a>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+</div>

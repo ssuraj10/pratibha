@@ -1,0 +1,42 @@
+BEGIN:VCALENDAR
+PRODID:-//Google Inc//Google Calendar 70.9054//EN
+VERSION:2.0
+CALSCALE:GREGORIAN
+METHOD:REQUEST
+BEGIN:VEVENT
+DTSTART:20200801T081500Z
+DTEND:20200801T091500Z
+DTSTAMP:20200801T074336Z
+ORGANIZER;CN=incube017@gmail.com:mailto:incube017@gmail.com
+UID:16lujusl51u9kr27dvpk0duoom@google.com
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=
+ TRUE;CN=sauravshrestha13@gmail.com;X-NUM-GUESTS=0:mailto:sauravshrestha13@g
+ mail.com
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;RSVP=TRUE
+ ;CN=incube017@gmail.com;X-NUM-GUESTS=0:mailto:incube017@gmail.com
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=
+ TRUE;CN=iamrishushk@gmail.com;X-NUM-GUESTS=0:mailto:iamrishushk@gmail.com
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=
+ TRUE;CN=diliphangwang@gmail.com;X-NUM-GUESTS=0:mailto:diliphangwang@gmail.c
+ om
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=
+ TRUE;CN=ashishlohani995@gmail.com;X-NUM-GUESTS=0:mailto:ashishlohani995@gma
+ il.com
+X-MICROSOFT-CDO-OWNERAPPTID:-486202180
+CREATED:20200801T074332Z
+DESCRIPTION:-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~
+ :~:~:~:~:~:~:~:~::~:~::-\nPlease do not edit this section of the descriptio
+ n.\n\nThis event has a video call.\nJoin: https://meet.google.com/yxr-irvc-
+ cug\n\nView your event at https://www.google.com/calendar/event?action=VIEW
+ &eid=MTZsdWp1c2w1MXU5a3IyN2R2cGswZHVvb20gZGlsaXBoYW5nd2FuZ0Bt&tok=MTkjaW5jd
+ WJlMDE3QGdtYWlsLmNvbTgwNWE4ZjBmODc5M2QxZDk2OTYxMjkzNTMwZmExZDU5ZTkwMzVhMTg&
+ ctz=Asia%2FKathmandu&hl=en&es=1.\n-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~
+ :~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~::~:~::-
+LAST-MODIFIED:20200801T074334Z
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Incube Interview
+TRANSP:OPAQUE
+END:VEVENT
+END:VCALENDAR

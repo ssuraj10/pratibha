@@ -1,0 +1,228 @@
+<div *ngIf="relatedproductlist as productitem">
+   
+
+    <div  class="slider-wrapper">
+        <h2>Related Products
+        </h2>
+        <div class="slider-container">
+            <div class="slick-slider slick-initialized" dir="ltr">
+                <div>
+                    <owl-carousel-o [options]="customOptions" (translated)="getPassedData($event)">
+                        <ng-container *ngFor="let item of productitem.relatedProducts" class="slick-list">
+                            <ng-template class="slider-padding-div" carouselSlide [width]="item.width">
+                                <div data-index="1" class="slick-slide slick-active" tabindex="-1" aria-hidden="false"
+                                    style="outline: none; width: 172px;">
+                                    <div>
+                                        <div data-index="1" style="width:100%;display:inline-block" tabindex="-1">
+                                            <div class="slide-parent"><a [routerLink]="['/productdetail',item.productName.split('(').join('+').split(')').join('+').split('/').join('+'),item.productId]"  class="slider-item">
+                                                    <div class="image-container">
+                                                        <div class=""><img alt="{{item.productName}}"
+                                                                src="{{item.imageUrl}}" title="{{item.productName}}"
+                                                                class="image-item image-subitem">
+                                                        </div>
+                                                    </div>
+                                                    <div class="counter-container"></div>
+                                                    <div class="counter-container-name counter-container-font">
+                                                        {{item.productName}}</div>
+
+                                                    <div class="Rating-detail">
+                                                        <div class="rating-container" style="background-color:#1AAB2A">
+                                                            <span
+                                                                class="rating-container-weigth">{{item.ratingCount}}</span><svg
+                                                                xmlns="http://www.w3.org/2000/svg" width="16"
+                                                                height="15" viewBox="0 0 51 48">
+                                                                <path fill="#ffffff" stroke="none"
+                                                                    d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z">
+                                                                </path>
+                                                            </svg></div><span class="rating-header">{{item.ratingCount}}
+                                                            ratings</span>
+                                                    </div>
+                                                    <div class="price-container">
+                                                        <div>
+                                                            <div *ngIf="item.discountPercent>0"><span class="mrp-tag">MRP</span><span
+                                                                    class="strike-price"> रू
+                                                                    {{item.oldPrice}}</span><span
+                                                                    class="discount-percent">
+                                                                    {{item.discountPercent| number:'2.1-2'}}%
+                                                                    off</span></div>
+                                                            <div class="total-price"> रू
+                                                                {{item.salesRate}}</div>
+                                                        </div>
+                                                    </div>
+                                                </a></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </ng-template>
+                            </ng-container>
+
+                    </owl-carousel-o>
+                    <!-- <div *ngFor="let item of productitem.vendorProducts" class="slick-track" style="width: 1548px; opacity: 1; transform: translate3d(0px, 0px, 0px);">
+
+                        <div data-index="1" class="slick-slide slick-active" tabindex="-1" aria-hidden="false"
+                            style="outline: none; width: 172px;">
+                            <div>
+                                <div data-index="1" style="width:100%;display:inline-block" tabindex="-1">
+                                    <div class="slide-parent"><a
+                                            href="#"
+                                            class="slider-item">
+                                            <div class="image-container">
+                                                <div class=""><img alt="{{item.productName}}" src="{{item.imageUrl}}"
+                                                        title="{{item.productName}}"
+                                                        class="image-item image-subitem">
+                                                </div>
+                                            </div>
+                                            <div class="counter-container"></div>
+                                            <div class="counter-container-name counter-container-font">
+                                                {{item.productName}}</div>
+                                           
+                                            <div class="Rating-detail">
+                                                <div class="rating-container"
+                                                    style="background-color:#1AAB2A"><span
+                                                        class="rating-container-weigth">{{item.ratingCount}}</span><svg
+                                                        xmlns="http://www.w3.org/2000/svg" width="16" height="15"
+                                                        viewBox="0 0 51 48">
+                                                        <path fill="#ffffff" stroke="none"
+                                                            d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z">
+                                                        </path>
+                                                    </svg></div><span
+                                                    class="rating-header">{{item.ratingCount}}
+                                                    ratings</span>
+                                            </div>
+                                            <div class="price-container">
+                                                <div>
+                                                    <div><span class="mrp-tag">MRP</span><span
+                                                            class="strike-price"> रू
+                                                            {{item.oldPrice}}</span><span
+                                                            class="discount-percent">
+                                                            {{item.discountPercent}}%
+                                                            off</span></div>
+                                                    <div class="total-price"> रू
+                                                        {{item.salesRate}}</div>
+                                                </div>
+                                            </div>
+                                        </a></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slider-wrapper">
+        <h2>Vendor Products
+        </h2>
+        <div class="slider-container">
+            <div class="slick-slider slick-initialized" dir="ltr">
+                <div>
+                    <owl-carousel-o [options]="customOptions" (translated)="getPassedData($event)">
+                        <ng-container *ngFor="let item of productitem.vendorProducts" class="slick-list">
+                            <ng-template class="slider-padding-div" carouselSlide [width]="item.width">
+                                <div data-index="1" class="slick-slide slick-active" tabindex="-1" aria-hidden="false"
+                                    style="outline: none; width: 172px;">
+                                    <div>
+                                        <div data-index="1" style="width:100%;display:inline-block" tabindex="-1">
+                                            <div class="slide-parent"><a [routerLink]="['/productdetail',item.productName.split('(').join('+').split(')').join('+').split('/').join('+'),item.productId]"  class="slider-item">
+                                                    <div class="image-container">
+                                                        <div class=""><img alt="{{item.productName}}"
+                                                                src="{{item.imageUrl}}" title="{{item.productName}}"
+                                                                class="image-item image-subitem">
+                                                        </div>
+                                                    </div>
+                                                    <div class="counter-container"></div>
+                                                    <div class="counter-container-name counter-container-font">
+                                                        {{item.productName}}</div>
+
+                                                    <div class="Rating-detail">
+                                                        <div class="rating-container" style="background-color:#1AAB2A">
+                                                            <span
+                                                                class="rating-container-weigth">{{item.ratingCount}}</span><svg
+                                                                xmlns="http://www.w3.org/2000/svg" width="16"
+                                                                height="15" viewBox="0 0 51 48">
+                                                                <path fill="#ffffff" stroke="none"
+                                                                    d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z">
+                                                                </path>
+                                                            </svg></div><span class="rating-header">{{item.ratingCount}}
+                                                            ratings</span>
+                                                    </div>
+                                                    <div class="price-container">
+                                                        <div>
+                                                            <div *ngIf="item.discountPercent>0" ><span class="mrp-tag">MRP</span><span
+                                                                    class="strike-price"> रू
+                                                                    {{item.oldPrice}}</span><span
+                                                                    class="discount-percent">
+                                                                    {{item.discountPercent| number:'2.1-2'}}%
+                                                                    off</span></div>
+                                                            <div class="total-price"> रू
+                                                                {{item.salesRate}}</div>
+                                                        </div>
+                                                    </div>
+                                                </a></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </ng-template>
+                            </ng-container>
+
+                    </owl-carousel-o>
+                    <!-- <div *ngFor="let item of productitem.vendorProducts" class="slick-track" style="width: 1548px; opacity: 1; transform: translate3d(0px, 0px, 0px);">
+
+                        <div data-index="1" class="slick-slide slick-active" tabindex="-1" aria-hidden="false"
+                            style="outline: none; width: 172px;">
+                            <div>
+                                <div data-index="1" style="width:100%;display:inline-block" tabindex="-1">
+                                    <div class="slide-parent"><a
+                                            href="#"
+                                            class="slider-item">
+                                            <div class="image-container">
+                                                <div class=""><img alt="{{item.productName}}" src="{{item.imageUrl}}"
+                                                        title="{{item.productName}}"
+                                                        class="image-item image-subitem">
+                                                </div>
+                                            </div>
+                                            <div class="counter-container"></div>
+                                            <div class="counter-container-name counter-container-font">
+                                                {{item.productName}}</div>
+                                           
+                                            <div class="Rating-detail">
+                                                <div class="rating-container"
+                                                    style="background-color:#1AAB2A"><span
+                                                        class="rating-container-weigth">{{item.ratingCount}}</span><svg
+                                                        xmlns="http://www.w3.org/2000/svg" width="16" height="15"
+                                                        viewBox="0 0 51 48">
+                                                        <path fill="#ffffff" stroke="none"
+                                                            d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z">
+                                                        </path>
+                                                    </svg></div><span
+                                                    class="rating-header">{{item.ratingCount}}
+                                                    ratings</span>
+                                            </div>
+                                            <div class="price-container">
+                                                <div>
+                                                    <div><span class="mrp-tag">MRP</span><span
+                                                            class="strike-price"> रू
+                                                            {{item.oldPrice}}</span><span
+                                                            class="discount-percent">
+                                                            {{item.discountPercent}}%
+                                                            off</span></div>
+                                                    <div class="total-price"> रू
+                                                        {{item.salesRate}}</div>
+                                                </div>
+                                            </div>
+                                        </a></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

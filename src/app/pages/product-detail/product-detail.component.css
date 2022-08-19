@@ -1,0 +1,139 @@
+img {
+  max-width: 100%;
+  vertical-align: middle;
+  border: 0;
+}
+.card{
+  box-shadow: 0 1px 2px 1px rgba(0,0,0,.3);
+  /* border-radius: 10px; */
+}
+.card-body{
+  background: white;
+}
+.card-header{
+  background: #edf9ee;
+}
+h1 {
+  font-size: 1.3rem;
+}
+p {
+  margin-bottom: 0.2rem;
+}
+
+a:not(.button-text) {
+  color: #003366;
+}
+a, a:visited {
+  text-decoration: none;
+  color: #003366;
+}
+a {
+  background: 0 0;
+}
+
+ul {
+  padding-left: 5px;
+  font-weight: 400;
+}
+hr {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 0;
+  border-top: 1px solid #eee;
+}
+a, a:visited {
+  text-decoration: none;
+  color: #003366;
+}
+
+.btn.btn-secondary {
+  color: #003366;
+  background-color: #fff;
+  border: 1px solid #003366;
+  line-height: 1rem;
+}
+
+ol.sub-norm, ul {
+  font-weight: 400;
+}
+.ProductImage-thumbnail-div {
+  border: 1px solid #003366;
+}
+.VariantsItem-selected {
+  background-color: #fff3e3;
+  border: 1px solid #913d36;
+  cursor: pointer;
+  font-weight: 700;
+}
+.VariantsItem-disabled {
+
+  border: 1px dotted #464545;
+  cursor: pointer;
+  font-weight: 700;
+  opacity: 0.5;
+}
+
+@media screen and (min-width: 767px){
+  .product-variants-header {
+      padding-left: 0;
+ }
+ .product-variants-container {
+  margin-top: 10px;
+}
+}
+@media (min-width: 320px) and (max-width: 480px) {
+  .xart{
+    margin-top: 13%;
+  }
+  .single-product-container .single-product-bottom-container{
+    margin: 0 10px;
+}
+.col-2{
+  padding: 0 !important;
+}
+
+.breadcrumb{
+  display: none;
+}
+
+}
+.str{
+  font-size: 14px;
+}
+a.list-group-item:hover{
+  cursor: pointer;
+}
+.img-zoom-result {
+  position: absolute;
+  z-index: 10000000!important;
+  border: 1px solid #d4d4d4;
+  /*set the size of the result div:*/
+  width: 468px;
+  height: 395px;
+  margin-left: 455px;
+  margin-top: 28px;
+  background-color: white;
+ }
+
+ .attributetext{
+  font-size: 18px;
+  position: relative;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  animation: attributeanimate 1s ease-in-out;
+  animation-iteration-count: 10;
+ }
+ @keyframes attributeanimate{
+   0%{
+     transform: translateX(0px);
+   }
+   20%{
+    transform: translateX(-5px);
+  }
+ }
+  @media only screen and (max-width: 690px) {
+  
+  .img-zoom-result{
+    display: none;
+  }
+} 
+

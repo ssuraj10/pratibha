@@ -1,0 +1,131 @@
+ <div class="container">
+  <div class="row">
+    <div class="col-12">
+      <span class="steper steper-active">My Cart</span>
+      <span class="steper  steper-active">Order Summary</span>
+      <span class="steper  steper-active">Payment</span>
+      
+    </div>
+  </div>
+  <hr> 
+  
+  <div class="py-1">
+    <div class="card px-3 py-2" *ngFor="let item of cartlist">
+      <div class="row">
+        <div class="col-2">
+          <div class="row">
+            <div class="col-12">
+              <img style="width: 70%;" src="{{item.productImage}}" alt="orderitemproductImage">
+            </div>
+          </div>
+        </div>
+        <div class="col-5 py-1">
+          <div class="row">
+            <div class="col-12">      
+              <p style="font-size: 18px; font-weight: 500;margin-bottom: 5px;">{{item.productName}}</p>
+              
+              <!-- <p style="color: gray; font-family: 16px;"> Black</p> -->
+              <p style="color: gray; font-family: 16px;"> Seller: RetailNet <span style="background: #003366;border-radius: 5px;color: white;font-size: 11px;padding: 1px 2px;margin-left: 5px;">Assured</span></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-2 py-2">
+        <div class="row">
+          <!-- <div class="col-12 text-center">
+            <p>Qty</p>
+        </div> -->
+          <div class="col-12 text-center">
+            <p class="mb-1" style="font-size: 15px;">Qty</p>
+            <span style="border: 1px solid rgb(175, 173, 173); padding: 3px 15px; font-size: 24px;"> {{item.quantity}}</span>
+        </div>
+        </div>
+        </div>
+        <div class="col-3 py-1">
+          <div class="row">
+            <div class="col-12 py-2">
+              <p style=" font-size: 16px;"><span style="font-weight: bold;">Item Price</span>:
+                {{item.productPrice}}
+              </p>
+              <p style=" font-size: 16px;"><span style="font-weight: bold;">Total Price</span>:
+                {{item.total}}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card bg-white">
+        
+       
+  
+      <div class="card-footer bg-white">
+        <div class="row ">
+          <div class="container my-2 py-2">
+            <h2 style="font-weight: 700;font-size: 24px;">Select Payment Method</h2>
+            <div class="row">
+            <div class="col-8 mt-2">
+              <div class="col-12">
+                <div class="row">
+                  <div class="col-3">
+              <div class="section" style="border: 1px solid rgba(192, 188, 188, 0.233);">
+                <input type="radio" hidden id="paydelivery" name="gender" checked value="Paydelivery" (change)="onItemChange($event.target.value)">
+                <label for="paydelivery">
+                  <div class="container">
+                    <div class="row d-flex justify-content-center">
+                      <div class="col-8">
+                        <img  style="width: 100%;" src="https://laz-img-cdn.alicdn.com/tfs/TB1utb_r8jTBKNjSZFwXXcG4XXa-80-80.png">
+                      </div>
+                      <div class="col-12 text-center">
+                        <p style="font-weight: 700;">Cash on delivery</p>
+                      </div>
+                    </div>
+                  </div>
+              
+                </label>
+              </div>
+             
+                  </div>
+                 
+                </div>
+              </div>
+            </div>
+            <div class="col-4">
+            <div class="card p-3">
+              <div class="row">
+                <div class="col-12" style="border-bottom: 1px solid rgba(128, 128, 128, 0.205);">
+                  <h2 style="font-weight: 600;">ORDER SUMMARY</h2>
+                </div>
+                <div class="col-12 py-2 mt-2">
+                  <h2>Subtotal <span style="float: right;">${{ordertotal}}</span></h2>
+                  <h2>Discount <span style="float: right;">$0</span></h2>
+                  <h2>Shipping Amount<span style="float: right;"> $0.00</span></h2>
+                </div>
+                <div class="col-12" style="border-top: 1px dashed rgba(128, 128, 128, 0.205);">
+                  <h2 style="font-weight: 600;margin: 7px 0;">Total Amount<span style="float: right;">${{ordertotal}}</span></h2>
+                </div>
+              </div>
+            </div>
+            </div>
+           
+              <div  class="col-12">
+                <button type="button"  (click)="paymentclick('Paydelivery')" class="btn-sm  btn-success float-right">Confirm Order</button>
+              </div>
+          </div>
+          
+          </div>
+          </div>
+           
+      </div>
+           
+        </div>     
+        
+    
+    
+  </div>
+</div>
+
+
+
+
+
+

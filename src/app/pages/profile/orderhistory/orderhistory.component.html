@@ -1,0 +1,44 @@
+<div class="text-center p-5" *ngIf="coorderslength===0 || !coorderslength ">
+  <h1>No Order Found</h1>
+  <h3>
+    Go to the home page to start browsing our store.</h3><span class="btn-part "> <a [routerLink]="['/']"
+      class="btn btn-dark">Go To Homepage</a></span>
+</div>
+<div class="row mb-1" *ngIf="coorderslength">
+  <div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Order History</h4>
+        <p class="card-description"> Total: <code>{{coorderslength}}</code>
+        </p>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>NUMBER</th>
+              <th>DATE</th>
+              <th>TOTAL</th>
+              <th>Status</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let order of corders| slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
+            <tr>
+              <td>#{{order.no}}</td>
+              <td>{{order.createdOn | date: 'medium'}}</td>
+              <td>{{order.orderTotal}} for {{order.itemsCount}} item</td>
+              <td *ngIf="order.orderStatus ==0"><label class="badge badge-success">Order Placed</label></td>
+              <td *ngIf="order.orderStatus ==15"><label class="badge badge-warning">Order accepted</label></td>
+              <td *ngIf="order.orderStatus ==35"><label class="badge badge-info">Order processed</label></td>
+              <td *ngIf="order.orderStatus ==40"><label class="badge badge-danger">Order arrived</label></td>
+              <td *ngIf="order.orderStatus ==50"><label class="badge badge-warning">Order Shipped</label></td>
+              <td *ngIf="order.orderStatus ==60"><label class="badge badge-success">Order Delivered</label></td>
+              <td> <a class="btn btn-sm btn-danger" [routerLink]="['order',order.id]">View Order</a></td>
+            </tr>
+           
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <ngb-pagination [collectionSize]="100" [(page)]="page" aria-label="Default pagination"></ngb-pagination>
+</div>

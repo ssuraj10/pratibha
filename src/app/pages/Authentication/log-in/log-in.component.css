@@ -1,0 +1,52 @@
+.carousel-indicators {
+  bottom: 10px;
+}
+.carousel-indicators .active {
+  background-color: rgb(29, 3, 3);
+}
+.container {
+  -webkit-box-shadow: 0 0.1875rem 1.5rem rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.1875rem 1.5rem rgba(0, 0, 0, 0.2);
+  border-radius: 0.375rem;
+  margin-bottom: 5%;
+  margin-top: 5%;
+}
+.carousel-caption {
+  text-align: left;
+  left: 5%;
+}
+
+.banner-text {
+  width: 70%;
+  position: absolute;
+  bottom: 40px;
+  padding-left: 20px;
+}
+.banner-text h2 {
+  color: #fff;
+  font-weight: 600;
+}
+.banner-text h2:after {
+  content: " ";
+  width: 100px;
+  height: 5px;
+  background: #FFF;
+  display: block;
+  margin-top: 20px;
+  border-radius: 3px;
+}
+.banner-text p {
+  color: #fff;
+}
+/* login start */
+
+.bg1 {
+  background-color: #3b5998;
+}
+.bg3 {
+  background-color: #ea4335;
+}
+input {
+  outline: none;
+  border: none;
+}

@@ -1,0 +1,22 @@
+agm-map {
+  height: 300px;
+}
+.custom-class {
+  position: relative;
+  top: 50%;
+}
+::ng-deep .modal {
+  position: fixed;
+  top: 20% !important;
+  margin-left: 27% !important;
+}
+::ng-deep .modal-backdrop.show {
+  opacity: -0.5;
+}
+::ng-deep.modal-header .close {
+  font-size: 33px;
+}
+
+::ng-deep.modal-header {
+    padding: none;
+}

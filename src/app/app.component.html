@@ -1,41 +1,18 @@
+<!-- <app-header *ngIf="!headertwo"></app-header> -->
+<app-header-two></app-header-two>
 
-<div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;position: absolute;
-top: 50%;
-left: 50%;" role="status" *ngIf="loader">
-  <span class="visually-hidden">Loading...</span>
+<div *ngIf="showLoadingIndicator" class="lds-roller">
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
 </div>
-<!--Loader Div Ends-->
 
-  <!-- <div class="row">
-    <div class="col md-5">
-      <app-cart></app-cart>
-    </div>
-    <div class="col-md-7">
-      <app-items></app-items>
-    </div>
-  </div>
-</div> -->
+<router-outlet></router-outlet>
 
-<section *ngIf="!loader">
-
-  <app-header></app-header>
-
-  <br/>
-    <!-- <div class="row">
-      <div class="col md-5">
-        <app-cart></app-cart>
-      </div>
-      <div class="col-md-7">
-        <app-items></app-items>
-      </div>
-    </div>
-  </div> -->
-  <div class="container">
-    <router-outlet></router-outlet>
-  </div>
-  <app-footer></app-footer>
-</section>
-
-
-
-
+<app-footer></app-footer>
+<app-chat-box></app-chat-box>

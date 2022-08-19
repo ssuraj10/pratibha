@@ -1,0 +1,104 @@
+
+  <div class="row">
+    <section *ngIf="hide" class="login-block">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-5 banner-sec">
+            <div class="signup__overlay">
+            <div class="banner">
+              <div id="demo" class="carousel slide carousel-fade" data-ride="carousel">
+                <ol class="carousel-indicators">
+                  <li data-target="#demo" data-slide-to="0" class="active"></li>
+                  <li data-target="#demo" data-slide-to="1"></li>
+
+                </ol>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img style="height: 300px;" src="../../../../assets/img/4756449-free-forgot-password-icon-251783-download-forgot-password-icon-forgot-password-png-512_512_preview.png" class="img-fluid">
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+          <div class="col-md-7 login-sec">
+            <h2 class="text-center">Forgot By Email</h2>
+            <form [formGroup]="forgotByEmailForm"  class="login100-form validate-form">
+              <div class="wrap-input100 validate-input">
+                <span class="label-input100">UserName</span>
+                <input class="input100" formControlName="userName" [(ngModel)]="userN" name="phone" type="text" required placeholder="Your exact UserName">
+                <span class="focus-input100"></span>
+              </div>
+
+              <div class="container-login100-form-btn">
+                <div class="wrap-login100-form-btn">
+                  <button (click)=onSubmit(forgotByEmailForm)  type="submit" class="btn btn-primary mr-2">
+                   GetCode
+                  </button>
+                  <button  (click)="navigateToLogin()" class="btn btn-primary mr-2">
+                    Cancel
+                  </button>
+                </div>
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section  *ngIf="getcaptchaSuccess" class="login-block">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-md-7 login-sec">
+            <h2 class="text-center">Reset New Password</h2>
+            <form [formGroup]="resetByEmailForm"  class="login100-form validate-form">
+              <div class="wrap-input100 validate-input">
+                <span class="label-input100">UserName</span>
+                <input class="input100" formControlName="phone" [(ngModel)]="userN" name="phone" type="text" required placeholder="Type your Phone Number">
+                <span class="focus-input100"></span>
+              </div>
+              <div class="wrap-input100 validate-input">
+                <span class="label-input100">Code</span>
+                <input class="input100" formControlName="code"  name="code" type="text" required placeholder="Enter code in email">
+                <span class="focus-input100"></span>
+              </div>
+              <div class="wrap-input100 validate-input">
+                <span class="label-input100">New Password</span>
+                <input class="input100" formControlName="password" name="newpassword" type="password" required placeholder="Enter new Password">
+                <span class="focus-input100"></span>
+              </div>
+              <div class="wrap-input100 validate-input">
+                <span class="label-input100">Confirm Password</span>
+                <input class="input100" formControlName="confirmPassword"  name="confirmPassword" type="password" required placeholder="confirm Password">
+                <span class="focus-input100"></span>
+              </div>
+
+
+
+
+
+              <div class="container-login100-form-btn">
+                <div class="wrap-login100-form-btn">
+                  <button  (click)=onregisterSubmit(resetByEmailForm) type="submit" class="btn btn-primary mr-2">
+                   Submit
+                  </button>
+                  <button  (click)="navigateToLogin()" class="btn btn-primary mr-2">
+                    Cancel
+                  </button>
+                </div>
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+  </div>
+
+
+
